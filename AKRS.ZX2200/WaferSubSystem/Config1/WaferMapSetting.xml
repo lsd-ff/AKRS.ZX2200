@@ -1,0 +1,55 @@
+<WaferMap>
+  <WM_FORMAT>
+    <PreserveDegree>True</PreserveDegree>
+    <Degree>90</Degree>
+  </WM_FORMAT>
+  <WaferMapFilesRootDir>D:\晶圆图文件</WaferMapFilesRootDir>
+  <WrapErrorProof>False</WrapErrorProof>
+  <AdditionalPathSeeker>False</AdditionalPathSeeker>
+  <ResetOnConflict>False</ResetOnConflict>
+  <MinRefPointCount>1</MinRefPointCount>
+  <SetChipType Desc="popup menu">True</SetChipType>
+  <AddStartPoint Desc="popup menu">True</AddStartPoint>
+  <AddReferencePoint Desc="popup menu">True</AddReferencePoint>
+  <DeleteReferencePoint Desc="popup menu">True</DeleteReferencePoint>
+  <PrintPathDetail>True</PrintPathDetail>
+  <AutoLoadLastWaferMapFile>True</AutoLoadLastWaferMapFile>
+  <SyncUpdateUI>False</SyncUpdateUI>
+  <MultiStrategies Desc="Is multiply strategies enabled">False</MultiStrategies>
+  <ChipTypeLocked>False</ChipTypeLocked>
+  <FileSearch>
+    <FileNameType>Full</FileNameType>
+    <FileSelectionMode>ListAll</FileSelectionMode>
+    <SubDirDepth>-1</SubDirDepth>
+    <FirstCharIndex>0</FirstCharIndex>
+    <KeyStringLength>0</KeyStringLength>
+    <FileNameExtension>.txt</FileNameExtension>
+  </FileSearch>
+  <DefaultSubstitution Desc="The default substitution for nested null chips">FFFF</DefaultSubstitution>
+  <ShowChipTypeIntegerValue>True</ShowChipTypeIntegerValue>
+  <GapMode>Auto</GapMode>
+  <PathKind>DetailedPath</PathKind>
+  <UserCoordinateSystemType Enum="Text">0</UserCoordinateSystemType>
+  <RulerVisible>True</RulerVisible>
+  <CheckNestedNullChips>False</CheckNestedNullChips>
+  <FirstPointInitialPosition>PreviousSetting</FirstPointInitialPosition>
+  <AutoFirstPointOnUserDirectionChanged>False</AutoFirstPointOnUserDirectionChanged>
+  <ShowAlertIfRowOrColumnCountChanged>False</ShowAlertIfRowOrColumnCountChanged>
+  <WaferBoundaryVisible>True</WaferBoundaryVisible>
+  <ChipAppearAsSquare>True</ChipAppearAsSquare>
+  <LoadUpdatesDirFileFirst>False</LoadUpdatesDirFileFirst>
+  <AlertWhenFileNameDuplicating>False</AlertWhenFileNameDuplicating>
+  <DoNotShowDialogBox_FileInfo>False</DoNotShowDialogBox_FileInfo>
+  <PrintPositionAndCoordinates>True</PrintPositionAndCoordinates>
+  <WaferMapControlLayout>EntiretyFirst</WaferMapControlLayout>
+  <ApplyFileSepcifiedUserCoordinateSystemFirst>True</ApplyFileSepcifiedUserCoordinateSystemFirst>
+  <ChipTypeValueVisible>True</ChipTypeValueVisible>
+  <ChipTypeListColumnOrder>
+    <ColumnType>ChipType_Auto</ColumnType>
+    <ColumnType>Color_Rect</ColumnType>
+    <ColumnType>Count_Left</ColumnType>
+    <ColumnType>Count_Org</ColumnType>
+    <ColumnType>Valid</ColumnType>
+  </ChipTypeListColumnOrder>
+  <WhetherLockMinorDirection>False</WhetherLockMinorDirection>
+</WaferMap>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MVDCommonTool.Net</name>
+    </assembly>
+    <members>
+        <member name="T:VisionDesigner.CMvdRegionImageAssistant">
+            <summary>
+            运行区域图像ROI配置
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.CMvdRegionImageAssistant.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CMvdRegionImageAssistant.ROIList">
+            <summary>
+            运行区域图像ROI配置
+            </summary>
+            <remarks>
+            此处配置的ROI和运行区域图像(由RegionImage设置)生成时所使用的ROI必须一致;未设置任何ROI表示不开启优化
+            </remarks>
+        </member>
+        <member name="T:MVD.InnerTool.CMvdInnerTool">
+            <summary>
+            算子公共依赖实现类
+            </summary>
+        </member>
+    </members>
+</doc>

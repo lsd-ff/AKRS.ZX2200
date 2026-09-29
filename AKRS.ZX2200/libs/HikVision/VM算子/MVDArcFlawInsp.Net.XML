@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MVDArcFlawInsp.Net</name>
+    </assembly>
+    <members>
+        <member name="T:VisionDesigner.ArcFlawInsp.CArcFlawInfo">
+            <summary>
+            缺陷信息
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInfo.FlawBox">
+            <summary>
+            缺陷包围框
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInfo.FlawArea">
+            <summary>
+            缺陷/间隔面积
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInfo.FlawSize">
+            <summary>
+            缺陷长度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInfo.FlawType">
+            <summary>
+            缺陷类型
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInfo.CaliperStartIndex">
+            <summary>
+            缺陷卡尺起始索引
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInfo.CaliperEndIndex">
+            <summary>
+            缺陷卡尺终止索引
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.ArcFlawInsp.CArcFlawInspBasicParam">
+            <summary>
+            圆弧缺陷检测基本参数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspBasicParam.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInspBasicParam.TrajArc">
+            <summary>
+            拟合圆弧
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInspBasicParam.ArcFlag">
+            <summary>
+            拟合圆弧标志位
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.ArcFlawInsp.CArcFlawInspResult">
+            <summary>
+            圆弧缺陷检测结果
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspResult.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInspResult.FlawInfoList">
+            <summary>
+            缺陷信息列表
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInspResult.CaliperBoxList">
+            <summary>
+            圆弧检测的卡尺Box列表
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInspResult.InnerArcList">
+            <summary>
+            拟合圆弧列表
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInspResult.EdgePointList">
+            <summary>
+            边缘信息列表
+            </summary>
+            <remarks>T1 点坐标, T2 点状态</remarks>
+            <remarks>点状态: 0正常, 1缺陷</remarks>
+        </member>
+        <member name="T:VisionDesigner.ArcFlawInsp.CArcFlawInspTool">
+            <summary>
+            圆弧缺陷检测Tool
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.Finalize">
+            <summary>
+            终结器
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.GetRunParam(System.String,System.String@)">
+            <summary>
+            获取单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.SetRunParam(System.String,System.String)">
+            <summary>
+            设置单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.SaveConfiguration(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            保存运行参数
+            </summary>
+            <param name="arrFileBuf">要保存运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+            <param name="nConfigDataLen">buffer实际的大小</param>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.LoadConfiguration(System.Byte[],System.UInt32)">
+            <summary>
+            加载运行参数
+            </summary>
+            <param name="arrFileBuf">导入的运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.Run">
+            <summary>
+            执行检测
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.GetAlgRunTime">
+            <summary>
+            获取运行时间
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.Dispose(System.Boolean)">
+            <summary>
+            资源释放
+            </summary>
+            <param name="bDisposeStatus">释放托管和非托管资源标志</param>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.InputROI">
+            <summary>
+            ROI
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.InputImage">
+            <summary>
+            输入图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.MaskImage">
+            <summary>
+            掩膜图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.BasicParam">
+            <summary>
+            基本参数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcFlawInsp.CArcFlawInspTool.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.ArcFlawInsp.MVD_ARC_DETECT_TYPE">
+            <summary>
+            边缘缺陷类型
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcFlawInsp.MVD_ARC_DETECT_TYPE.MVD_ARC_DEFECT_TYPE_NONE">
+            <summary>
+            非缺陷
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcFlawInsp.MVD_ARC_DETECT_TYPE.MVD_ARC_DEFECT_TYPE_FLAW">
+            <summary>
+            缺陷
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcFlawInsp.MVD_ARC_DETECT_TYPE.MVD_ARC_DEFECT_TYPE_GAP">
+            <summary>
+            断裂
+            </summary>
+        </member>
+    </members>
+</doc>

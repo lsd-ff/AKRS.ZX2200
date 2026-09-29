@@ -1,0 +1,664 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AKRS.WM.WaferMapCtrl</name>
+    </assembly>
+    <members>
+        <member name="T:AKRS.WM.CellCategory">
+            <summary>
+            格子的类别。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CellCategory.None">
+            <summary>
+            无。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CellCategory.CursorPoint">
+            <summary>
+            光标点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CellCategory.InitialStartPoint">
+            <summary>
+            最初的起点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CellCategory.CurrentStartPoint">
+            <summary>
+            当前的起点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CellCategory.ReferencePoints">
+            <summary>
+            参考点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CellCategory.FrameCenter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CellCategory.CurrentPoint">
+            <summary>
+            当前点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CellCategory.All">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.Morden.GapMode">
+            <summary>
+            晶片间隙的模式。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.GapMode.Auto">
+            <summary>
+            自动决定显示或是隐藏。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.GapMode.Visible">
+            <summary>
+            总是显示。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.GapMode.Invisible">
+            <summary>
+            总是隐藏。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.Morden.HorizontalChipCount">
+            <summary>
+            水平方向的晶片数。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.HorizontalChipCount.Three">
+            <summary>
+            3个。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.HorizontalChipCount.Five">
+            <summary>
+            5个。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.HorizontalChipCount.Seven">
+            <summary>
+            7个。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.HorizontalChipCount.Nine">
+            <summary>
+            9个。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.RulerInfo._length">
+            <summary>
+            尺的长度。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.RulerInfo._width">
+            <summary>
+            尺的宽度。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.RulerInfo._firstLevelScaleLineLength">
+            <summary>
+            第一级刻度线的长度。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.RulerInfo._secondLevelScaleLineLength">
+            <summary>
+            第二级刻度线的长度。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.RulerInfo._thirdLevelScaleLineLength">
+            <summary>
+            第三级刻度线的长度。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.RulerInfo._scalePen">
+            <summary>
+            刻度的画笔。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.RulerInfo._scaleBrush">
+            <summary>
+            刻度的画刷。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.RulerInfo._cursorPointScalePen">
+            <summary>
+            光标所处的刻度的画笔。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.RulerInfo._cursorPointScaleBrush">
+            <summary>
+            光标所处的刻度的画刷。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.RulerInfo.Length">
+            <summary>
+            设置或获取 尺的长度。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.RulerInfo.Width">
+            <summary>
+            设置或获取 尺的宽度。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.RulerInfo.TextLayoutRectangleSize">
+            <summary>
+            设置或获取 刻度值文本的布局矩形的尺寸。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.RulerInfo.TextStringFormat">
+            <summary>
+            获取 作用于刻度值文本的StringFormat对象。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.RulerInfo.FirstLevelScaleLineLength">
+            <summary>
+            第一级刻度线的长度。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.RulerInfo.SecondLevelScaleLineLength">
+            <summary>
+            第二级刻度线的长度。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.RulerInfo.ThirdLevelScaleLineLength">
+            <summary>
+            第三级刻度线的长度。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.RulerInfo.ScalePen">
+            <summary>
+            刻度的画笔。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.RulerInfo.ScaleBrush">
+            <summary>
+            刻度的画刷。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.RulerInfo.CursorPointScalePen">
+            <summary>
+            光标所处的刻度的画笔。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.RulerInfo.CursorPointScaleBrush">
+            <summary>
+            光标所处的刻度的画刷。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.Morden.Utility">
+            <summary>
+            实用工具。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Morden.Utility.CreatePentagon(System.Drawing.PointF,System.Single)">
+            <summary>
+            创建五角星（内部有连线）。
+            </summary>
+            <param name="center">五角星的外接圆的中心。</param>
+            <param name="radius">五角星的外接圆的半径。</param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Morden.Utility.CreateRhombus(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            创建菱形。
+            </summary>
+            <param name="x">菱形的外接矩形的中心的X坐标。</param>
+            <param name="y">菱形的外接矩形的中心的Y坐标。</param>
+            <param name="width">菱形的外接矩形的宽。</param>
+            <param name="height">菱形的外接矩形的高。</param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Morden.Utility.CreatePentagonEx(System.Drawing.PointF,System.Single)">
+            <summary>
+            创建五角星（内部无连线）。
+            </summary>
+            <param name="center">五角星的外接圆的中心。</param>
+            <param name="radius">五角星的外接圆的半径。</param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.Morden.WaferMapControl">
+            <summary>
+            其他晶圆图控件的基类。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.Morden.WaferMapControl.CursorPointChanged">
+            <summary>
+            光标点发生了改变。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.Morden.WaferMapControl.FrameCenterChanged">
+            <summary>
+            框中心发生了改变。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.Morden.WaferMapControl.FrameCenterAndCursorPointChanged">
+            <summary>
+            框中心和光标点同时发生了改变。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._rulerVisible">
+            <summary>
+            显示/隐藏 标尺。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._horizontalRulerInfo">
+            <summary>
+            水平标尺的信息。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._verticalRulerInfo">
+            <summary>
+            垂直标尺的信息。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._rulerBrush">
+            <summary>
+            标尺的画刷。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._squareEdgeLength">
+            <summary>
+            控件客户区上最大正方形的边长（单位像素）。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._waferWindowRectangle">
+            <summary>
+            晶圆窗口矩形，即用于绘制晶片的一个矩形区域。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._horizontalRulerRectangle">
+            <summary>
+            水平标尺的矩形框。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._verticalRulerRectangle">
+            <summary>
+            垂直标尺的矩形框。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._cornerRectangle">
+            <summary>
+            水平标尺和垂直标尺相交的角落的矩形区域。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._frameCenter">
+            <summary>
+            框中心的位置。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._cursorPoint">
+            <summary>
+            光标点的位置。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._initialStartPoint">
+            <summary>
+            最初的起点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._currentStartPoint">
+            <summary>
+            当前的起点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControl._currentPoint">
+            <summary>
+            当前点。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControl.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.CellCategories">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.RulerVisible">
+            <summary>
+            获取或设置 标尺的可见性。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.WaferWindowRectangle">
+            <summary>
+            获取 晶圆窗口矩形（即用于绘制晶片的一个矩形区域）。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.HorizontalRulerRectangle">
+            <summary>
+            获取 水平标尺的矩形框。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.VerticalRulerRectangle">
+            <summary>
+            获取 垂直标尺的矩形框。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.HorizontalRulerInfo">
+            <summary>
+            获取 水平标尺的信息。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.VerticalRulerInfo">
+            <summary>
+            获取 垂直标尺的信息。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.SquareEdgeLength">
+            <summary>
+            获取 控件客户区上最大正方形的边长（单位像素）。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.CursorPoint">
+            <summary>
+            光标点的位置。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControl.SetCursorPoint(AKRS.WM.Position,AKRS.WM.SettingSource,System.Boolean)">
+            <summary>
+            设置光标点。
+            </summary>
+            <param name="newPosition"></param>
+            <param name="settingSource"></param>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.FrameCenter">
+            <summary>
+            框中心的位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.InitialStartPoint">
+            <summary>
+            获取 最初的起点。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.CurrentStartPoint">
+            <summary>
+            获取 当前的起点。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.VerticalRulerLocation">
+            <summary>
+            纵向标尺的位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControl.HorizontalRulerLocation">
+            <summary>
+            横向标尺的位置。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControl.Initialize(AKRS.WM.WaferMapData,AKRS.WM.UserCoordinateSystemMapping)">
+            <summary>
+            初始化，并且绑定一个WaferMapData对象。
+            此方法只能调用一次。
+            </summary>
+            <param name="waferMapData"></param>
+            <param name="userCoordinateSystemMapping"></param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="waferMapData"/>是空引用。</exception>
+            <exception cref="T:System.InvalidOperationException">已经初始化过了。</exception>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControl.Uninitialize(AKRS.WM.WaferMapData)">
+            <summary>
+            去初始化。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControl.DrawHorizontalRuler(System.Drawing.Graphics,System.Drawing.Rectangle,AKRS.WM.Morden.RulerInfo)">
+            <summary>
+            
+            </summary>
+            <param name="graphics"></param>
+            <param name="rulerRectangle"></param>
+            <param name="rulerInfo"></param>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControl.DrawVerticalRuler(System.Drawing.Graphics,System.Drawing.Rectangle,AKRS.WM.Morden.RulerInfo)">
+            <summary>
+            
+            </summary>
+            <param name="graphics"></param>
+            <param name="rulerRectangle"></param>
+            <param name="rulerInfo"></param>
+        </member>
+        <member name="T:AKRS.WM.Morden.WaferMapControlEntirety">
+            <summary>
+            用于显示全局的晶圆图控件。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControlEntirety.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControlEntirety.WaferBoundaryVisible">
+            <summary>
+            晶圆边界的可见性。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControlEntirety.GapVisible">
+            <summary>
+            晶片间隙的可见性。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Morden.WaferMapControlEntirety.GapMode">
+            <summary>
+            晶片间隙模式。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControlEntirety.DrawHorizontalRuler(System.Drawing.Graphics,System.Drawing.Rectangle,AKRS.WM.Morden.RulerInfo)">
+            <summary>
+            画水平标尺。
+            </summary>
+            <param name="graphics"></param>
+            <param name="rulerRectangle"></param>
+            <param name="rulerInfo"></param>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControlEntirety.DrawVerticalRuler(System.Drawing.Graphics,System.Drawing.Rectangle,AKRS.WM.Morden.RulerInfo)">
+            <summary>
+            画垂直标尺。
+            </summary>
+            <param name="graphics"></param>
+            <param name="rulerRectangle"></param>
+            <param name="rulerInfo"></param>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControlEntirety.AddReferencePointGraphicsPath(AKRS.WM.ReferencePoint)">
+            <summary>
+            
+            </summary>
+            <param name="referencePoint"></param>
+            <returns>返回边界</returns>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControlEntirety.CreateReferencePointGraphicsPath(AKRS.WM.ReferencePoint,System.Drawing.RectangleF@)">
+            <summary>
+            
+            </summary>
+            <param name="referencePoint">参考点。</param>
+            <param name="boundaryRectangle">返回边界矩形。</param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControlEntirety.IsPointInFrame(System.Drawing.PointF)">
+            <summary>
+            判断像素坐标是否在框内。
+            </summary>
+            <param name="pt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.Morden.WaferMapControlPart">
+            <summary>
+            用于显示局部的晶圆图控件。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControlPart.DEFAULT_GAP_SIZE">
+            <summary>
+            晶片间隔距离的默认值，单位像素。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControlPart.DEFAULT_CHIP_WIDTH">
+            <summary>
+            晶片宽度的默认值，单位像素。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControlPart.DEFAULT_CHIP_HEIGHT">
+            <summary>
+            晶片高度的默认值，单位像素。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControlPart._waferShadowBitmap">
+            <summary>
+            晶圆阴影位图。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Morden.WaferMapControlPart._maskShadowBitmap">
+            <summary>
+            阴影位图。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControlPart.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControlPart.SetChipSizeAccordingToWaferMapDimension(System.Int32,System.Int32)">
+            <summary>
+            根据晶圆图的维度（行数X列数），设置晶片的尺寸。
+            </summary>
+            <param name="waferMapRowCount"></param>
+            <param name="waferMapColumnCount"></param>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControlPart.DevicePointToWaferMapPosition(System.Drawing.PointF,AKRS.WM.Position)">
+            <summary>
+            将设备坐标系上的点转换成晶圆图上的位置。
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Morden.WaferMapControlPart.WaferMapPositionToWorldPoint(AKRS.WM.Position,AKRS.WM.Position)">
+            <summary>
+            将晶圆图上的位置转换成世界坐标系上的点。
+            </summary>
+            <param name="position"></param>
+            <returns>晶片的左上角的坐标。</returns>
+        </member>
+        <member name="T:AKRS.WM.Properties.Resource1">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resource1.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resource1.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resource1.STRING_FORMAT_ROW_COLUMN">
+            <summary>
+              Looks up a localized string similar to {0}行，{1}列.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resource1.STRING_FORMAT_X_Y">
+            <summary>
+              Looks up a localized string similar to {0},{1}.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.UserCoordinateSystemMapping.Transform(AKRS.WM.Position)">
+            <summary>
+            转换。
+            </summary>
+            <param name="waferMapPosition"></param>
+            <returns>返回值的字符串形式。</returns>
+        </member>
+        <member name="T:AKRS.WM.DirectionFactor">
+            <summary>
+            方向系数。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.DirectionFactor.Same">
+            <summary>
+            相同。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.DirectionFactor.Opposite">
+            <summary>
+            相反。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.UserCoordinateSystemType">
+            <summary>
+            用户坐标系类型。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Text">
+            <summary>
+            文本型，即行列型，列是从左往右，行是从上往下。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Quadrant1">
+            <summary>
+            第一象限。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Quadrant2">
+            <summary>
+            第二象限。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Quadrant3">
+            <summary>
+            第三象限。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Quadrant4">
+            <summary>
+            第四象限。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Quadrants">
+            <summary>
+            所有象限，直角坐标系的原点映射到晶圆图的中心位置。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Text_Base1">
+            <summary>
+            类似于Text，但是从1开始。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Quadrant1_Base1">
+            <summary>
+            第一象限，0行0列映射到(1,1)坐标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Quadrant2_Base1">
+            <summary>
+            第二象限，0行0列映射到(-1,1)坐标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Quadrant3_Base1">
+            <summary>
+            第二象限，0行0列映射到(-1,-1)坐标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Quadrant4_Base1">
+            <summary>
+            第二象限，0行0列映射到(1,-1)坐标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemType.Undefined">
+            <summary>
+            未定义。
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,607 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MVDMKInsp.Net</name>
+    </assembly>
+    <members>
+        <member name="M:VisionDesigner.MKInsp.CCoarPattern.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarPattern.GetRunParam(System.String,System.String@)">
+            <summary>
+            Get the run parameters for this PixelCount tool.
+            </summary>
+            <param name="strKeyName">name of the parameter</param>
+            <param name="strValue">value of the parameter</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarPattern.SetRunParam(System.String,System.String)">
+            <summary>
+            Set the run parameters for this PixelCount tool.
+            </summary>
+            <param name="strKeyName">name of the parameter</param>
+            <param name="strValue">value of the parameter</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarPattern.LoadConfiguration(System.Byte[],System.UInt32)">
+            <summary>
+            Load the configuration information of this PixelCount tool
+            </summary>
+            <param name="arrFileBuf">the file buffer with parameters information to load</param>
+            <param name="nConfigDataSize">size of the buffer</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarPattern.SaveConfiguration(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            Save the configuration information of this PixelCount tool
+            </summary>
+            <param name="arrFileBuf">the file buffer with parameters information to save</param>
+            <param name="nConfigDataSize">size of the buffer</param>
+            <param name="nConfigDataLen">actual length of the buffer content</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarPattern.Train">
+            <summary>
+            训练
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarPattern.UnTrain">
+            <summary>
+            UnTrain
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarPattern.Train(VisionDesigner.MKInsp.MKInspTrainType)">
+            <summary>
+            训练
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarPattern.ImportPattern(System.String)">
+            <summary>
+            导入模板
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarPattern.ExportPattern(System.String)">
+            <summary>
+            导出模板
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CCoarPattern.InputImage">
+            <summary>
+            Input Image
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CCoarPattern.BasicParam">
+            <summary>
+            Basic Parameter
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CCoarPattern.ModelData">
+            <summary>
+            Pattern Data
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CCoarPattern.ModelLen">
+            <summary>
+            Length of pattern
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CCoarPattern.ModelObtainExcute">
+            <summary>
+            Obtain Proc is Excuted
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarTool.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarTool.GetRunParam(System.String,System.String@)">
+            <summary>
+            Get the run parameters for this PixelCount tool.
+            </summary>
+            <param name="strKeyName">name of the parameter</param>
+            <param name="strValue">value of the parameter</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarTool.SetRunParam(System.String,System.String)">
+            <summary>
+            Set the run parameters for this PixelCount tool.
+            </summary>
+            <param name="strKeyName">name of the parameter</param>
+            <param name="strValue">value of the parameter</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarTool.LoadConfiguration(System.Byte[],System.UInt32)">
+            <summary>
+            Load the configuration information of this PixelCount tool
+            </summary>
+            <param name="arrFileBuf">the file buffer with parameters information to load</param>
+            <param name="nConfigDataSize">size of the buffer</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarTool.SaveConfiguration(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            Save the configuration information of this PixelCount tool
+            </summary>
+            <param name="arrFileBuf">the file buffer with parameters information to save</param>
+            <param name="nConfigDataSize">size of the buffer</param>
+            <param name="nConfigDataLen">actual length of the buffer content</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CCoarTool.Run">
+            <summary>
+            运行
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CCoarTool.InputImage">
+            <summary>
+            Input Image
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CCoarTool.BasicParam">
+            <summary>
+            Basic Parameter
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CCoarTool.Pattern">
+            <summary>
+            Pattern
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CCoarTool.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CCoarTool.ToolType">
+            <summary>
+            字符缺陷检测方法
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.MKInsp.CMKInspBasicParam">
+            <summary>
+            基本参数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspBasicParam.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspBasicParam.MarkBoxList">
+            <summary>
+            MarkBox列表
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVD_MKINSP_METHOD_TYPE">
+            <summary>
+            字符缺陷检测方法
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.MKInsp.MVD_MKINSP_METHOD_TYPE.MVD_MKINSP_COAR_CORRE">
+            <summary>
+            相关法
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.MKInsp.MVD_MKINSP_METHOD_TYPE.MVD_MKINSP_FINE_MEAN_STD">
+            <summary>
+            均值标准差
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanPattern.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanPattern.GetRunParam(System.String,System.String@)">
+            <summary>
+            Get the run parameters for this PixelCount tool.
+            </summary>
+            <param name="strKeyName">name of the parameter</param>
+            <param name="strValue">value of the parameter</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanPattern.SetRunParam(System.String,System.String)">
+            <summary>
+            Set the run parameters for this PixelCount tool.
+            </summary>
+            <param name="strKeyName">name of the parameter</param>
+            <param name="strValue">value of the parameter</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanPattern.LoadConfiguration(System.Byte[],System.UInt32)">
+            <summary>
+            Load the configuration information of this PixelCount tool
+            </summary>
+            <param name="arrFileBuf">the file buffer with parameters information to load</param>
+            <param name="nConfigDataSize">size of the buffer</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanPattern.SaveConfiguration(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            Save the configuration information of this PixelCount tool
+            </summary>
+            <param name="arrFileBuf">the file buffer with parameters information to save</param>
+            <param name="nConfigDataSize">size of the buffer</param>
+            <param name="nConfigDataLen">actual length of the buffer content</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanPattern.Train">
+            <summary>
+            训练
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanPattern.UnTrain">
+            <summary>
+            UnTrain
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanPattern.Train(VisionDesigner.MKInsp.MKInspTrainType)">
+            <summary>
+            训练
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanPattern.ImportPattern(System.String)">
+            <summary>
+            导入模板
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanPattern.ExportPattern(System.String)">
+            <summary>
+            导出模板
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CFineMeanPattern.InputImage">
+            <summary>
+            输入图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CFineMeanPattern.BasicParam">
+            <summary>
+            基本参数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CFineMeanPattern.ModelData">
+            <summary>
+            模型数据
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CFineMeanPattern.ModelLen">
+            <summary>
+            模型数据大小
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CFineMeanPattern.ModelObtainExcute">
+            <summary>
+            模型Obtain是否被执行
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanTool.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanTool.GetRunParam(System.String,System.String@)">
+            <summary>
+            Get the run parameters for this PixelCount tool.
+            </summary>
+            <param name="strKeyName">name of the parameter</param>
+            <param name="strValue">value of the parameter</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanTool.SetRunParam(System.String,System.String)">
+            <summary>
+            Set the run parameters for this PixelCount tool.
+            </summary>
+            <param name="strKeyName">name of the parameter</param>
+            <param name="strValue">value of the parameter</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanTool.LoadConfiguration(System.Byte[],System.UInt32)">
+            <summary>
+            Load the configuration information of this PixelCount tool
+            </summary>
+            <param name="arrFileBuf">the file buffer with parameters information to load</param>
+            <param name="nConfigDataSize">size of the buffer</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanTool.SaveConfiguration(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            Save the configuration information of this PixelCount tool
+            </summary>
+            <param name="arrFileBuf">the file buffer with parameters information to save</param>
+            <param name="nConfigDataSize">size of the buffer</param>
+            <param name="nConfigDataLen">actual length of the buffer content</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CFineMeanTool.Run">
+            <summary>
+            运行
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CFineMeanTool.InputImage">
+            <summary>
+            Input Image
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CFineMeanTool.BasicParam">
+            <summary>
+            Basic Parameter
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CFineMeanTool.Pattern">
+            <summary>
+            Pattern
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CFineMeanTool.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CFineMeanTool.ToolType">
+            <summary>
+            字符缺陷检测方法
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.MKInsp.CMKInspPattern">
+            <summary>
+            字符缺陷检测模型
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.#ctor(VisionDesigner.MKInsp.MVD_MKINSP_METHOD_TYPE)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.Finalize">
+            <summary>
+            终结器
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.Dispose">
+            <summary>
+            资源释放
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.GetRunParam(System.String,System.String@)">
+            <summary>
+            获取单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.SetRunParam(System.String,System.String)">
+            <summary>
+            设置单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.SaveConfiguration(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            保存运行参数
+            </summary>
+            <param name="arrFileBuf">要保存运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+            <param name="nConfigDataLen">buffer实际的大小</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.LoadConfiguration(System.Byte[],System.UInt32)">
+            <summary>
+            加载运行参数
+            </summary>
+            <param name="arrFileBuf">导入的运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.Train">
+            <summary>
+            训练字符缺陷模型
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.Train(VisionDesigner.MKInsp.MKInspTrainType)">
+            <summary>
+            训练字符缺陷模型
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.UnTrain">
+            <summary>
+            取消模型训练
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.ImportPattern(System.String)">
+            <summary>
+            导入模型
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.ExportPattern(System.String)">
+            <summary>
+            导出模型
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspPattern.Dispose(System.Boolean)">
+            <summary>
+            资源释放
+            </summary>
+            <param name="bDisposeStatus"></param>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspPattern.InputImage">
+            <summary>
+            建模图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspPattern.BasicParam">
+            <summary>
+            基本参数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspPattern.PatternType">
+            <summary>
+            模型类型
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspPattern.ModelData">
+            <summary>
+            模型数据
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspPattern.ModelLen">
+            <summary>
+            模型长度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspPattern.ModelObtainExcute">
+            <summary>
+            模型Obtain是否被执行
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.MKInsp.CMKInspResult">
+            <summary>
+            缺陷检测结果
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspResult.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspResult.FlawBoxList">
+            <summary>
+            缺陷Box列表
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspResult.FlawImage">
+            <summary>
+            缺陷图
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.MKInsp.CMKInspTool">
+            <summary>
+            字符缺陷检测Tool
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspTool.#ctor(VisionDesigner.MKInsp.MVD_MKINSP_METHOD_TYPE)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspTool.Finalize">
+            <summary>
+            终结器
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspTool.Dispose">
+            <summary>
+            资源释放
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspTool.GetRunParam(System.String,System.String@)">
+            <summary>
+            获取单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspTool.SetRunParam(System.String,System.String)">
+            <summary>
+            设置单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspTool.SaveConfiguration(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            保存运行参数
+            </summary>
+            <param name="arrFileBuf">要保存运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+            <param name="nConfigDataLen">buffer实际的大小</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspTool.LoadConfiguration(System.Byte[],System.UInt32)">
+            <summary>
+            加载运行参数
+            </summary>
+            <param name="arrFileBuf">导入的运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspTool.Run">
+            <summary>
+            字符缺陷检测
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MKInsp.CMKInspTool.Dispose(System.Boolean)">
+            <summary>
+            资源释放
+            </summary>
+            <param name="bDisposeStatus"></param>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspTool.InputImage">
+            <summary>
+            检测图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspTool.BasicParam">
+            <summary>
+            基本参数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspTool.Pattern">
+            <summary>
+            模型
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspTool.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MKInsp.CMKInspTool.ToolType">
+            <summary>
+            缺陷检测Tool类型
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVD_ALGORITHM_TOOL_ABILITY">
+            @struct MVD_ALGORITHM_TOOL_ABILITY
+            @brief  算子Tool能力集结构
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVD_BOX_F">
+            @struct MVD_BOX_F
+            @brief  感兴趣区域-浮点型
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVD_IMAGE">
+            @struct MVD_IMAGE
+            @brief  图像格式表示结构体
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVDMKINSP_COAR_CORRE_MODEL_CREATE_INPUT">
+            @struct MVDMKINSP_COAR_CORRE_MODEL_CREATE_INPUT
+            @brief  逐点灰度相关建模输入
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVDMKINSP_COAR_CORRE_MODEL_CREATE_OUTPUT">
+            @struct MVDMKINSP_COAR_CORRE_MODEL_CREATE_OUTPUT
+            @brief  逐点灰度相关建模输出
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVDMKINSP_COAR_CORRE_MODEL_INSP_INPUT">
+            @struct MVDMKINSP_COAR_CORRE_MODEL_INSP_INPUT
+            @brief  逐点灰度相关建模输入
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVDMKINSP_COAR_CORRE_MODEL_INSP_OUTPUT">
+            @struct MVDMKINSP_COAR_CORRE_MODEL_INSP_OUTPUT
+            @brief  逐点灰度检测输出
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVDMKINSP_FINE_MEAN_STD_MODEL_CREATE_INPUT">
+            @struct MVDMKINSP_FINE_MEAN_STD_MODEL_CREATE_INPUT
+            @brief  均值-标准差模型创建输入结构体
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVDMKINSP_FINE_MEAN_STD_MODEL_CREATE_OUTPUT">
+            @struct MVDMKINSP_FINE_MEAN_STD_MODEL_CREATE_OUTPUT
+            @brief  均值-标准差模型创建输出结构体
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVDMKINSP_FINE_MEAN_STD_INSP_INPUT">
+            @struct MVDMKINSP_FINE_MEAN_STD_INSP_INPUT
+            @brief  均值方差法检测输入结构体
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVDMKINSP_IMG_DATA_GROUP">
+            @struct MVDMKINSP_IMG_DATA_GROUP
+            @brief  字符图像数据组
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVDMKINSP_FINE_MEAN_STD_INSP_OUTPUT">
+            @struct MVDMKINSP_FINE_MEAN_STD_INSP_OUTPUT
+            @brief  均值方差法检测输出结构体
+        </member>
+        <member name="T:VisionDesigner.MKInsp.MVDMKINSP_COARCORRE_CORREDATA_GROUP">
+            @struct MVDMKINSP_COARCORRE_CORREDATA_GROUP
+            @brief  基于相关性计算的粗检测模块相关系数数据组
+        </member>
+    </members>
+</doc>

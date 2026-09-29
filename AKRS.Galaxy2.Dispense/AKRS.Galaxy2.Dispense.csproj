@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{545654F5-F47B-498B-BD64-7ADB4CB4FB97}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AKRS.Galaxy2.Dispense</RootNamespace>
+    <AssemblyName>AKRS.Galaxy2.Dispense</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AKRS.Base">
+      <HintPath>libs\AKRS.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionEnum.cs" />
+    <Compile Include="ColorConfig.cs" />
+    <Compile Include="Curve.cs" />
+    <Compile Include="DataGridView_Expansion\DataGridViewDoubleInputCell.cs" />
+    <Compile Include="DataGridView_Expansion\DataGridViewDoubleInputColumn.cs" />
+    <Compile Include="DataGridView_Expansion\DataGridViewIntegerInputColumn.cs" />
+    <Compile Include="DataGridView_Expansion\DataGridViewIntegerInputCell.cs" />
+    <Compile Include="DataGridView_Expansion\DataGridViewDoubleInputEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataGridView_Expansion\DataGridViewIntegerInputEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DialogBoxes\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBoxes\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBoxes\ManageRepositoryExDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBoxes\ManageRepositoryExDialogBox.Designer.cs">
+      <DependentUpon>ManageRepositoryExDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBoxes\RetrieveEpoxyPatternExDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBoxes\RetrieveEpoxyPatternExDialogBox.Designer.cs">
+      <DependentUpon>RetrieveEpoxyPatternExDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Endpoint.cs" />
+    <Compile Include="EndpointFlags.cs" />
+    <Compile Include="EndpointSetting.cs" />
+    <Compile Include="EndpointUnit.cs" />
+    <Compile Include="EPEData.cs" />
+    <Compile Include="EPEPointData.cs" />
+    <Compile Include="EpoxyPatternControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EpoxyPatternControl.Designer.cs">
+      <DependentUpon>EpoxyPatternControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EpoxyPatternForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EpoxyPatternForm.Designer.cs">
+      <DependentUpon>EpoxyPatternForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBoxes\ManageRepositoryDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBoxes\ManageRepositoryDialogBox.Designer.cs">
+      <DependentUpon>ManageRepositoryDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBoxes\RetrieveEpoxyPatternDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBoxes\RetrieveEpoxyPatternDialogBox.Designer.cs">
+      <DependentUpon>RetrieveEpoxyPatternDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBoxes\SaveEpoxyPatternDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBoxes\SaveEpoxyPatternDialogBox.Designer.cs">
+      <DependentUpon>SaveEpoxyPatternDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventArgs\ActionChangedEventArgs.cs" />
+    <Compile Include="EventArgs\BackgroundImageAngleChangedEventArgs.cs" />
+    <Compile Include="EventArgs\BackgroundImageCenterChangedEventArgs.cs" />
+    <Compile Include="EventArgs\CurrentCurveIndexChangedEventArgs.cs" />
+    <Compile Include="EventArgs\CurveAddedEventArgs.cs" />
+    <Compile Include="EventArgs\CurveDeletedEventArgs.cs" />
+    <Compile Include="EventArgs\CurveEventArgs.cs" />
+    <Compile Include="EventArgs\DieSizeChangedEventArgs.cs" />
+    <Compile Include="EventArgs\EndpointAppendedEventArgs.cs" />
+    <Compile Include="EventArgs\EndpointChangedEventArgs.cs" />
+    <Compile Include="EventArgs\EndpointDeletedEventArgs.cs" />
+    <Compile Include="EventArgs\EndpointInsertedEventArgs.cs" />
+    <Compile Include="EventArgs\LogicalCoordinateSystemOriginChangedEventArgs.cs" />
+    <Compile Include="EventArgs\MousePointChangedEventArgs.cs" />
+    <Compile Include="EventArgs\ScaleChangedEventArgs.cs" />
+    <Compile Include="EventArgs\SegmentEventArgs.cs" />
+    <Compile Include="EventArgs\EndpointEventArgs.cs" />
+    <Compile Include="Exceptions\EpoxyPatternEditorException.cs" />
+    <Compile Include="Exceptions\NoCurrentCurveException.cs" />
+    <Compile Include="ActionHandlers\ActionHandler.cs" />
+    <Compile Include="ActionHandlers\Basic\AffineTransformBackgroundImageHandler.cs" />
+    <Compile Include="ActionHandlers\Basic\RotateBackgroundImageHandler.cs" />
+    <Compile Include="ActionHandlers\Basic\TranslateBackgroundImageHandler.cs" />
+    <Compile Include="ActionHandlers\Curve\AppendPointHandler.cs" />
+    <Compile Include="ActionHandlers\DiscardHandlers\DieSizeHandler.cs" />
+    <Compile Include="ActionHandlers\Curve\ErasePointHandler.cs" />
+    <Compile Include="ActionHandlers\Curve\InsertPointHandler.cs" />
+    <Compile Include="ActionHandlers\Curve\MovePointHandler.cs" />
+    <Compile Include="ActionHandlers\NullHandler.cs" />
+    <Compile Include="ActionHandlers\Curve\PaintCurveHandler.cs" />
+    <Compile Include="ActionHandlers\Circle.cs" />
+    <Compile Include="ActionHandlers\PointAndRectangleRelation.cs" />
+    <Compile Include="ActionHandlers\Curve\TransformCurve\RotateCurveHandler.cs" />
+    <Compile Include="ActionHandlers\Curve\TransformCurve\ScaleCurveHandler.cs" />
+    <Compile Include="ActionHandlers\Curve\SelectObjectHandler.cs" />
+    <Compile Include="ActionHandlers\Curve\TransformCurve\AffineTransformCurveHandler.cs" />
+    <Compile Include="ActionHandlers\Curve\TransformCurve\TranslateCurveHandler.cs" />
+    <Compile Include="BackgroundImageInfo.cs" />
+    <Compile Include="ImageResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PaintingToolSet.cs" />
+    <Compile Include="PatternFile.cs" />
+    <Compile Include="Point2D.cs" />
+    <Compile Include="Point2DTypeConverter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DialogBoxes\SetDieSizeDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBoxes\SetDieSizeDialogBox.Designer.cs">
+      <DependentUpon>SetDieSizeDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+    <Compile Include="Vector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="patternFile.xml" />
+    <Content Include="Resources\360截图20201013131238891.jpg" />
+    <Content Include="Resources\360截图20201013131543392.jpg" />
+    <Content Include="Resources\360截图20201013131611689.jpg" />
+    <Content Include="Resources\360截图20201013131618883.jpg" />
+    <Content Include="Resources\360截图20201013131628375.jpg" />
+    <Content Include="Resources\360截图20201013131635058.jpg" />
+    <Content Include="Resources\360截图20201013131642038.jpg" />
+    <Content Include="Resources\360截图20201013131648879.jpg" />
+    <Content Include="Resources\Add_32px_1183388_easyicon.net.png" />
+    <Content Include="Resources\Arrow_down_32px_1184716_easyicon.net.png" />
+    <Content Include="Resources\Arrow_left_32px_1184717_easyicon.net.png" />
+    <Content Include="Resources\Arrow_right_32px_1184718_easyicon.net.png" />
+    <Content Include="Resources\Arrow_up_32px_1184719_easyicon.net.png" />
+    <Content Include="Resources\Chart_Curve_Add_24px_529193_easyicon.net.png" />
+    <Content Include="Resources\delete_31.466666666667px_1122573_easyicon.net.png" />
+    <Content Include="Resources\left_object_rotate_32px_5652_easyicon.net.png" />
+    <Content Include="Resources\move_32px_1205459_easyicon.net.png" />
+    <Content Include="Resources\object_right_rotate_32px_5392_easyicon.net.png" />
+    <Content Include="Resources\Portfolio_Remove_24px_1079636_easyicon.net.png" />
+    <Content Include="Resources\Remove_32px_1183443_easyicon.net.png" />
+    <None Include="Resources\save_512.jpeg" />
+    <Content Include="Resources\Share_26.889208633094px_1183447_easyicon.net.png" />
+    <Content Include="Resources\zoom_in_24px_1175692_easyicon.net.png" />
+    <Content Include="Resources\zoom_out_24px_1175693_easyicon.net.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\.svn\entries" />
+    <None Include="Resources\.svn\prop-base\Add_32px_1183388_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Arrow_down_32px_1184716_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Arrow_left_32px_1184717_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Arrow_right_32px_1184718_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Arrow_up_32px_1184719_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Chart_Curve_Add_24px_529193_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\delete_31.466666666667px_1122573_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\left_object_rotate_32px_5652_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\move_32px_1205459_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\object_right_rotate_32px_5392_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Portfolio_Remove_24px_1079636_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Remove_32px_1183443_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Share_26.889208633094px_1183447_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\zoom_in_24px_1175692_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\zoom_out_24px_1175693_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Add_32px_1183388_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Arrow_down_32px_1184716_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Arrow_left_32px_1184717_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Arrow_right_32px_1184718_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Arrow_up_32px_1184719_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Chart_Curve_Add_24px_529193_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\delete_31.466666666667px_1122573_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\left_object_rotate_32px_5652_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\move_32px_1205459_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\object_right_rotate_32px_5392_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Portfolio_Remove_24px_1079636_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Remove_32px_1183443_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Share_26.889208633094px_1183447_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\zoom_in_24px_1175692_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\zoom_out_24px_1175693_easyicon.net.png.svn-base" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DialogBoxes\ManageRepositoryExDialogBox.resx">
+      <DependentUpon>ManageRepositoryExDialogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogBoxes\RetrieveEpoxyPatternExDialogBox.resx">
+      <DependentUpon>RetrieveEpoxyPatternExDialogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EpoxyPatternControl.resx">
+      <DependentUpon>EpoxyPatternControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EpoxyPatternForm.resx">
+      <DependentUpon>EpoxyPatternForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogBoxes\ManageRepositoryDialogBox.resx">
+      <DependentUpon>ManageRepositoryDialogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogBoxes\RetrieveEpoxyPatternDialogBox.resx">
+      <DependentUpon>RetrieveEpoxyPatternDialogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogBoxes\SaveEpoxyPatternDialogBox.resx">
+      <DependentUpon>SaveEpoxyPatternDialogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImageResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogBoxes\SetDieSizeDialogBox.resx">
+      <DependentUpon>SetDieSizeDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="TextResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TextResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
+    <Folder Include="Resources\.svn\props\" />
+    <Folder Include="Resources\.svn\tmp\prop-base\" />
+    <Folder Include="Resources\.svn\tmp\props\" />
+    <Folder Include="Resources\.svn\tmp\text-base\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

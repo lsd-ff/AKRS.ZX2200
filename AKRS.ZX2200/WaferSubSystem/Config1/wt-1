@@ -1,0 +1,28 @@
+Lot ID :  0  11111619
+Wafer ID : 1
+ProductID : T  6
+Customer code :
+Mapping file :  0  11111619-01
+Notch Side : Down
+
+
+......
+..121.
+.21 1.
+.21212
+121212
+121212
+121212
+.21212
+.21 1.
+..121.
+......
+
+
+
+
+
+
+A - Good  die(bin 1_ )      66 EA
+X - Bad die      0 EA
+M - Eye shot boundry

@@ -1,0 +1,694 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MVDAlmightyPatMatch.NET</name>
+    </assembly>
+    <members>
+        <member name="T:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchBasicParam">
+            <summary>
+            全能特征匹配基本参数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchBasicParam.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchBasicParam.ShowOutlineStatus">
+            <summary>
+            是否显示匹配轮廓
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchEdgePoint">
+            <summary>
+            全能特征匹配边缘点
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchEdgePoint.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchEdgePoint.Position">
+            <summary>
+            坐标
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchEdgePoint.Score">
+            <summary>
+            分数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchEdgePoint.Weight">
+            <summary>
+            权重
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchOutline">
+            <summary>
+            全能特征匹配轮廓
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchOutline.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchOutline.EdgePointList">
+            <summary>
+            边缘点集合
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchRegion">
+            <summary>
+            处理区域
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchRegion.#ctor">
+            <summary>
+            构造函数1
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchRegion.#ctor(VisionDesigner.CMvdShape,System.Boolean)">
+            <summary>
+            构造函数2
+            </summary>
+            <param name="shape">图形</param>
+            <param name="sign">ROI\屏蔽区标志</param>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchRegion.Shape">
+            <summary>
+            图形
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchRegion.Sign">
+            <summary>
+            ROI\屏蔽区标志
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.CAlmightyPatternBasicParam">
+            <summary>
+            全能模型基本参数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatternBasicParam.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatternBasicParam.FixPoint">
+            <summary>
+            基准点
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.CAlmightyPatternResult">
+            <summary>
+            全能模型内部数据
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatternResult.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatternResult.FixPoint">
+            <summary>
+            基准点
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatternResult.Size">
+            <summary>
+            模型大小
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatternResult.TrainedImage">
+            <summary>
+            模型图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatternResult.TrainedImageMask">
+            <summary>
+            模型掩膜
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatternResult.OutlineList">
+            <summary>
+            轮廓列表
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.PatMatchAlgorithmType">
+            <summary>
+            模板匹配算法
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.AlmightyPatMatch.PatMatchAlgorithmType.HPFeature">
+            <summary>
+            高精度模板匹配
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.AlmightyPatMatch.PatMatchAlgorithmType.FastFeature">
+            <summary>
+            快速模板匹配
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.PatternImportType">
+            <summary>
+            模型导入用途
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.AlmightyPatMatch.PatternImportType.Edit">
+            <summary>
+            编辑模型重新训练
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.AlmightyPatMatch.PatternImportType.MatchOnly">
+            <summary>
+            仅用作匹配
+            </summary>
+            <remarks>不能重新训练模型, 这种模式下不导入训练图像, ROI和RegionImage</remarks>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.CAlmightyMatchInfo">
+            <summary>
+            模板匹配控件单条匹配信息
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyMatchInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyMatchInfo.MatchBox">
+            <summary>
+            匹配框
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyMatchInfo.MatchPoint">
+            <summary>
+            匹配点
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyMatchInfo.Scale">
+            <summary>
+            尺度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyMatchInfo.ScaleX">
+            <summary>
+            尺度X
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyMatchInfo.ScaleY">
+            <summary>
+            尺度Y
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyMatchInfo.Score">
+            <summary>
+            分数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyMatchInfo.Rms">
+            <summary>
+            结果拟合误差
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchResult">
+            <summary>
+            执行一次匹配的结果
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchResult.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchResult.MatchInfoList">
+            <summary>
+            匹配信息列表
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchResult.OutlineList">
+            <summary>
+            匹配轮廓列表
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool">
+            <summary>
+            全能匹配工具
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool._AlgorithmType">
+            <summary>
+            模型训练算法
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.Finalize">
+            <summary>
+            终结器
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.SetCoreBinding(System.UInt64)">
+            <summary>
+            设置核数绑定CPU
+            </summary>
+            <param name="coreBinding"></param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.GetCoreBinding">
+            <summary>
+            获取核数绑定CPU
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.GetRunParam(System.String,System.String@)">
+            <summary>
+            获取单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.SetRunParam(System.String,System.String)">
+            <summary>
+            设置单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.SaveConfiguration(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            保存运行参数
+            </summary>
+            <param name="arrFileBuf">要保存运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+            <param name="nConfigDataLen">buffer实际的大小</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.LoadConfiguration(System.Byte[],System.UInt32)">
+            <summary>
+            加载运行参数
+            </summary>
+            <param name="arrFileBuf">导入的运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.Run">
+            <summary>
+            匹配
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.GetAlgRunTime">
+            <summary>
+            获取运行时间
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.OnRunning">
+            <summary>
+            抛出算子前置事件
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.OnRan">
+            <summary>
+            抛出算子结束事件
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.Dispose(System.Boolean)">
+            <summary>
+            资源释放
+            </summary>
+            <param name="bDisposeStatus">释放托管和非托管资源标志</param>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.InputImage">
+            <summary>
+            输入图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.RegionList">
+            <summary>
+            ROI区域
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.RegionImage">
+            <summary>
+            匹配掩膜图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.InputMask">
+            <summary>
+            算法输入匹配掩膜图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.BasicParam">
+            <summary>
+            匹配基本参数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.Pattern">
+            <summary>
+            模型
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.Result">
+            <summary>
+            匹配结果
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.ThreadNum">
+            <summary>
+            线程数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.Type">
+            <summary>
+            模型训练算法
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.RunStatus">
+            <summary>
+            执行状态
+            </summary>
+        </member>
+        <member name="E:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.Running">
+            <summary>
+            算子前置事件
+            </summary>
+        </member>
+        <member name="E:VisionDesigner.AlmightyPatMatch.CAlmightyPatMatchTool.Ran">
+            <summary>
+            算子结束事件
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.CAlmightyPattern">
+            <summary>
+            全能模板
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.AlmightyPatMatch.CAlmightyPattern._AlgorithmType">
+            <summary>
+            模型训练算法
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.Finalize">
+            <summary>
+            终结器
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.GetRunParam(System.String,System.String@)">
+            <summary>
+            获取单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.SetRunParam(System.String,System.String)">
+            <summary>
+            设置单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.SaveConfiguration(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            保存运行参数
+            </summary>
+            <param name="arrFileBuf">要保存运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+            <param name="nConfigDataLen">buffer实际的大小</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.LoadConfiguration(System.Byte[],System.UInt32)">
+            <summary>
+            加载运行参数
+            </summary>
+            <param name="arrFileBuf">导入的运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.Train">
+            <summary>
+            训练
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.UnTrain">
+            <summary>
+            取消训练
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.GetPatternResult">
+            <summary>
+            获取模型内部数据
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.ReleaseAlgorithmCache">
+            <summary>
+            释放算法缓存
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.ImportPattern(System.String,VisionDesigner.AlmightyPatMatch.PatternImportType)">
+            <summary>
+            导入模型
+            </summary>
+            <param name="filePath">模型文件路径</param>
+            <param name="type">导入模式</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.ImportPattern(System.Byte[],VisionDesigner.AlmightyPatMatch.PatternImportType)">
+            <summary>
+            导入模型
+            </summary>
+            <param name="filePath">模型文件路径</param>
+            <param name="type">导入模式</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.ExportPattern(System.String)">
+            <summary>
+            导出模型
+            </summary>
+            <param name="filePath">模型文件路径</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.OnRan">
+            <summary>
+            抛出算子结束事件
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.OnRunning">
+            <summary>
+            抛出算子运行事件
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.Dispose(System.Boolean)">
+            <summary>
+            资源释放
+            </summary>
+            <param name="bDisposeStatus">释放托管和非托管资源标志</param>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.GetUniqueFileExtName">
+            <summary>
+            获取运行类型特有的模型文件扩展名
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.Name">
+            <summary>
+            模板名称
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.InputImage">
+            <summary>
+            输入图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.RegionList">
+            <summary>
+            建模Region列表
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.RegionImage">
+            <summary>
+            建模掩膜图像(最终算法输入掩膜，不可与图形叠加)
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.MaskImage">
+            <summary>
+            建模掩膜图像(可与图形叠加)
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.BasicParam">
+            <summary>
+            基本参数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.Type">
+            <summary>
+            模型训练算法
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.ReTrainStatus">
+            <summary>
+            重新训练标志
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.InputMask">
+            <summary>
+            建模掩膜图像(由RegionList转化而来)
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.ModelData">
+            <summary>
+            模型大小
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.ModelSize">
+            <summary>
+            模型大小
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.RunStatus">
+            <summary>
+            是否可以获取结果
+            </summary>
+        </member>
+        <member name="E:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.Ran">
+            <summary>
+            算子结束事件
+            </summary>
+        </member>
+        <member name="E:VisionDesigner.AlmightyPatMatch.CAlmightyPattern.Running">
+            <summary>
+            算子运行事件
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CompressDataHelper.CompressToNormalMask(System.Byte[],System.Int32)">
+            <summary>
+            压缩Mask转主Mask
+            </summary>
+            <param name="compressMask"></param>
+            <param name="flagNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.CompressDataHelper.NormalToCompressMask(System.Byte[],System.Int32)">
+            <summary>
+            压缩Mask转正常Mask
+            </summary>
+            <param name="otherMask"></param>
+            <param name="flagNum">标记种类个数</param>
+            <returns></returns>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMConfigData.RegionList">
+            <summary>
+            ROI链表
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMConfigData.VisionMasterVersion">
+            <summary>
+            VM版本
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMConfigData.PatternVersion">
+            <summary>
+            模板文件版本号
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMConfigData.FixPoint">
+            <summary>
+            基准点
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMConfigData.CurImage">
+            <summary>
+            当前图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMConfigData.ModelData">
+            <summary>
+            模型数据
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMConfigData.RunParam">
+            <summary>
+            算法参数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMConfigData.MaskImage">
+            <summary>
+            掩模图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMConfigData.RegionImage">
+            <summary>
+            运行区域图像
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.AlmightyPatMatch.VMConfigHelper">
+            <summary>
+            VM 模型文件互通
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.VMConfigHelper.CreatePatternXml(System.String,VisionDesigner.AlmightyPatMatch.VMConfigData,VisionDesigner.AlmightyPatMatch.PatMatchAlgorithmType)">
+            <summary>
+            创建模板Xml
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.VMConfigHelper.ParsePatternXml(System.String,VisionDesigner.AlmightyPatMatch.VMConfigData@,VisionDesigner.AlmightyPatMatch.PatternImportType,VisionDesigner.AlmightyPatMatch.PatMatchAlgorithmType)">
+            <summary>
+            解析模板Xml
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.AlmightyPatMatch.VMConfigHelper.ParsePatternXml(System.Byte[],VisionDesigner.AlmightyPatMatch.VMConfigData@,VisionDesigner.AlmightyPatMatch.PatternImportType,VisionDesigner.AlmightyPatMatch.PatMatchAlgorithmType)">
+            <summary>
+            解析模板Byte[]
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMAlmightyPatternRunParam.PyramidScaleMode">
+            <summary>
+            模型金字塔尺度标记
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMAlmightyPatternRunParam.RoughPyramidScale">
+            <summary>
+            模型速度金字塔尺度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMAlmightyPatternRunParam.FinePyramidScale">
+            <summary>
+            模型精度金字塔尺度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMAlmightyPatternRunParam.PyramidScale">
+            <summary>
+            模型精度金字塔尺度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMAlmightyPatternRunParam.ThresholdMode">
+            <summary>
+            阈值模式
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMAlmightyPatternRunParam.HighThreshold">
+            <summary>
+            边缘高阈值
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.AlmightyPatMatch.VMAlmightyPatternRunParam.LowThreshold">
+            <summary>
+            边缘低阈值
+            </summary>
+        </member>
+    </members>
+</doc>

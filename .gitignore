@@ -1,0 +1,14 @@
+# Visual Studio and build output
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+# temporary Office files
+~$*
+# local logs and OS files
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,3127 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AKRS.WM.WaferMapForm</name>
+    </assembly>
+    <members>
+        <member name="M:AKRS.WM.AsyncPathSeeker.StartAsyncSeekingPath(AKRS.WM.ReferablePointType,System.Boolean)">
+            <summary>
+            开始异步搜索路径。
+            </summary>
+            <param name="referablePointType">可参考点的类型。</param>
+            <param name="referencePointsExcluded">是否排除参考点。</param>        
+        </member>
+        <member name="F:AKRS.WM.AsyncPathSeeker._locatedChipCollection">
+            <summary>
+            用于附加寻路功能。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.AsyncPathSeeker.StartAsyncSeekingPath_New(AKRS.WM.ReferablePointType,System.Boolean)">
+            <summary>
+            开始全新的搜索过程。
+            </summary>
+            <param name="referablePointType"></param>
+            <param name="bReferenceExcluded"></param>
+        </member>
+        <member name="M:AKRS.WM.AsyncPathSeeker.ForwardToPosition(AKRS.WM.Position,System.Boolean)">
+            <summary>
+            将当前位置前进到指定的位置。
+            </summary>
+            <param name="position">指定目标晶片位置。</param>
+        </member>
+        <member name="M:AKRS.WM.AsyncPathSeeker.StartAsyncSeekingPath_Continue(System.Boolean)">
+            <summary>
+            从之前中断时的目标和方向开始搜索过程。
+            </summary>
+            <param name="bReferenceExcluded"></param>
+        </member>
+        <member name="M:AKRS.WM.AsyncPathSeeker.FindNearestReferablePointEx(AKRS.WM.Position,AKRS.WM.ReferablePointType,System.Int32@,System.Int32@)">
+            <summary>
+            寻找相对“目标”直线距离最近且确实可达的可参考的点，可能是参考点，也可能是最近定位过的某一个点。
+            </summary>
+            <param name="target">指定目标。</param>
+            <param name="referablePointType">可参考点的类型。</param>
+            <param name="xReferablePoint">返回可参考的点的X坐标。</param>
+            <param name="yReferablePoint">返回可参考的点的Y坐标。</param>
+            <returns>返回满足条件的可参考的点的位置。</returns>
+            <exception cref="T:AKRS.WM.NotFoundException">不存在这样的点。</exception>
+        </member>
+        <member name="M:AKRS.WM.AsyncPathSeeker.FindNearestReferablePointEx(AKRS.WM.Position,AKRS.WM.ReferablePointType,System.Int32@,System.Int32@,AKRS.WM.Position[]@)">
+            <summary>
+            寻找相对“目标”直线距离最近且确实可达的可参考的点，可能是参考点，也可能是最近定位过的某一个点。
+            </summary>
+            <param name="target">指定目标。</param>
+            <param name="referablePointType">可参考点的类型。</param>
+            <param name="xReferablePoint">返回可参考的点的X坐标。</param>
+            <param name="yReferablePoint">返回可参考的点的Y坐标。</param>
+            <param name="path">到目标的路径。</param>
+            <returns>返回满足条件的可参考的点的位置。</returns>
+            <exception cref="T:AKRS.WM.NotFoundException">不存在这样的点。</exception>
+        </member>
+        <member name="F:AKRS.WM.AsyncPathSeeker._referencePointCoordinates">
+            <summary>
+            参考点的坐标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.AsyncPathSeekerBetweenTwoPoints._referencePointCoordinates">
+            <summary>
+            参考点的坐标。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.AsyncPathSeekerBetweenTwoPoints.StartAsyncSeekingPathBetweenTwoPoints(AKRS.WM.Position,AKRS.WM.Position)">
+            <summary>
+            开始2点之间的寻路。
+            </summary>
+            <param name="start">起点位置。</param>
+            <param name="target">目标位置。</param>
+        </member>
+        <member name="M:AKRS.WM.AsyncPathSeekerBetweenTwoPoints.WaitForAsyncResultBetweenTwoPoints(System.Int32,AKRS.WM.SearchResult@)">
+            <summary>
+            仅适用于两点间的路径搜索。
+            等待搜索路径过程完成。
+            </summary>
+            <param name="timeoutMilliseconds">等待的超时时长。</param>
+            <param name="result">
+            用于返回等待成功的结果。
+            SearchResult.Found表示找到路径，调用GetAsyncResultBetweenTwoPoints方法可以获取整个路径。
+            </param>
+            <returns>true，搜索结束；false，等待超时。</returns>
+        </member>
+        <member name="M:AKRS.WM.AsyncPathSeekerBetweenTwoPoints.GetAsyncResultBetweenTwoPoints">
+            <summary>
+            仅适用于两点间的路径搜索。
+            获取路径搜索的结果，即构成路径的所有位置的列表。
+            注意：此方法必须在WaitForAsyncResultBetweenTwoPoints方法成功调用后才有效；否则将返回null。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.AsyncPathSeekerBetweenTwoPoints.GetNextPositionInfoAndForwardToBetweenTwoPoints">
+            <summary>
+            在晶圆图上前进到下一个位置，并返回该位置的信息。仅适用于两点间的路径搜索。
+            </summary>
+            <returns>下一个位置的信息。</returns>
+        </member>
+        <member name="M:AKRS.WM.AsyncPathSeekerBetweenTwoPoints.GetNextPositionInfoAndForwardToBetweenTwoPoints(System.Boolean)">
+            <summary>
+            在晶圆图上前进到下一个位置，并返回该位置的信息。仅适用于两点间的路径搜索。
+            </summary>
+            <returns>下一个位置的信息。</returns>
+        </member>
+        <member name="F:AKRS.WM.SelectedChipTypeList.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.SelectedChipTypeList.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.SelectedChipTypeList.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Ctrls.WaferMapCoordinateSystemPresenter.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.WaferMapCoordinateSystemPresenter.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.WaferMapCoordinateSystemPresenter.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Ctrls.FileLoadingProgress.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.FileLoadingProgress.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.FileLoadingProgress.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.Ctrls.ReferencePointListControl.ReferencePointEntryDeleted">
+            <summary>
+            某个条目的删除按钮被点击而导致该条目被删除。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.Ctrls.ReferencePointListControl.ReferencePointEntryGotoButtonClicked">
+            <summary>
+            某个条目的GoTo按钮被点击。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ReferencePointListControl.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ReferencePointListControl.Add(System.Collections.Generic.IList{AKRS.WM.ReferencePoint},System.Collections.Generic.IList{System.Drawing.Color},AKRS.WM.UserCoordinateSystemMapping)">
+            <summary>
+            
+            </summary>
+            <param name="referencePoints"></param>
+            <param name="colors"></param>
+            <param name="userCoordinateSystemMapping"></param>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ReferencePointListControl.Add">
+            <summary>
+            添加一个条目。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ReferencePointListControl.ClearEntries">
+            <summary>
+            清空。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Ctrls.ReferencePointListControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ReferencePointListControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ReferencePointListControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.Ctrls.ReferencePointEntryControl.DeleteButtonClicked">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.Ctrls.ReferencePointEntryControl.GoToButtonClicked">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ReferencePointEntryControl.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ReferencePointEntryControl.SetPosition(AKRS.WM.Position,AKRS.WM.UserCoordinateSystemMapping)">
+            <summary>
+            
+            </summary>
+            <param name="position"></param>
+            <param name="userCoordinateSystemMapping"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ReferencePointEntryControl.RefreshPosition(AKRS.WM.UserCoordinateSystemMapping)">
+            <summary>
+            
+            </summary>
+            <param name="userCoordinateSystemMapping"></param>
+        </member>
+        <member name="P:AKRS.WM.Ctrls.ReferencePointEntryControl.Position">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Ctrls.ReferencePointEntryControl.Row">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Ctrls.ReferencePointEntryControl.Column">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Ctrls.ReferencePointEntryControl.Label">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Ctrls.ReferencePointEntryControl.LabelVisible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Ctrls.ReferencePointEntryControl.ChipColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Ctrls.ReferencePointEntryControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ReferencePointEntryControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ReferencePointEntryControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Ctrls.ChipTypeListControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ChipTypeListControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ChipTypeListControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Ctrls.ChipTypes.SelectedChar">
+            <summary>
+            设置或获取选择的字符。
+            '\0'表示未选择。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Ctrls.ChipTypes.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ChipTypes.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ChipTypes.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Ctrls.ChipTypeCollection.SelectedChar">
+            <summary>
+            设置或获取选择的字符。
+            '\0'表示未选择。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Ctrls.ChipTypeCollection.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ChipTypeCollection.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ChipTypeCollection.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Ctrls.ChipTypeEntryControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ChipTypeEntryControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.ChipTypeEntryControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.WaferMapControlUnit.Initialize(AKRS.WM.WaferMapData,AKRS.WM.UserCoordinateSystemMapping)">
+            <summary>
+            初始化，并且绑定一个WaferMapData对象。
+            此方法只能调用一次。
+            </summary>
+            <param name="waferMapData"></param>
+            <param name="userCoordinateSystemMapping"></param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="waferMapData"/>是空引用。</exception>
+            <exception cref="T:System.InvalidOperationException">已经初始化过了。</exception>
+        </member>
+        <member name="E:AKRS.WM.Ctrls.WaferMapControlUnit.ReferencePointDeleting">
+            <summary>
+            参考点被删除。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.Ctrls.WaferMapControlUnit.ReferencePointAdding">
+            <summary>
+            增加了新的参考点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Ctrls.WaferMapControlUnit.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.WaferMapControlUnit.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.Ctrls.WaferMapControlUnit.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.FileNameDialogBox">
+            <summary>
+            未想到恰当的名称之前，暂时叫这个临时名称。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.FileNameDialogBox.FileName">
+            <summary>
+            文件名。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.FileNameDialogBox.DateString">
+            <summary>
+            日期，字符串形式。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.FileNameDialogBox.DoNotShowAgain">
+            <summary>
+            不再显示此对话框。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.FileNameDialogBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.FileNameDialogBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.FileNameDialogBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.FileNameInfoDialogBox">
+            <summary>
+            未想到恰当的名称之前，暂时叫这个临时名称。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.FileNameInfoDialogBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.FileNameInfoDialogBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.FileNameInfoDialogBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.StepSettingDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.StepSettingDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.StepSettingDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.DegreeSettingDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.DegreeSettingDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.DegreeSettingDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserCoordinateSystemDialogBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.UserCoordinateSystemDialogBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.UserCoordinateSystemDialogBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.FlatButton.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="F:AKRS.WM.FileLoadingProgressDialogBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.FileLoadingProgressDialogBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.FileLoadingProgressDialogBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.FileNameCompositeInfo">
+            <summary>
+            “名称合成”的信息。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.FileNameCompositeInfo.NONE_EXTENSION_STRING">
+            <summary>
+            用于表示后缀不存在。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.FileNameCompositeInfo.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fileNameExtension">文件名后缀。</param>
+            <exception cref="T:System.ArgumentException">参数<paramref name="fileNameExtension"/>是空字符串。</exception>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="fileNameExtension"/>是空引用。</exception>
+        </member>
+        <member name="P:AKRS.WM.FileNameCompositeInfo.FileNameExtension">
+            <summary>
+            文件名后缀。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.FileNameType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.FileNameType.Full">
+            <summary>
+            完整的。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.FileNameType.Composite">
+            <summary>
+            合成的。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.FileNameType.KeyString">
+            <summary>
+            关键字符串匹配。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.FileSelectionMode">
+            <summary>
+            文件选择模式。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.FileSelectionMode.UseTheFirstOne">
+            <summary>
+            使用第一个满足条件的。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.FileSelectionMode.ListAll">
+            <summary>
+            列出所有满足条件的文件。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.IPhysicalCoordinatesCalculator">
+            <summary>
+            物理坐标计算器。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.IPhysicalCoordinatesCalculator.ChipOffset">
+            <summary>
+            设置或获取晶片物理间距。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.IPhysicalCoordinatesCalculator.CalculateChipPhysicalCoordinates(AKRS.WM.Position,System.Int32,System.Int32,AKRS.WM.Position,System.Int32@,System.Int32@)">
+            <summary>
+            根据晶片物理间距，由“（物理坐标）已知晶片”计算出“（物理坐标）未知晶片”的物理坐标。
+            </summary>
+            <param name="locatedChipPosition">已知晶片的位置。</param>
+            <param name="xLocatedChipPhysicalCoordinate">已经晶片的物理坐标X值。</param>
+            <param name="yLocatedChipPhysicalCoordinate">已经晶片的物理坐标Y值。</param>
+            <param name="chipPosition">未知晶片的位置。</param>
+            <param name="xChipPhysicalCoordinate">返回未知晶片的物理坐标X值。</param>
+            <param name="yChipPhysicalCoordinate">返回未知晶片的物理坐标Y值。</param>
+        </member>
+        <member name="T:AKRS.WM.PhysicalCoordinatesCalculator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PhysicalCoordinatesCalculator.ChipOffset">
+            <summary>
+            设置或获取晶片物理间距。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PhysicalCoordinatesCalculator.CalculateChipPhysicalCoordinates(AKRS.WM.Position,System.Int32,System.Int32,AKRS.WM.Position,System.Int32@,System.Int32@)">
+            <summary>
+            根据晶片物理间距，由“（物理坐标）已知晶片”计算出“（物理坐标）未知晶片”的物理坐标。
+            </summary>
+            <param name="locatedChipPosition">已知晶片的位置。</param>
+            <param name="xLocatedChipPhysicalCoordinate">已经晶片的物理坐标X值。</param>
+            <param name="yLocatedChipPhysicalCoordinate">已经晶片的物理坐标Y值。</param>
+            <param name="chipPosition">未知晶片的位置。</param>
+            <param name="xChipPhysicalCoordinate">返回未知晶片的物理坐标X值。</param>
+            <param name="yChipPhysicalCoordinate">返回未知晶片的物理坐标Y值。</param>
+        </member>
+        <member name="T:AKRS.WM.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.arrow_left">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.arrow_right">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.arrow2_right">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.arrows_clockwise_dashed_24px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.arrows_clockwise_dashed_32px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.cancel_2_32px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.cancel_32px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.coordinateAxes_1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.coordinateAxes_2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.coordinateAxes_3">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.correct">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.cross_16px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.cross_32px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.customizedStyle_1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.customizedStyle_2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.customizedStyle_3">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.DIRECT_DOWN">
+            <summary>
+              Looks up a localized string similar to 向下.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.DIRECT_LEFT">
+            <summary>
+              Looks up a localized string similar to 向左.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.DIRECT_RIGHT">
+            <summary>
+              Looks up a localized string similar to 向右.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.DIRECT_UP">
+            <summary>
+              Looks up a localized string similar to 向上.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.double_arrow_left">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.double_arrow_right">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.DownToUp_LeftToRight_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.DownToUp_RightToLeft_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.forbidden_32px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.forward_1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.forward_16px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.forward_2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.forward_3">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.forward_32px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.gear_1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.gear_2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.gear_3">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.gears_1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.gears_2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.gears_3">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.LeftToRight_DownToUp_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.LeftToRight_UpToDown_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.more_32px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_FORMAT_BACKUP_FILE_FAILED">
+             <summary>
+               Looks up a localized string similar to 备份晶圆图文件失败。
+            原因：{0}.
+             </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_FORMAT_FILE_LOADED_RECENTLY">
+             <summary>
+               Looks up a localized string similar to 最近已经载入过此文件了。
+            
+            文件：{0}
+            日期：{1}
+            
+            请确认是否继续载入....
+             </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_FORMAT_FILE_NOT_EXIST">
+            <summary>
+              Looks up a localized string similar to 文件“{0}”不存在。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_FORMAT_FILE_NOT_FOUND_IN_SPECIFIED_DIR">
+             <summary>
+               Looks up a localized string similar to 在
+            {0}
+            文件夹中未找到名称为
+            {1}
+            的文件。.
+             </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_FORMAT_FILE_NOT_FOUND_IN_UPDATES_DIR">
+             <summary>
+               Looks up a localized string similar to 在
+            {0}
+            文件夹中未找到名称为
+            {1}
+            的文件，
+            即将载入的文件夹是
+            {2}
+            。
+            如果这不是所预期，请在“高级设置”中进行更改。.
+             </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_FORMAT_FILE_NOT_STANDARD_SYNTAX">
+            <summary>
+              Looks up a localized string similar to 文件“{0}”不是标准格式的晶圆图文件。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_FORMAT_LOAD_UPDATES_DIR_FILE">
+             <summary>
+               Looks up a localized string similar to 即将载入
+            {0}
+            文件夹中的名称为
+            {1}
+            的文件。
+            如果这不是所预期，请在“高级设置”中进行更改。.
+             </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_FORMAT_TEXT_0">
+            <summary>
+              Looks up a localized string similar to 发现嵌在内部的类型为“{0}”的晶片.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_FORMAT_TEXT_1">
+            <summary>
+              Looks up a localized string similar to 出现这种情况是因为晶圆图生成器将“{0}”用来表示光板晶片或者坏晶片.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_FORMAT_TEXT_2">
+            <summary>
+              Looks up a localized string similar to “{0}”有特殊的用途，不能用于表示晶片.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_PLEASE_ENTER_NEW_CHIP_TYPE_VALUE">
+            <summary>
+              Looks up a localized string similar to 请输入新类型的值。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_PROMPTY_AFTER_CURRENT_POSITION_CHANGED_MANUALLY">
+            <summary>
+              Looks up a localized string similar to 手动修改了当前点的位置，请确认晶圆图上的行进方向。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_MSG_ROW_COUNT_OR_COLUMN_COUNT_IS_INVALID">
+            <summary>
+              Looks up a localized string similar to 行数或列数是无效的。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.MSGBOX_TITLE">
+            <summary>
+              Looks up a localized string similar to 晶圆图.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.open_1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.open_2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.open_3">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.pickRegion_1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.pickRegion_2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.pickRegion_3">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.RightToLeft_DownToUp_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.RightToLeft_UpToDown_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.save_1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.save_2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.save_3">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.settings_16px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.settings_24px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.settings_32px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.STEP_DIRECTION_DOWN">
+            <summary>
+              Looks up a localized string similar to 向下.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.STEP_DIRECTION_LEFT">
+            <summary>
+              Looks up a localized string similar to 向左.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.STEP_DIRECTION_RIGHT">
+            <summary>
+              Looks up a localized string similar to 向右.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.STEP_DIRECTION_UP">
+            <summary>
+              Looks up a localized string similar to 向上.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.strategies_1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.strategies_2">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.strategies_3">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_DIRECTION_NOT_EXIST">
+            <summary>
+              Looks up a localized string similar to 指定的文件夹不存在。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_DIRICTORY_NOT_SPECIFIED">
+            <summary>
+              Looks up a localized string similar to 未指定文件夹。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_FILE_NAME_NOT_SPECIFIED">
+            <summary>
+              Looks up a localized string similar to 未指定晶圆图文件名称。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_FILE_NOT_EXIST">
+            <summary>
+              Looks up a localized string similar to 指定的文件不存在。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_FILE_NOT_SPECIFIED">
+            <summary>
+              Looks up a localized string similar to 未指定文件。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_FORMAT_FORM_TITLE">
+            <summary>
+              Looks up a localized string similar to 晶圆图{0}[{1}] {2}.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_FORMAT_GROUP_BOX_STRATEGY">
+            <summary>
+              Looks up a localized string similar to 批次（共{0}个）.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_FORMAT_STRATEGY_GROUP">
+            <summary>
+              Looks up a localized string similar to 批次（共{0}个）.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_FORMAT_WAFER_SIZE">
+            <summary>
+              Looks up a localized string similar to {0}行×{1}列.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_NO_MATCH_FILE">
+            <summary>
+              Looks up a localized string similar to 没有匹配的文件。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_NOT_AVARIABLE">
+            <summary>
+              Looks up a localized string similar to N/A.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_UNRECOGNIZED_WAFER_MAP_FILE">
+            <summary>
+              Looks up a localized string similar to 未能识别的晶圆图文件.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.TEXT_WAFER_ID_NOT_SPECIFIED">
+            <summary>
+              Looks up a localized string similar to 未指定晶圆图ID。.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.UpToDown_LeftToRight_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.UpToDown_RightToLeft_32x32">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Properties.Resources.yes_32px">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ReferablePointType.LocatedChip">
+            <summary>
+            仅LocatedChip。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ReferablePointType.ReferencePoints">
+            <summary>
+            仅ReferencePoints。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ReferablePointType.LocatedChipAndReferencePoints">
+            <summary>
+            LocatedChip和ReferencePoints。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapSettingControl.ReferencePointEntryDeleted">
+            <summary>
+            一个参考点项被删除。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapSettingControl.SetUIWaferMapInfo(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="waferMapFileName">晶圆图文件名。</param>
+            <param name="waferId">晶圆ID。</param>
+            <param name="waferRowCount">晶圆行数。</param>
+            <param name="waferColumnCount">晶圆列数。</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapSettingControl.ChangeUIChipTypeValidity(AKRS.WM.ChipType,System.Boolean)">
+            <summary>
+            改变指定类型的有效性。
+            </summary>
+            <param name="chipType"></param>
+            <param name="valid"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapSettingControl.ChangeUIChipTypeCount(AKRS.WM.ChipType,System.Int32)">
+            <summary>
+            改变指定类型的数量。
+            </summary>
+            <param name="chipType"></param>
+            <param name="currentCount"></param>
+        </member>
+        <member name="F:AKRS.WM.WaferMapSettingControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapSettingControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapSettingControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.AdvancedSettingDialogBox">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.AdvancedSettingDialogBox.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.AdvancedSettingDialogBox.PrintSeekPathDetail">
+            <summary>
+            打印寻路细节。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.AdvancedSettingDialogBox.PrintDetailedPath">
+            <summary>
+            打印详细路径。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.AdvancedSettingDialogBox.PrintPositionAndCoordinates">
+            <summary>
+            打印晶片的位置和坐标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.AdvancedSettingDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.AdvancedSettingDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.AdvancedSettingDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.AutomaticChipTypeModificationDialogBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.AutomaticChipTypeModificationDialogBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.AutomaticChipTypeModificationDialogBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ChipTypeSelectionDialogBox.SelectedChipType">
+            <summary>
+            获取选择的晶片类型。
+            UNKNOWN表示没有选择。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ChipTypeSelectionDialogBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ChipTypeSelectionDialogBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.ChipTypeSelectionDialogBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SetChipTypeDialogBoxEx.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.SetChipTypeDialogBoxEx.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.SetChipTypeDialogBoxEx.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SetColorDialogBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.SetColorDialogBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.SetColorDialogBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.SetSubstitutionDialogBoxEx.SetNullChipType(AKRS.WM.ChipType,AKRS.WM.ChipType)">
+            <summary>
+            设置NULL类型。
+            </summary>
+            <param name="nullChipType"></param>
+            <param name="defaultSubstitution">默认的替代类型。VOID、UNKNOWN或等于参数<paramref name="nullChipType"/>表示不使用此参数</param>
+        </member>
+        <member name="M:AKRS.WM.SetSubstitutionDialogBoxEx.SetExistingChipTypes(AKRS.WM.ChipType[])">
+            <summary>
+            设置现有的晶片类型。
+            </summary>
+            <param name="chipTypes"></param>
+        </member>
+        <member name="P:AKRS.WM.SetSubstitutionDialogBoxEx.Substitution">
+            <summary>
+            获取替代类型。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SetSubstitutionDialogBoxEx.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.SetSubstitutionDialogBoxEx.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.SetSubstitutionDialogBoxEx.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ChangeChipTypeDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ChangeChipTypeDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.ChangeChipTypeDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.WaferMapDialogBox">
+            <summary>
+            晶圆图对话框。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapDialogBox.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapDialogBox.Buttons">
+            <summary>
+            窗体的底部的按钮组合。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapDialogBox.SetButtons(AKRS.WM.WaferMapDialogBoxButtons)">
+            <summary>
+            设置窗体的底部的按钮组合。
+            </summary>
+            <param name="buttons"></param>
+        </member>
+        <member name="P:AKRS.WM.WaferMapDialogBox.Title">
+            <summary>
+            窗体头部的标题。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapDialogBox.buttonConfirm_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapDialogBox.buttonCancel_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:AKRS.WM.WaferMapDialogBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapDialogBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapDialogBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.DirectionSelectionDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.DirectionSelectionDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.DirectionSelectionDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PickRegionDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PickRegionDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.PickRegionDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SearchRegionDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.SearchRegionDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.SearchRegionDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.FileNameKeyStringInfo">
+            <summary>
+            “关键字匹配”的信息。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.FileNameKeyStringInfo.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="firstCharIndex">指明第一个字符的位置，非负值。</param>
+            <param name="keyStringLength">指明字符数，非负值。</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">参数<paramref name="firstCharIndex"/>或<paramref name="keyStringLength"/>的值是负的。</exception>
+        </member>
+        <member name="P:AKRS.WM.FileNameKeyStringInfo.FirstCharIndex">
+            <summary>
+            第一个字符的Index。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.FileNameKeyStringInfo.KeyStringLength">
+            <summary>
+            作为关键字的字符串的长度。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.FileSelectionDialogBox.SetKeyString(System.String)">
+            <summary>
+            设置关键字符串信息。
+            </summary>
+            <param name="strKeyString"></param>
+        </member>
+        <member name="M:AKRS.WM.FileSelectionDialogBox.SetFileName(System.String)">
+            <summary>
+            设置文件名信息。
+            </summary>
+            <param name="strFileName"></param>
+        </member>
+        <member name="M:AKRS.WM.FileSelectionDialogBox.SetData(System.String,System.String[])">
+            <summary>
+            设置数据。
+            </summary>
+            <param name="strDirPath">基目录的路径。</param>
+            <param name="strFileNameArray">基目录中所包含一些文件的路径组成的数组。</param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="strDirPath"/>或<paramref name="strFileNameArray"/>是空引用。</exception>
+        </member>
+        <member name="F:AKRS.WM.FileSelectionDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.FileSelectionDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.FileSelectionDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.LoadWaferMapFileDialogBox">
+            <summary>
+            加载晶圆图文件的对话框。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.LoadWaferMapFileDialogBox.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.LoadWaferMapFileDialogBox.#ctor(AKRS.AccessControl.Interface.IControlsEnabler)">
+            <summary>
+            
+            </summary>
+            <param name="ctrlEnabler"></param>
+        </member>
+        <member name="M:AKRS.WM.LoadWaferMapFileDialogBox.HandleRoleChanged">
+            <summary>
+            实现IRoleChangeable接口定义的方法。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.LoadWaferMapFileDialogBox.DirPath">
+            <summary>
+            获取目录的路径。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.LoadWaferMapFileDialogBox.FileName">
+            <summary>
+            获取文件名。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.LoadWaferMapFileDialogBox.FilePath">
+            <summary>
+            获取完整的文件路径。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.LoadWaferMapFileDialogBox.buttonCancel_Click(System.Object,System.EventArgs)">
+            <summary>
+            “取消”按钮的事件处理器。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:AKRS.WM.LoadWaferMapFileDialogBox.buttonConfirm_Click(System.Object,System.EventArgs)">
+            <summary>
+            “确认”按钮的事件处理器。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:AKRS.WM.LoadWaferMapFileDialogBox.RetrieveDirPath">
+            <summary>
+            从UI控件提取目录的路径，并验证该目录是否存在。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.LoadWaferMapFileDialogBox.RetrieveFileName(System.String)">
+            <summary>
+            从UI控件提取文件名，并验证该文件是否存在。
+            </summary>
+            <param name="strDirPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.LoadWaferMapFileDialogBox.GetNetFilePathes(System.String,System.String)">
+            <summary>
+            从指定的目录中找出名称与关键字符串匹配的所有文件。
+            </summary>
+            <param name="dirPath">目录的路径。</param>
+            <param name="keyString">关键字符串。</param>
+            <returns>满足条件的文件路径的数组。</returns>
+        </member>
+        <member name="F:AKRS.WM.LoadWaferMapFileDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.LoadWaferMapFileDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.LoadWaferMapFileDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.KeyStringSettingDialogBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.KeyStringSettingDialogBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.KeyStringSettingDialogBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.NewChipTypeDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.NewChipTypeDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.NewChipTypeDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SelectedChipTypeDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.SelectedChipTypeDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.SelectedChipTypeDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.StrategySettingDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.StrategySettingDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.StrategySettingDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要修改
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CheckPreparedResult.OK">
+            <summary>
+            OK。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CheckPreparedResult.NoneSelectedTypes">
+            <summary>
+            没有提取类型。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CheckPreparedResult.FirstPointNotSelectedType">
+            <summary>
+            第一点的类型不是提取类型。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CheckPreparedResult.ReferencePointNotLocated">
+            <summary>
+            参考点未定位，即没有给参考点设置坐标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CheckPreparedResult.ReferencePointCountTooFew">
+            <summary>
+            参考点的数目太少。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.CheckPreparedResult.NoneActiveStrategy">
+            <summary>
+            没有启用的方案。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.FileParserSet.ConvertFile(System.String,System.String)">
+            <summary>
+            Convert a wafer map file to the standard syntax version.
+            </summary>
+            <param name="strSourcePath"></param>
+            <param name="strTargetPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.FileParserSet.RefreshAssemblyDictionary">
+            <summary>
+            更新程序集字典。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.FileParserSet.GetFileNames">
+            <summary>
+            获取目录中所有AKRS.WM.FileParser*.dll文件的文件名。
+            </summary>
+            <param name="dir"></param>
+            <returns>排序后的文件名数组。</returns>
+        </member>
+        <member name="F:AKRS.WM.SetChipTypeDialogBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.SetChipTypeDialogBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:AKRS.WM.SetChipTypeDialogBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.LocatedChipCollection.FindNearestLocatedChip(AKRS.WM.Position,System.Int32)">
+            <summary>
+            在指定的范围内寻找距离目标晶片最近的已定位过的晶片。
+            </summary>
+            <param name="targetChipPosition">目标晶片的（图上）坐标。</param>
+            <param name="iMaxChipInterval">最大晶片间隔。</param>
+            <returns>null，表示没有找到。</returns>
+        </member>
+        <member name="M:AKRS.WM.LocatedChipCollection.FindInPeriphery(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            在参数指定的外围上查找。
+            </summary>
+            <param name="iTopRow"></param>
+            <param name="iBottomRow"></param>
+            <param name="iLeftCol"></param>
+            <param name="iRightCol"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.PhysicalChipOffset">
+            <summary>
+            （晶圆上的）晶片间距。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PhysicalChipOffset.CalculateChipPhysicalCoordinate(AKRS.WM.Position,System.Drawing.Point,AKRS.WM.Position)">
+            <summary>
+            计算目标晶片的（实物）坐标。
+            </summary>
+            <param name="src">已知晶片的（图上）位置。</param>
+            <param name="srcCoord">已知晶片的（实物）坐标。</param>
+            <param name="dst">目标晶片的（图上）位置。</param>
+            <returns>通过计算得出的目标晶片的（实物）坐标。</returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.CreateStandardSyntaxFile(System.String,System.String,System.Boolean)">
+            <summary>
+            在指定的文件夹或其子文件夹中创建一个源文件的“标准格式”副本。
+            </summary>
+            <param name="sourceFilePath">源文件的路径。</param>
+            <param name="targetDirPath">目标文件夹的路径。</param>
+            <param name="useDateAsSubdirName">是否使用日期作为子文件夹的名称。默认值是true。</param>
+            <returns>“标准格式”副本的路径。</returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.CreateStandardSyntaxFile(System.String,System.String)">
+            <summary>
+            在指定的文件夹或其子文件夹中创建一个源文件的“标准格式”副本。
+            </summary>
+            <param name="sourceFilePath">源文件的路径。</param>
+            <param name="targetDirPath">目标文件夹的路径。</param>
+            <returns>“标准格式”副本的路径。</returns>
+        </member>
+        <member name="F:AKRS.WM.WMI._referencePointCoordinates">
+            <summary>
+            参考点的坐标。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.Initialize(AKRS.WM.WaferMapSettingControl,AKRS.WM.Ctrls.WaferMapControlUnit)">
+            <summary>
+            
+            </summary>
+            <param name="configDirPath"></param>
+            <param name="waferMapSettingControl"></param>
+            <param name="waferMapControlUnit"></param>
+        </member>
+        <member name="P:AKRS.WM.WMI.VerifyFileResult.AlreadyExists">
+            <summary>
+            仅当此属性的值是true，LatestDate属性的值才有意义。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.VerifyFile(System.String)">
+            <summary>
+            验证晶圆图文件。
+            </summary>
+            <param name="strSourcePath">文件路径。</param>
+            <returns>验证结果。</returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.LoadFile(System.String,System.String)">
+            <summary>
+            载入晶圆图文件。
+            </summary>
+            <param name="originalWaferMapFilePath">原始晶圆图文件的路径。</param>
+            <param name="searchDirPath">查找文件的目录。缺省值是空字符串。</param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="originalWaferMapFilePath"/>是空引用。</exception>
+            <exception cref="T:System.ArgumentException">参数<paramref name="originalWaferMapFilePath"/>是空字符串。</exception>
+            <exception cref="T:System.IO.FileNotFoundException">参数<paramref name="originalWaferMapFilePath"/>指定的文件不存在。</exception>
+        </member>
+        <member name="M:AKRS.WM.WMI.DownloadFileEx(System.String)">
+            <summary>
+            将指定的文件复制到“Download”文件夹中。
+            </summary>
+            <param name="sourceFilePath">源文件的路径。</param>
+            <returns>副本文件的路径。</returns>
+            <exception cref="T:System.Exception">操作失败。</exception>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetCopyOfReferencePoints">
+            <summary>
+            获取参考点列表的一个副本。
+            </summary>
+            <returns>返回的是一个副本。空数组表示没有参考点。</returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.ForwardToPosition(AKRS.WM.Position,System.Boolean)">
+            <summary>
+            将当前位置前进到指定的位置。
+            </summary>
+            <param name="position">指定目标晶片位置。</param>
+        </member>
+        <member name="M:AKRS.WM.WMI.StartAsyncSeekingPathBetweenTwoPoints(AKRS.WM.Position,AKRS.WM.Position)">
+            <summary>
+            开始2点之间的寻路。
+            </summary>
+            <param name="start">起点位置。</param>
+            <param name="target">目标位置。</param>
+        </member>
+        <member name="M:AKRS.WM.WMI.WaitForAsyncResultBetweenTwoPoints(System.Int32,AKRS.WM.SearchResult@)">
+            <summary>
+            仅适用于两点间的路径搜索。
+            等待搜索路径过程完成。
+            </summary>
+            <param name="timeoutMilliseconds">等待的超时时长。</param>
+            <param name="result">
+            用于返回等待成功的结果。
+            SearchResult.Found表示找到路径，调用GetAsyncResultBetweenTwoPoints方法可以获取整个路径。
+            </param>
+            <returns>true，搜索结束；false，等待超时。</returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetAllChipTypes(System.Boolean)">
+            <summary>
+            获取所有晶片类型。
+            </summary>
+            <param name="placeholderExcluded">排除PlaceHolder类型。</param>
+            <returns>元素是“类型：有效”对的字典。</returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetSelectedChipTypes(System.Int32)">
+            <summary>
+            获取指定Strategy的所有提取类型。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.WMI.FileLoaded">
+            <summary>
+            获取一个值，表示是否加载了晶圆图文件。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetAsyncResultBetweenTwoPoints">
+            <summary>
+            仅适用于两点间的路径搜索。
+            获取路径搜索的结果，即构成路径的所有位置的列表。
+            注意：此方法必须在WaitForAsyncResultBetweenTwoPoints方法成功调用后才有效；否则将返回null。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetNextPositionInfoAndForwardToBetweenTwoPoints">
+            <summary>
+            在晶圆图上前进到下一个位置，并返回该位置的信息。仅适用于两点间的路径搜索。
+            </summary>
+            <returns>下一个位置的信息。</returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetNextPositionInfoAndForwardToBetweenTwoPoints(System.Boolean)">
+            <summary>
+            在晶圆图上前进到下一个位置，并返回该位置的信息。仅适用于两点间的路径搜索。
+            </summary>
+            <returns>下一个位置的信息。</returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetPath(AKRS.WM.Position,AKRS.WM.Position,System.Int32,AKRS.WM.Position[]@)">
+            <summary>
+            获取两点之间的路径。
+            </summary>
+            <param name="startPoint">起点。</param>
+            <param name="targetPoint">目标。</param>
+            <param name="timeoutInterval">等待超时。</param>
+            <param name="path">用于返回路径。</param>
+            <returns>
+            true，表示寻路结束（若path是空引用，说明未找到路径或者出错了；若path是非空引用，说明找到路径，并且保存在path中） ；
+            false，表示超时。
+            </returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.SetPhysicalCoordinate(AKRS.WM.Position,System.Int32,System.Int32)">
+            <summary>
+            设置指点晶片的坐标。
+            </summary>
+            <param name="position"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="F:AKRS.WM.WMI._locatedChipCollection">
+            <summary>
+            用于附加寻路功能。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.SetPhysicalCoordinate(AKRS.WM.Position,System.Drawing.Point)">
+            <summary>
+            设置指定位置晶片的坐标。
+            </summary>
+            <param name="chipPosition">晶片的位置。</param>
+            <param name="physicalCoordinates">晶片的物理坐标。</param>
+            <returns>true，设置成功；false，设置失败。</returns>
+            <exception cref="T:AKRS.WM.InvalidParameterException">参数<paramref name="chipPosition"/>指定的位置超出了晶圆图范围。</exception>
+        </member>
+        <member name="P:AKRS.WM.WMI.ChipOffset">
+            <summary>
+            设置或获取晶片物理间距。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.SetPhysicalCoordinatesCalculator(AKRS.WM.IPhysicalCoordinatesCalculator)">
+            <summary>
+            设置物理坐标计算器。
+            </summary>
+            <param name="calculator"></param>
+        </member>
+        <member name="M:AKRS.WM.WMI.SetReferenceCoordinates(AKRS.WM.ReferencePoint,System.Drawing.Point)">
+            <summary>
+            设置参考点的坐标。
+            </summary>
+            <param name="referencePoint">参考点。</param>
+            <param name="physicalCoordinates">参考点的新的物理坐标。</param>
+        </member>
+        <member name="M:AKRS.WM.WMI.SetReferenceCoordinates(AKRS.WM.ReferencePoint,System.Int32,System.Int32)">
+            <summary>
+            设置参考点的坐标。
+            </summary>
+            <param name="referencePoint">参考点。</param>
+            <param name="xPhysicalCoordinate">参考点的新的物理坐标的X值。</param>
+            <param name="yPhysicalCoordinate">参考点的新的物理坐标的Y值。</param>
+        </member>
+        <member name="M:AKRS.WM.WMI.SwitchToFirstActiveAndUncompletedStrategy">
+            <summary>
+            切换到首个活动且未完成的strategy。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetCopyOfStrategies">
+            <summary>
+            获取Strategy列表的一个副本。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.WMI.CurrentStrategyIndex">
+            <summary>
+            获取当前strategy的index。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.FindNearestReferablePointEx(AKRS.WM.Position,AKRS.WM.ReferablePointType,System.Int32@,System.Int32@)">
+            <summary>
+            寻找相对“目标”直线距离最近且确实可达的可参考的点，可能是参考点，也可能是最近定位过的某一个点。
+            </summary>
+            <param name="target">指定目标。</param>
+            <param name="referablePointType"></param>
+            <param name="xReferablePoint">返回可参考的点的X坐标。</param>
+            <param name="yReferablePoint">返回可参考的点的Y坐标。</param>
+            <returns>返回满足条件的可参考的点的位置。</returns>
+            <exception cref="T:AKRS.WM.NotFoundException">不存在这样的点。</exception>
+        </member>
+        <member name="M:AKRS.WM.WMI.FindNearestReferablePointEx(AKRS.WM.Position,AKRS.WM.ReferablePointType,System.Int32@,System.Int32@,AKRS.WM.Position[]@)">
+            <summary>
+            寻找相对“目标”直线距离最近且确实可达的可参考的点，可能是参考点，也可能是最近定位过的某一个点。
+            </summary>
+            <param name="target">指定目标。</param>
+            <param name="referablePointType"></param>
+            <param name="xReferablePoint">返回可参考的点的X坐标。</param>
+            <param name="yReferablePoint">返回可参考的点的Y坐标。</param>
+            <param name="path">到目标的路径。</param>
+            <returns>返回满足条件的可参考的点的位置。</returns>
+            <exception cref="T:AKRS.WM.NotFoundException">不存在这样的点。</exception>
+        </member>
+        <member name="M:AKRS.WM.WMI.CheckPrepared(AKRS.WM.CheckPreparedResultDetail@)">
+            <summary>
+            检查是否准备就绪（包括参考点和方案的检查）。
+            </summary>
+            <returns>
+            OK，表示已经准备好了。
+            ReferencePointCountTooLess，表示参考点个数不足够, 参数<paramref name="detail"/>的ReferencePointCount属性返回当前参考点数量，MinReferencePointCount属性返回参考点数量的最小值；
+            ReferencePointNotLocated，表示某个参考点的坐标为设置，参数<paramref name="detail"/>的UnpreparedReferencePoint属性返回参考点的位置；
+            NoSelectedTypes，表示某个strategy没有设置提取类型，参数<paramref name="detail"/>的UnpreparedStrategyIndex属性返回该strategy的Index；
+            FirstPointNotSelectedType，表示某个strategy的第一点或当前点不是提取类型，参数<paramref name="detail"/>的UnpreparedStrategyIndex属性返回该strategy的Index；
+            NoneActiveStrategy，没有活动的strategy。
+            </returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.CheckReferencePointsPrepared(System.Int32@,AKRS.WM.Position@)">
+            <summary>
+            检查参考点是否准备就绪。
+            </summary>
+            <param name="minReferencePointCount">输出参数，返回参考点的最少个数。</param>
+            <param name="unpreparedReferencePointPosition">输出参数，ReferencePointNotLocated时有意义。</param>
+            <returns>
+            ReferencePointCountTooLess，表示参考点个数不足够；
+            ReferencePointNotLocated，表示某个参考点的坐标为设置，参考点的位置由参数<paramref name="unpreparedReferencePointPosition"/>返回；
+            OK，表示参考点准备就绪。
+            </returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.CheckAllStrategiesPrepared(System.Int32@)">
+            <summary>
+            判断是否所有Strategy都准备就绪。
+            </summary>
+            <param name="unpreparedStrategyIndex">输出参数，StartPositionNotSignificativeType时有意义。</param>
+            <returns>
+            NoSelectedTypes，表示某个strategy未准备就绪；
+            FirstPointNotSelectedType，表示某个strategy的第一点不是提取类型；
+            NoneActiveStrategy，没有活动的strategy;
+            OK，表示所有strategy都准备就绪。
+            </returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.CheckStrategyPrepared(System.Int32,System.Boolean@,System.Boolean@)">
+            <summary>
+            判断指定的Strategy是否准备就绪。
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="active">用于返回指定的strategy是否启用。</param>
+            <returns>
+            NoSelectedTypes，表示strategy没有指定的提取类型。
+            FirstPointNotSelectedType，表示第一点的类型不是提取类型。
+            OK，表示strategy准备就绪。
+            </returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.StartAsyncSeekingPath(System.Boolean,AKRS.WM.Direction,AKRS.WM.ReferablePointType)">
+            <summary>
+            开始异步搜索路径。
+            </summary>
+            <param name="referablePointType"></param>
+            <param name="bReferencePointsExcluded">是否排除参考点。</param>
+            <param name="minorDirection"></param>
+        </member>
+        <member name="M:AKRS.WM.WMI.StartAsyncSeekingPath_New(System.Boolean,AKRS.WM.Direction,AKRS.WM.ReferablePointType)">
+            <summary>
+            开始全新的搜索过程。
+            </summary>
+            <param name="referablePointType"></param>
+            <param name="bReferenceExcluded"></param>
+            <param name="minorDirection"></param>
+        </member>
+        <member name="M:AKRS.WM.WMI.StartAsyncSeekingPath_Continue(System.Boolean)">
+            <summary>
+            从之前中断时的目标和方向开始搜索过程。
+            </summary>
+            <param name="bReferenceExcluded"></param>
+        </member>
+        <member name="M:AKRS.WM.WMI.StopAsyncSeekingPath">
+            <summary>
+            停止由StartAsyncSeekingPath开启的寻路。
+            此方法调用返回，表示异步寻路线程已经退出。
+            </summary>
+            <exception cref="T:AKRS.WM.InvalidInvocationException">未开始寻路。</exception>
+        </member>
+        <member name="M:AKRS.WM.WMI.SaveFile">
+            <summary>
+            保存晶圆图到文件中。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetNextPositionInfoAndForwardTo">
+            <summary>
+            在晶圆图上前进到下一个位置，并且返回该位置的信息。
+            </summary>
+            <returns>下一个位置的信息。</returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetNextPositionInfoAndForwardTo(AKRS.WM.Position@)">
+            <summary>
+            在晶圆图上前进到下一个位置，并且返回该位置的信息。
+            </summary>
+            <param name="targetPosition">返回目标位置。</param>
+            <returns>下一个位置的信息。</returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetNextPositionInfo">
+            <summary>
+            获取下一个位置的信息。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetNextPositionInfo(AKRS.WM.Position@)">
+            <summary>
+            获取下一个位置的信息。
+            </summary>
+            <param name="targetPosition">返回目标位置。</param>
+            <returns></returns>
+            <exception cref="T:AKRS.WM.UnapproachableChipException">晶片不可达。</exception>
+        </member>
+        <member name="M:AKRS.WM.WMI.SwitchToNextStrategy(AKRS.WM.ReferablePointType)">
+            <summary>
+            
+            </summary>
+            <param name="referablePointType"></param>
+            <returns>true，表示切换成功；false，表示没有下一个了。</returns>
+            <exception cref="T:AKRS.WM.FirstPointException">当前Strategy的第一点晶片类型不正确。</exception>
+        </member>
+        <member name="M:AKRS.WM.WMI.F(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.Info@)">
+            <summary>
+            尝试补救，即附加寻路功能。
+            </summary>
+            <param name="startChipPosition"></param>
+            <param name="targetChipPosition"></param>
+            <param name="info"></param>
+            <returns>true，成功；false，失败。</returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.StartAsyncSeekingPath_Addition(AKRS.WM.Position,AKRS.WM.Position,System.Boolean)">
+            <summary>
+            由附加寻路功能所使用。
+            </summary>
+            <param name="initialPoint"></param>
+            <param name="firstPoint"></param>
+            <param name="bReferenceExcluded"></param>
+        </member>
+        <member name="M:AKRS.WM.WMI.SetChipType(AKRS.WM.Position)">
+            <summary>
+            设置晶片为空。
+            </summary>
+            <param name="chipPosition"></param>
+        </member>
+        <member name="M:AKRS.WM.WMI.SetChipType(AKRS.WM.Position,AKRS.WM.ChipType)">
+            <summary>
+            设置晶片类型。
+            </summary>
+            <param name="chipPosition"></param>
+            <param name="chipType"></param>
+        </member>
+        <member name="M:AKRS.WM.WMI.SetChipType(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj">必须是SetChipTypeArgs类型。</param>
+        </member>
+        <member name="M:AKRS.WM.WMI.StepForward(AKRS.WM.Direction)">
+            <summary>
+            向指定的方向前进一格。
+            </summary>
+            <param name="direction">指定方向。</param>
+        </member>
+        <member name="M:AKRS.WM.WMI.StepForward(AKRS.WM.Direction,System.Int32)">
+            <summary>
+            向指定的方向前进指定的格数。
+            </summary>
+            <param name="direction">指定方向。</param>
+            <param name="stepCount">指定格数，值必须是正整数。</param>
+            <exception cref="T:System.ArgumentException">参数<paramref name="direction"/>的值是Unknown。</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">参数<paramref name="stepCount"/>的值不是正整数。</exception>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetReferenceCoordinates(AKRS.WM.Position)">
+            <summary>
+            获取参考点的坐标。
+            </summary>
+            <param name="referencePointPosition"></param>
+            <returns></returns>
+            <exception cref="T:AKRS.WM.NotFoundException">the specified reference point hasn't been located.</exception>
+            <exception cref="T:AKRS.WM.InvalidParameterException">the parameter is not a member of the reference point list.</exception>
+        </member>
+        <member name="M:AKRS.WM.WMI.HasAllReferenceLocated">
+            <summary>
+            判断是否所有参考点都已经设置了坐标。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.WMI.CurrentPoint">
+            <summary>
+            获取或设置当前点的位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WMI.SyncUpdateUI">
+            <summary>
+            获取一个值，指明是否同步更新UI。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.LoadLastWaferMapFile">
+            <summary>
+            载入 上次载入的 晶圆图文件。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.SetWaferMapFileLoadedEventHandler(System.EventHandler{AKRS.WM.WaferMapFileLoadedEventArgs})">
+            <summary>
+            设置晶圆图文件载入后的事件处理器。
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <member name="M:AKRS.WM.WMI.SetWaferMapRotatedEventHandler(System.EventHandler{AKRS.WM.WaferMapRotatedEventArgs})">
+            <summary>
+            设置旋转后的事件处理器。
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <member name="P:AKRS.WM.WMI.WaferMapDir">
+            <summary>
+            设置或获取晶圆图文件的目录。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.SaveFile(System.String)">
+            <summary>
+            保存晶圆图到指定的文件中。
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:AKRS.WM.WMI.AsyncSaveFile(System.String)">
+            <summary>
+            【异步】将晶圆图保存到指定的文件中。
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:AKRS.WM.WMI.AsyncSaveFile">
+            <summary>
+            【异步】将晶圆图保存到文件中。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetSelectedTypes">
+            <summary>
+            获取当前Strategy的提取类型集。获得的是一个副本。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.WMI.CurrentPosition">
+            <summary>
+            获取或设置当前点的位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WMI.FirstPoint">
+            <summary>
+            获取当前Strategy的第一点的位置。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetFirstPoint(System.Int32)">
+            <summary>
+            获取指定strategy的第一点。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetWaferCenterPosition">
+            <summary>
+            获取晶圆图上中心晶片的位置。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WMI.OpenStandardSyntaxFile(System.String)">
+            <summary>
+            打开标准格式的晶圆图文件。
+            </summary>
+            <param name="standardSyntaxFilePath">标准格式的晶圆图文件的路径。</param>
+            <exception cref="T:System.Exception">有异常发生，具体请查看InnerException属性。</exception>
+        </member>
+        <member name="M:AKRS.WM.WMI.GetRotation">
+            <summary>
+            根据用户的设置获取晶圆图需要的旋转值。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.SeekingPathOptions.ReferenceExcluded">
+            <summary>
+            排除参考点。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.SeekingPathOptions.ClearLocatedChipCollection">
+            <summary>
+            清空LocatedChipCollection。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SetRefPointDialogBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.SetRefPointDialogBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.SetRefPointDialogBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.SettingConfig.CreateAnEmptyFile">
+            <summary>
+            创建一个空的配置文件。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.SettingConfig.MinReferencePointCount">
+            <summary>
+            获取或设置参考点的数量的最小值。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.SettingConfig.PrintDetailedPath">
+            <summary>
+            打印详细路径。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.SettingConfig.PrintPositionAndCoordinates">
+            <summary>
+            打印晶片的位置和坐标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingConfig._defaultSubstitution">
+            <summary>
+            Default substitution for nested null chips.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingConfig._bShowChipTypeIntegerValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingConfig._userCoordinateSystemTypeValue">
+            <summary>
+            用户坐标系的类型值。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingConfig._bRulerVisible">
+            <summary>
+            标尺的可见性。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingConfig._bCheckNestedNullChips">
+            <summary>
+            检查内嵌的null类型的晶片。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingConfig._bWaferBoundaryVisible">
+            <summary>
+            晶圆边缘的可见性。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingConfig._bChipAppearAsSquare">
+            <summary>
+            将晶片显示成正方形。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingConfig._bLoadUpdatesDirFileFirst">
+            <summary>
+            当遇到同名文件时，优先载入Updates目录中的文件。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingConfig._bPrintPositionAndCoordinates">
+            <summary>
+            在自动寻路时打印出晶片的位置和坐标。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapForm.InitializeControlsEnabler(AKRS.AccessControl.Interface.IControlsEnabler)">
+            <summary>
+            
+            </summary>
+            <param name="controlsEnabler">缺省值是null。</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapForm.Initialize(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userDefinedFormName">nullable.</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapForm.LoadLastWaferMapFile">
+            <summary>
+            载入 上次载入的 晶圆图文件。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapForm.OpenStandardSyntaxFile(System.String)">
+            <summary>
+            打开标准格式的晶圆图文件。
+            </summary>
+            <param name="standardSyntaxFilePath">标准格式的晶圆图文件的路径。</param>
+            <exception cref="T:System.Exception">有异常发生，具体请查看InnerException属性。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapForm.GetRotation">
+            <summary>
+            根据用户的设置获取晶圆图需要的旋转值。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapForm.SetCurrentChip(AKRS.WM.Position)">
+            <summary>
+            设置当前晶片的位置。
+            </summary>
+            <param name="pos"></param>
+        </member>
+        <member name="P:AKRS.WM.WaferMapForm.WaferMapSettingControl">
+            <summary>
+             获取此窗体中的WaferMapSettingControl控件的引用。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapForm.WaferMapControlUnit">
+            <summary>
+            获取此窗体中的WaferMapControlUnit控件的引用。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.WaferMapForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.Fun">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.WaferMapInterfaceImplementer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.#ctor(AKRS.AccessControl.Interface.IControlsEnabler)">
+            <summary>
+            
+            </summary>
+            <param name="controlsEnabler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.CreateForm(System.String,System.String)">
+            <summary>
+            创建窗口。
+            </summary>
+            <param name="formTitle"></param>
+            <param name="configDirPath"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.CloseForm">
+            <summary>
+            关闭窗口。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapInterfaceImplementer.ChipOffset">
+            <summary>
+            设置或获取晶片间距。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetPhysicalCoordinatesCalculator(AKRS.WM.IPhysicalCoordinatesCalculator)">
+            <summary>
+            设置物理坐标计算器。
+            </summary>
+            <param name="calculator"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetSelectedTypes">
+            <summary>
+            获取当前Strategy的提取类型集。获得的是一个副本。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.WaferMapInterfaceImplementer.CurrentPosition">
+            <summary>
+            获取或设置当前点的位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapInterfaceImplementer.FirstPoint">
+            <summary>
+            获取当前Strategy的第一点的位置。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetFirstPoint(System.Int32)">
+            <summary>
+            获取指定strategy的第一点。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.WaferMapInterfaceImplementer.CurrentStrategyIndex">
+            <summary>
+            获取当前strategy的index。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SwitchToFirstActiveAndUncompletedStrategy">
+            <summary>
+            切换到首个活动且未完成的strategy。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapInterfaceImplementer.FileLoaded">
+            <summary>
+            获取一个值，表示是否加载了晶圆图文件。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetWaferCenterPosition">
+            <summary>
+            获取晶圆图上中心晶片的位置。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetCurrentChip(AKRS.WM.Position)">
+            <summary>
+            设置当前晶片的位置。
+            </summary>
+            <param name="pos"></param>
+        </member>
+        <member name="P:AKRS.WM.WaferMapInterfaceImplementer.WaferMapData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetCallbackRoutine(AKRS.WM.Fun)">
+            <summary>
+            
+            </summary>
+            <param name="routine"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SaveFile(System.String)">
+            <summary>
+            保存晶圆图到指定的文件中。
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SaveFile">
+            <summary>
+            保存晶圆图到文件中。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.AsyncSaveFile(System.String)">
+            <summary>
+            【异步】将晶圆图保存到指定的文件中。
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.AsyncSaveFile">
+            <summary>
+            【异步】将晶圆图保存到文件中。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.IsVisible">
+            <summary>
+            判断窗口是否可见。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.Show">
+            <summary>
+            显示窗口。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.Hide">
+            <summary>
+            隐藏窗口。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.Close">
+            <summary>
+            关闭窗口。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.Lock">
+            <summary>
+            锁住窗口。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.Unlock">
+            <summary>
+            解锁窗口。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetPhysicalCoordinate(AKRS.WM.Position,System.Int32,System.Int32)">
+            <summary>
+            设置指点晶片的坐标。
+            </summary>
+            <param name="position"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetPhysicalCoordinate(AKRS.WM.Position,System.Drawing.Point)">
+            <summary>
+            设置指定位置晶片的坐标。
+            </summary>
+            <param name="position">晶片的位置。</param>
+            <param name="coordinates">晶片的坐标。</param>
+            <returns>true，设置成功；false，设置失败。</returns>
+            <exception cref="T:AKRS.WM.InvalidParameterException">参数<paramref name="position"/>指定的位置超出了晶圆图范围。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetChipType(AKRS.WM.Position)">
+            <summary>
+            设置晶片为空。
+            </summary>
+            <param name="chipPosition"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetChipType(AKRS.WM.Position,AKRS.WM.ChipType)">
+            <summary>
+            设置晶片类型。
+            </summary>
+            <param name="chipPosition"></param>
+            <param name="chipType"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetChipType(AKRS.WM.Position)">
+            <summary>
+            
+            </summary>
+            <param name="chipPosition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetRefList">
+            <summary>
+            获取参考点列表。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetCopyOfReferencePoints">
+            <summary>
+            获取参考点列表的一个副本。
+            </summary>
+            <returns>返回的是一个副本。空数组表示没有参考点。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetCopyOfStrategies">
+            <summary>
+            获取Strategy列表的一个副本。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetNextPositionInfoAndForwardTo">
+            <summary>
+            在晶圆图上前进到下一个位置，并且返回该位置的信息。
+            </summary>
+            <returns>下一个位置的信息。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetNextPositionInfoAndForwardTo(AKRS.WM.Position@)">
+            <summary>
+            在晶圆图上前进到下一个位置，并且返回该位置的信息。
+            </summary>
+            <param name="targetPosition">返回目标位置。</param>
+            <returns>下一个位置的信息。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetNextPositionInfo">
+            <summary>
+            获取下一个位置的信息。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetNextPositionInfo(AKRS.WM.Position@)">
+            <summary>
+            获取下一个位置的信息。
+            </summary>
+            <param name="targetPosition">返回目标位置。</param>
+            <returns></returns>
+            <exception cref="T:AKRS.WM.UnapproachableChipException">晶片不可达。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.PreGetNextPositionInfo">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.ForwardToPosition(AKRS.WM.Position,System.Boolean)">
+            <summary>
+            将当前位置前进到指定的位置。
+            </summary>
+            <param name="position">指定目标晶片位置。</param>
+            <param name="bChangeStrategyCurrentPoint"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.ForwardToPosition(AKRS.WM.Position)">
+            <summary>
+            
+            </summary>
+            <param name="position"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.CheckPrepared(AKRS.WM.CheckPreparedResultDetail@)">
+            <summary>
+            检查是否准备就绪（包括参考点和方案的检查）。
+            </summary>
+            <returns>
+            OK，表示已经准备好了。
+            ReferencePointCountTooLess，表示参考点个数不足够, 参数<paramref name="detail"/>的ReferencePointCount属性返回当前参考点数量，MinReferencePointCount属性返回参考点数量的最小值；
+            ReferencePointNotLocated，表示某个参考点的坐标为设置，参数<paramref name="detail"/>的UnpreparedReferencePoint属性返回参考点的位置；
+            NoSelectedTypes，表示某个strategy没有设置提取类型，参数<paramref name="detail"/>的UnpreparedStrategyIndex属性返回该strategy的Index；
+            FirstPointNotSelectedType，表示某个strategy的第一点或当前点不是提取类型，参数<paramref name="detail"/>的UnpreparedStrategyIndex属性返回该strategy的Index；
+            NoneActiveStrategy，没有活动的strategy。
+            </returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.CheckReferencePointsPrepared(System.Int32@,AKRS.WM.Position@)">
+            <summary>
+            检查参考点是否准备就绪。
+            </summary>
+            <param name="minReferencePointCount">输出参数，返回参考点的最少个数。</param>
+            <param name="unpreparedReferencePointPosition">输出参数，ReferencePointNotLocated时有意义。</param>
+            <returns>
+            ReferencePointCountTooLess，表示参考点个数不足够；
+            ReferencePointNotLocated，表示某个参考点的坐标为设置，参考点的位置由参数<paramref name="unpreparedReferencePointPosition"/>返回；
+            OK，表示参考点准备就绪。
+            </returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.CheckAllStrategiesPrepared(System.Int32@)">
+            <summary>
+            判断是否所有Strategy都准备就绪。
+            </summary>
+            <param name="unpreparedStrategyIndex">输出参数，StartPositionNotSignificativeType时有意义。</param>
+            <returns>
+            NoSelectedTypes，表示某个strategy未准备就绪；
+            FirstPointNotSelectedType，表示某个strategy的第一点不是提取类型；
+            NoneActiveStrategy，没有活动的strategy;
+            OK，表示所有strategy都准备就绪。
+            </returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.FindNearestReferablePointEx(AKRS.WM.Position,AKRS.WM.ReferablePointType,System.Int32@,System.Int32@)">
+            <summary>
+            寻找相对“目标”直线距离最近且确实可达的可参考的点，可能是参考点，也可能是最近定位过的某一个点。
+            </summary>
+            <param name="target">指定目标。</param>
+            <param name="referablePointType"></param>
+            <param name="xReferablePoint">返回可参考的点的X坐标。</param>
+            <param name="yReferablePoint">返回可参考的点的Y坐标。</param>
+            <returns>返回满足条件的可参考的点的位置。</returns>
+            <exception cref="T:AKRS.WM.NotFoundException">不存在这样的点。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.FindNearestReferablePointEx(AKRS.WM.Position,System.Int32@,System.Int32@)">
+            <summary>
+            寻找相对“目标”直线距离最近且确实可达的可参考的点，可能是参考点，也可能是最近定位过的某一个点。
+            </summary>
+            <param name="target">指定目标。</param>
+            <param name="xReferablePoint">返回可参考的点的X坐标。</param>
+            <param name="yReferablePoint">返回可参考的点的Y坐标。</param>
+            <returns>返回满足条件的可参考的点的位置。</returns>
+            <exception cref="T:AKRS.WM.NotFoundException">不存在这样的点。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.FindNearestReferablePointEx(AKRS.WM.Position,AKRS.WM.ReferablePointType,System.Int32@,System.Int32@,AKRS.WM.Position[]@)">
+            <summary>
+            寻找相对“目标”直线距离最近且确实可达的可参考的点，可能是参考点，也可能是最近定位过的某一个点。
+            </summary>
+            <param name="target">指定目标。</param>
+            <param name="referablePointType"></param>
+            <param name="xReferablePoint">返回可参考的点的X坐标。</param>
+            <param name="yReferablePoint">返回可参考的点的Y坐标。</param>
+            <param name="path">到目标的路径。</param>
+            <returns>返回满足条件的可参考的点的位置。</returns>
+            <exception cref="T:AKRS.WM.NotFoundException">不存在这样的点。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.FindNearestReferablePointEx(AKRS.WM.Position,System.Int32@,System.Int32@,AKRS.WM.Position[]@)">
+            <summary>
+            寻找相对“目标”直线距离最近且确实可达的可参考的点，可能是参考点，也可能是最近定位过的某一个点。
+            </summary>
+            <param name="target">指定目标。</param>
+            <param name="xReferablePoint">返回可参考的点的X坐标。</param>
+            <param name="yReferablePoint">返回可参考的点的Y坐标。</param>
+            <param name="path">到目标的路径。</param>
+            <returns>返回满足条件的可参考的点的位置。</returns>
+            <exception cref="T:AKRS.WM.NotFoundException">不存在这样的点。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.StartAsyncSeekingPath(System.Boolean,AKRS.WM.Direction,AKRS.WM.ReferablePointType)">
+            <summary>
+            开始异步搜索路径。
+            </summary>
+            <param name="referablePointType"></param>
+            <param name="bReferencePointsExcluded">是否排除参考点。</param>
+            <param name="minorDirection"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.StartAsyncSeekingPath_New(System.Boolean,AKRS.WM.Direction,AKRS.WM.ReferablePointType)">
+            <summary>
+            开始全新的搜索过程。
+            </summary>
+            <param name="referablePointType"></param>
+            <param name="bReferenceExcluded"></param>
+            <param name="minorDirection"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.StopAsyncSeekingPath">
+            <summary>
+            停止由StartAsyncSeekingPath开启的寻路。
+            此方法调用返回，表示异步寻路线程已经退出。
+            </summary>
+            <exception cref="T:AKRS.WM.InvalidInvocationException">未开始寻路。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.StartAsyncSeekingPathBetweenTwoPoints(AKRS.WM.Position,AKRS.WM.Position)">
+            <summary>
+            开始2点之间的寻路。
+            </summary>
+            <param name="start">起点位置。</param>
+            <param name="target">目标位置。</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.WaitForAsyncResultBetweenTwoPoints(System.Int32,AKRS.WM.SearchResult@)">
+            <summary>
+            仅适用于两点间的路径搜索。
+            等待搜索路径过程完成。
+            </summary>
+            <param name="timeoutMilliseconds">等待的超时时长。</param>
+            <param name="result">
+            用于返回等待成功的结果。
+            SearchResult.Found表示找到路径，调用GetAsyncResultBetweenTwoPoints方法可以获取整个路径。
+            </param>
+            <returns>true，搜索结束；false，等待超时。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetAsyncResultBetweenTwoPoints">
+            <summary>
+            仅适用于两点间的路径搜索。
+            获取路径搜索的结果，即构成路径的所有位置的列表。
+            注意：此方法必须在WaitForAsyncResultBetweenTwoPoints方法成功调用后才有效；否则将返回null。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetNextPositionAndForwardToBetweenTwoPoints">
+            <summary>
+            在晶圆图上前进到下一个位置，并返回该位置的信息。仅适用于两点间的路径搜索。
+            </summary>
+            <returns>下一个位置的信息。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetNextPositionInfoAndForwardToBetweenTwoPoints">
+            <summary>
+            在晶圆图上前进到下一个位置，并返回该位置的信息。仅适用于两点间的路径搜索。
+            </summary>
+            <returns>下一个位置的信息。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetNextPositionInfoAndForwardToBetweenTwoPoints(System.Boolean)">
+            <summary>
+            在晶圆图上前进到下一个位置，并返回该位置的信息。仅适用于两点间的路径搜索。
+            </summary>
+            <returns>下一个位置的信息。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetPath(AKRS.WM.Position,AKRS.WM.Position,System.Int32,AKRS.WM.Position[]@)">
+            <summary>
+            获取两点之间的路径。
+            </summary>
+            <param name="startPoint">起点。</param>
+            <param name="targetPoint">目标。</param>
+            <param name="timeoutInterval">等待超时。</param>
+            <param name="path">用于返回路径。</param>
+            <returns>true，获取成功；false，超时。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetReferenceCoordinates(AKRS.WM.ReferencePoint,System.Int32,System.Int32)">
+            <summary>
+            设置参考点的坐标。
+            </summary>
+            <param name="refPt"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetReferenceCoordinates(AKRS.WM.ReferencePoint,System.Drawing.Point)">
+            <summary>
+            设置参考点的坐标。
+            </summary>
+            <param name="referencePoint"></param>
+            <param name="pt"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetReferenceCoordinates(AKRS.WM.Position)">
+            <summary>
+            获取参考点的坐标。
+            </summary>
+            <param name="referencePointPosition"></param>
+            <returns></returns>
+            <exception cref="T:AKRS.WM.NotFoundException">the specified reference point hasn't been located.</exception>
+            <exception cref="T:AKRS.WM.InvalidParameterException">the parameter is not a member of the reference point list.</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.HasAllReferenceLocated">
+            <summary>
+            判断是否所有参考点都已经设置了坐标。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.StepForward(AKRS.WM.Direction)">
+            <summary>
+            向指定的方向前进一格。
+            </summary>
+            <param name="direction">指定方向。</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.StepForward(AKRS.WM.Direction,System.Int32)">
+            <summary>
+            向指定的方向前进指定的格数。
+            </summary>
+            <param name="direction">指定方向。</param>
+            <param name="stepCount">指定格数，值必须是正整数。</param>
+            <exception cref="T:System.ArgumentException">参数<paramref name="direction"/>的值是Unknown。</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">参数<paramref name="stepCount"/>的值不是正整数。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetCandidatePosition(AKRS.WM.Position)">
+            <summary>
+            设置候选点的位置。
+            </summary>
+            <param name="position"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetCursorPosition(AKRS.WM.Position)">
+            <summary>
+            设置光标点的位置。
+            </summary>
+            <param name="position"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetWaferMapFileLoadedEventHandler(System.EventHandler{AKRS.WM.WaferMapFileLoadedEventArgs})">
+            <summary>
+            设置晶圆图文件载入后的事件处理器。
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetWaferMapRotatedEventHandler(System.EventHandler{AKRS.WM.WaferMapRotatedEventArgs})">
+            <summary>
+            设置旋转后的事件处理器。
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.OpenFile(System.String)">
+            <summary>
+            打开指定的晶圆图文件。
+            </summary>
+            <param name="waferMapFilePath">晶圆图文件路径。</param>
+        </member>
+        <member name="P:AKRS.WM.WaferMapInterfaceImplementer.WaferMapDir">
+            <summary>
+            设置或获取晶圆图文件的目录。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.RegisterWaferMapControlUnit(AKRS.WM.Ctrls.WaferMapControlUnit)">
+            <summary>
+            将waferMapControlUnit与此对象关联起来。
+            </summary>
+            <param name="waferMapControlUnit"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetAllChipTypes(System.Boolean)">
+            <summary>
+            获取所有晶片类型。
+            </summary>
+            <param name="placeholderExcluded">排除PlaceHolder类型。</param>
+            <returns>元素是“类型：有效”对的字典。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.RegisterEventHandler(System.EventHandler{AKRS.WM.WaferMapFileLoadedEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.UnregisterEventHandler(System.EventHandler{AKRS.WM.WaferMapFileLoadedEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetValidChipTypes">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.RegisterEventHandler(System.EventHandler{AKRS.WM.ValidChipTypeCollectionChangedEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.UnregisterEventHandler(System.EventHandler{AKRS.WM.ValidChipTypeCollectionChangedEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetStrategyCount">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetSelectedChipTypes(System.Int32)">
+            <summary>
+            获取指定Strategy的所有提取类型。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetCurrentStrategyIndex">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.RegisterEventHandler(System.EventHandler{AKRS.WM.CurrentStrategyIndexEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.UnregisterEventHandler(System.EventHandler{AKRS.WM.CurrentStrategyIndexEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetCopyOfStrategy(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.RegisterEventHandler(System.EventHandler{AKRS.WM.StrategyContentChangedEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.UnregisterEventHandler(System.EventHandler{AKRS.WM.StrategyContentChangedEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetChipCount(AKRS.WM.ChipType)">
+            <summary>
+            
+            </summary>
+            <param name="chipType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetChipOrignalCount(AKRS.WM.ChipType)">
+            <summary>
+            
+            </summary>
+            <param name="chipType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.RegisterEventHandler(System.EventHandler{AKRS.WM.ChipTypeChangedEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.UnregisterEventHandler(System.EventHandler{AKRS.WM.ChipTypeChangedEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.IsPlaceHolder(AKRS.WM.ChipType)">
+            <summary>
+            
+            </summary>
+            <param name="chipType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.IsEmpty(AKRS.WM.ChipType)">
+            <summary>
+            
+            </summary>
+            <param name="chipType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.RegisterEventHandler(System.EventHandler{AKRS.WM.WaferMapRotatedEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.UnregisterEventHandler(System.EventHandler{AKRS.WM.WaferMapRotatedEventArgs})">
+            <summary>
+            
+            </summary>
+            <param name="eventHandler"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetWaferMapDegree">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.GetStripDirection(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="strip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetStrategyTrackStatus(System.Int32,AKRS.WM.Position,AKRS.WM.Direction)">
+            <summary>
+            
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="currentStartPoint"></param>
+            <param name="currentMinorDirection"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.SetStrategyTrackStatus_Rollback(System.Int32,AKRS.WM.Position,AKRS.WM.Direction)">
+            <summary>
+            
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="currentStartPoint"></param>
+            <param name="currentMinorDirection"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapInterfaceImplementer.PositionToCoordinates(AKRS.WM.Position,System.Int32@,System.Int32@)">
+            <summary>
+            
+            </summary>
+            <param name="position"></param>
+            <param name="iHorizontalCoordinate"></param>
+            <param name="iVerticalCoordinate"></param>
+        </member>
+    </members>
+</doc>

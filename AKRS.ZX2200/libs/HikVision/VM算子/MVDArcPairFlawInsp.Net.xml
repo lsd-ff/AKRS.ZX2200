@@ -1,0 +1,349 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MVDArcPairFlawInsp.Net</name>
+    </assembly>
+    <members>
+        <member name="T:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInfo">
+            <summary>
+            缺陷信息
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInfo.FlawBox">
+            <summary>
+            缺陷包围框
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInfo.FlawArea">
+            <summary>
+            缺陷/间隔面积
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInfo.FlawSize">
+            <summary>
+            缺陷长度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInfo.FlawType">
+            <summary>
+            缺陷类型
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInfo.CaliperStartIndex">
+            <summary>
+            缺陷卡尺起始索引
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInfo.CaliperEndIndex">
+            <summary>
+            缺陷卡尺终止索引
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspBasicParam">
+            <summary>
+            圆弧对缺陷检测基本参数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspBasicParam.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspBasicParam.Traj0Arc">
+            <summary>
+            拟合圆弧0
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspBasicParam.Traj1Arc">
+            <summary>
+            拟合圆弧1
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspBasicParam.ArcFlag">
+            <summary>
+            拟合圆弧标志位
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspBasicParam.ShowEdgeMidPointStatus">
+            <summary>
+            边缘对查找结果是否输出边缘对中点的状态，为true表示正常输出，可获取边缘中点；为false，获取边缘中点个数为0，默认false
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult">
+            <summary>
+            圆弧对缺陷检测结果
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.FlawInfoList">
+            <summary>
+            缺陷信息列表
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.CaliperBoxList">
+            <summary>
+            圆弧对检测的卡尺Box列表
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.InnerArcList">
+            <summary>
+            拟合圆弧列表
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.Edge0PointList">
+            <summary>
+            边缘0信息列表
+            </summary>
+            <remarks>T1 点坐标, T2 点状态</remarks>
+            <remarks>点状态: 0正常, 1缺陷</remarks>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.Edge1PointList">
+            <summary>
+            边缘1信息列表
+            </summary>
+            <remarks>T1 点坐标, T2 点状态</remarks>
+            <remarks>点状态: 0正常, 1缺陷</remarks>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.MinWidth">
+            <summary>
+            最小宽度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.MaxWidth">
+            <summary>
+            最大宽度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.AverageWidth">
+            <summary>
+            平均宽度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.ApproximateArea">
+            <summary>
+            近似面积
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.MinWidthEdgePair">
+            <summary>
+            最小宽度对应的边缘对信息
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.MaxWidthEdgePair">
+            <summary>
+            最大宽度对应的边缘对信息
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspResult.EdgeMidPointList">
+            <summary>
+            边缘对中心点集
+            </summary>
+            <remarks>T1 点坐标, T2 点状态</remarks>
+            <remarks>点状态: 0正常, 1缺陷</remarks>
+        </member>
+        <member name="T:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool">
+            <summary>
+            圆弧对缺陷检测Tool
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.Finalize">
+            <summary>
+            终结器
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.GetRunParam(System.String,System.String@)">
+            <summary>
+            获取单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.SetRunParam(System.String,System.String)">
+            <summary>
+            设置单个运行参数
+            </summary>
+            <param name="strKeyName">运行参数名</param>
+            <param name="strValue">运行参数值</param>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.SaveConfiguration(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            保存运行参数
+            </summary>
+            <param name="arrFileBuf">要保存运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+            <param name="nConfigDataLen">buffer实际的大小</param>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.LoadConfiguration(System.Byte[],System.UInt32)">
+            <summary>
+            加载运行参数
+            </summary>
+            <param name="arrFileBuf">导入的运行参数的buffer</param>
+            <param name="nConfigDataSize">buffer的大小</param>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.Run">
+            <summary>
+            执行检测
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.GetAlgRunTime">
+            <summary>
+            获取运行时间
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.Dispose(System.Boolean)">
+            <summary>
+            资源释放
+            </summary>
+            <param name="bDisposeStatus">释放托管和非托管资源标志</param>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.InputROI">
+            <summary>
+            ROI
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.InputImage">
+            <summary>
+            输入图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.MaskImage">
+            <summary>
+            掩膜图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.BasicParam">
+            <summary>
+            基本参数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CArcPairFlawInspTool.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.ArcPairFlawInsp.MVD_EDGEPOINT_POLARITY">
+            <summary>
+            边缘点极性
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcPairFlawInsp.MVD_EDGEPOINT_POLARITY.MVD_EDGE_POLARITY_DARK_TO_BRIGHT">
+            <summary>
+            白到黑，默认值
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcPairFlawInsp.MVD_EDGEPOINT_POLARITY.MVD_EDGE_POLARITY_BRIGHT_TO_DARK">
+            <summary>
+            黑到白
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcPairFlawInsp.MVD_EDGEPOINT_POLARITY.MVD_EDGE_POLARITY_BOTH">
+            <summary>
+            两者均有
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.ArcPairFlawInsp.MVD_EDGEPOINT_FIND_STATUS">
+            <summary>
+            边缘点查找状态
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcPairFlawInsp.MVD_EDGEPOINT_FIND_STATUS.MVD_EDGEPOINT_STATUS_USED">
+            <summary>
+            查找到并使用，默认值
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcPairFlawInsp.MVD_EDGEPOINT_FIND_STATUS.MVD_EDGEPOINT_STATUS_NO_USED">
+            <summary>
+            查找到并未使用
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcPairFlawInsp.MVD_EDGEPOINT_FIND_STATUS.MVD_EDGEPOINT_STATUS_NO_FIND">
+            <summary>
+            查找失败
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.ArcPairFlawInsp.CGeoWidthEdgePair">
+            <summary>
+            最大最小宽度对应的边缘对信息
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.ArcPairFlawInsp.CGeoWidthEdgePair.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CGeoWidthEdgePair.EdgePoint0">
+            <summary>
+            边缘点0
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CGeoWidthEdgePair.EdgePoint1">
+            <summary>
+            边缘点1
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CGeoWidthEdgePair.Score">
+            <summary>
+            边缘得分
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CGeoWidthEdgePair.Polarity0">
+            <summary>
+            边缘0极性
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CGeoWidthEdgePair.Polarity1">
+            <summary>
+            边缘1极性
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CGeoWidthEdgePair.Distance">
+            <summary>
+            边缘对距离
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.ArcPairFlawInsp.CGeoWidthEdgePair.Status">
+            <summary>
+            边缘点查找状态
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.ArcPairFlawInsp.MVD_ARC_PAIR_DETECT_TYPE">
+            <summary>
+            边缘对缺陷类型
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcPairFlawInsp.MVD_ARC_PAIR_DETECT_TYPE.MVD_ARC_PAIR_DEFECT_TYPE_NONE">
+            <summary>
+            非缺陷
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcPairFlawInsp.MVD_ARC_PAIR_DETECT_TYPE.MVD_ARC_PAIR_DEFECT_TYPE_FLAW">
+            <summary>
+            缺陷
+            </summary>
+        </member>
+        <member name="F:VisionDesigner.ArcPairFlawInsp.MVD_ARC_PAIR_DETECT_TYPE.MVD_ARC_PAIR_DEFECT_TYPE_GAP">
+            <summary>
+            断裂
+            </summary>
+        </member>
+    </members>
+</doc>

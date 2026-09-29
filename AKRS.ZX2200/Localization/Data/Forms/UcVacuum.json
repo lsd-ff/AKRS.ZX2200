@@ -1,0 +1,38 @@
+{
+    "labelControl2": {
+        "Chinese": "焊头吸附模拟量:",
+        "English": "BondheadAttachNozzleValue"
+    },
+    "labelControl1": {
+        "Chinese": "吸嘴真空模拟量:",
+        "English": "VacuumValue"
+    },
+    "BtnBondHeadVacuum": {
+        "Chinese": "开焊头吸附",
+        "English": "OpenBondheadVacuum"
+    },
+    "BtnNozzleVacuum": {
+        "Chinese": "开吸嘴真空",
+        "English": "OpenNozzleVacuum"
+    },
+    "BtnWeakBlow": {
+        "Chinese": "开吸嘴吹气",
+        "English": "OpenNozzleBlow"
+    },
+    "BtnIPTVacuum": {
+        "Chinese": "开中转台真空",
+        "English": "OpenIPTVacuum"
+    },
+    "BtnESVacuum": {
+        "Chinese": "开顶针真空",
+        "English": "OpenEjectionVacuum"
+    },
+    "BtnESBlow": {
+        "Chinese": "开顶针吹气",
+        "English": "OpenEjectionBlow"
+    },
+    "BtnFlipTableVacuum": {
+        "Chinese": "开翻转台真空",
+        "English": "OpenFlipTableVacuum"
+    }
+}

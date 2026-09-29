@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WaferMap>
+  <ChipColors>
+    <Color Char="!" Alpha="255" Red="138" Green="43" Blue="226" />
+    <Color Char="&quot;" Alpha="255" Red="85" Green="107" Blue="47" />
+    <Color Char="#" Alpha="255" Red="95" Green="158" Blue="160" />
+    <Color Char="$" Alpha="255" Red="64" Green="0" Blue="64" />
+    <Color Char="%" Alpha="255" Red="255" Green="192" Blue="203" />
+    <Color Char="&amp;" Alpha="255" Red="222" Green="184" Blue="135" />
+    <Color Char="'" Alpha="255" Red="165" Green="42" Blue="42" />
+    <Color Char="(" Alpha="255" Red="210" Green="105" Blue="30" />
+    <Color Char=")" Alpha="255" Red="184" Green="134" Blue="11" />
+    <Color Char="*" Alpha="255" Red="255" Green="128" Blue="255" />
+    <Color Char="+" Alpha="255" Red="0" Green="128" Blue="0" />
+    <Color Char="," Alpha="255" Red="65" Green="105" Blue="225" />
+    <Color Char="-" Alpha="255" Red="192" Green="192" Blue="192" />
+    <Color Char="." Alpha="255" Red="0" Green="0" Blue="255" />
+    <Color Char="/" Alpha="255" Red="65" Green="105" Blue="225" />
+    <Color Char="0" Alpha="255" Red="255" Green="0" Blue="0" />
+    <Color Char="1" Alpha="255" Red="0" Green="128" Blue="0" />
+    <Color Char="2" Alpha="255" Red="128" Green="255" Blue="0" />
+    <Color Char="3" Alpha="255" Red="255" Green="128" Blue="128" />
+    <Color Char="4" Alpha="255" Red="255" Green="192" Blue="203" />
+    <Color Char="5" Alpha="255" Red="222" Green="184" Blue="135" />
+    <Color Char="6" Alpha="255" Red="165" Green="42" Blue="42" />
+    <Color Char="7" Alpha="255" Red="128" Green="128" Blue="192" />
+    <Color Char="8" Alpha="255" Red="128" Green="0" Blue="128" />
+    <Color Char="9" Alpha="255" Red="192" Green="192" Blue="192" />
+    <Color Char=":" Alpha="255" Red="0" Green="0" Blue="128" />
+    <Color Char=";" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="&lt;" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="=" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="&gt;" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="?" Alpha="255" Red="128" Green="0" Blue="128" />
+    <Color Char="@" Alpha="255" Red="255" Green="0" Blue="0" />
+    <Color Char="A" Alpha="255" Red="64" Green="0" Blue="128" />
+    <Color Char="B" Alpha="255" Red="0" Green="255" Blue="255" />
+    <Color Char="C" Alpha="255" Red="255" Green="0" Blue="255" />
+    <Color Char="D" Alpha="255" Red="0" Green="128" Blue="192" />
+    <Color Char="E" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="F" Alpha="255" Red="0" Green="128" Blue="128" />
+    <Color Char="G" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="H" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="I" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="J" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="K" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="L" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="M" Alpha="255" Red="64" Green="128" Blue="128" />
+    <Color Char="N" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="O" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="P" Alpha="255" Red="0" Green="255" Blue="0" />
+    <Color Char="Q" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="R" Alpha="255" Red="255" Green="255" Blue="0" />
+    <Color Char="S" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="T" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="U" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="V" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="W" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="X" Alpha="255" Red="64" Green="0" Blue="128" />
+    <Color Char="Y" Alpha="255" Red="64" Green="0" Blue="128" />
+    <Color Char="Z" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="[" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="\" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="]" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="^" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="_" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char=" " Alpha="255" Red="255" Green="255" Blue="255" />
+    <Color Char="a" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="b" Alpha="255" Red="0" Green="128" Blue="255" />
+    <Color Char="c" Alpha="255" Red="255" Green="255" Blue="0" />
+    <Color Char="d" Alpha="255" Red="255" Green="128" Blue="192" />
+    <Color Char="e" Alpha="255" Red="0" Green="128" Blue="0" />
+    <Color Char="f" Alpha="255" Red="255" Green="128" Blue="64" />
+    <Color Char="g" Alpha="255" Red="128" Green="0" Blue="64" />
+    <Color Char="h" Alpha="255" Red="0" Green="0" Blue="255" />
+    <Color Char="i" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="j" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="k" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="l" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="m" Alpha="255" Red="255" Green="0" Blue="255" />
+    <Color Char="n" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="o" Alpha="255" Red="128" Green="0" Blue="255" />
+    <Color Char="p" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="q" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="r" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="s" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="t" Alpha="255" Red="128" Green="64" Blue="0" />
+    <Color Char="u" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="v" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="w" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="x" Alpha="255" Red="64" Green="128" Blue="128" />
+    <Color Char="y" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="z" Alpha="255" Red="254" Green="1" Blue="235" />
+    <Color Char="{" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="|" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="}" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="~" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="&#x0;" Int="0" Alpha="255" Red="255" Green="255" Blue="128" />
+    <Color Char="&#x1;" Int="1" Alpha="255" Red="128" Green="0" Blue="255" />
+    <Color Char="&#x3;" Int="3" Alpha="255" Red="0" Green="255" Blue="255" />
+    <Color Char="&#x4;" Int="4" Alpha="255" Red="255" Green="128" Blue="128" />
+    <Color Char="&#x5;" Int="5" Alpha="255" Red="255" Green="0" Blue="0" />
+    <Color Char="ã" Int="227" Alpha="255" Red="0" Green="128" Blue="0" />
+    <Color Char="Ā" Int="256" Alpha="255" Red="192" Green="192" Blue="192" />
+    <Color Char="&#xC;" Int="12" Alpha="255" Red="0" Green="128" Blue="0" />
+    <Color Char="ʚ" Int="666" Alpha="255" Red="0" Green="128" Blue="64" />
+    <Color Char="Þ" Int="222" Alpha="255" Red="255" Green="0" Blue="128" />
+    <Color Char="Ϩ" Int="1000" Alpha="255" Red="0" Green="0" Blue="128" />
+    <Color Char="ϩ" Int="1001" Alpha="255" Red="255" Green="255" Blue="255" />
+    <Color Char="&#xA;" Int="10" Alpha="255" Red="128" Green="255" Blue="0" />
+    <Color Char="&#x8;" Int="8" Alpha="255" Red="255" Green="255" Blue="255" />
+    <Color Char="&#x7;" Int="7" Alpha="255" Red="255" Green="255" Blue="0" />
+    <Color Char="䀍" Int="16397" Alpha="255" Red="255" Green="0" Blue="0" />
+    <Color Char="䀎" Int="16398" Alpha="255" Red="128" Green="0" Blue="0" />
+    <Color Char="䀏" Int="16399" Alpha="255" Red="64" Green="0" Blue="0" />
+    <Color Char="䀆" Int="16390" Alpha="255" Red="255" Green="255" Blue="0" />
+    <Color Char="䀌" Int="16396" Alpha="255" Red="255" Green="128" Blue="128" />
+    <Color Char="䀅" Int="16389" Alpha="255" Red="255" Green="255" Blue="128" />
+    <Color Char="䀋" Int="16395" Alpha="255" Red="128" Green="128" Blue="0" />
+    <Color Char="䀉" Int="16393" Alpha="255" Red="128" Green="64" Blue="0" />
+    <Color Char="䀇" Int="16391" Alpha="255" Red="255" Green="128" Blue="64" />
+    <Color Char="䀁" Int="16385" Alpha="255" Red="128" Green="128" Blue="128" />
+    <Color Char="䀈" Int="16392" Alpha="255" Red="255" Green="128" Blue="64" />
+    <Color Char="ဍ" Int="4109" Alpha="255" Red="0" Green="0" Blue="64" />
+    <Color Char="ဎ" Int="4110" Alpha="255" Red="0" Green="64" Blue="64" />
+    <Color Char="ဏ" Int="4111" Alpha="255" Red="0" Green="0" Blue="160" />
+    <Color Char="ဋ" Int="4107" Alpha="255" Red="128" Green="0" Blue="255" />
+    <Color Char="ဉ" Int="4105" Alpha="255" Red="255" Green="0" Blue="128" />
+    <Color Char="ဆ" Int="4102" Alpha="255" Red="128" Green="128" Blue="255" />
+    <Color Char="စ" Int="4101" Alpha="255" Red="128" Green="0" Blue="64" />
+    <Color Char="ဌ" Int="4108" Alpha="255" Red="0" Green="64" Blue="128" />
+    <Color Char="ဂ" Int="4098" Alpha="255" Red="0" Green="64" Blue="0" />
+    <Color Char="ခ" Int="4097" Alpha="255" Red="128" Green="0" Blue="255" />
+    <Color Char="င" Int="4100" Alpha="255" Red="255" Green="128" Blue="128" />
+    <Color Char="პ" Int="4318" Alpha="255" Red="64" Green="0" Blue="128" />
+    <Color Char="᐀" Int="5120" Alpha="255" Red="255" Green="255" Blue="255" />
+    <Color Char="&#xFFFF;" Int="-1" Alpha="255" Red="255" Green="255" Blue="255" />
+  </ChipColors>
+  <FrameColors>
+    <Current Alpha="255" Red="255" Green="128" Blue="255" />
+    <Candidate Alpha="255" Red="128" Green="64" Blue="64" />
+    <Frame Alpha="255" Red="128" Green="0" Blue="64" />
+    <Start Alpha="255" Red="0" Green="255" Blue="255" />
+    <ReferencePoint Alpha="255" Red="255" Green="0" Blue="0" />
+  </FrameColors>
+</WaferMap>

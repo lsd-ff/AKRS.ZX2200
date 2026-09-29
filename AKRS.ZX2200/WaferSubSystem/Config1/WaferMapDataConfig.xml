@@ -1,0 +1,48 @@
+﻿<WaferMap>
+    <ChipTypes>
+        <ChipType ANSI="2" Significant="True" />
+        <ChipType ANSI="1" Significant="True" />
+        <ChipType ANSI="." Significant="False" />
+        <ChipType ANSI=" " Significant="False" />
+        <ChipType ANSI="0" Significant="True" />
+    </ChipTypes>
+    <JumpStep>2</JumpStep>
+    <PhysicalPosition>
+        <Reference Row="11" Col="7" LabelType="Int32" Label="3" />
+        <StepPosition X="0" Y="0" />
+    </PhysicalPosition>
+    <WaferMapDir>D:\晶圆图文件</WaferMapDir>
+    <LastWaferMapFilePath>
+    </LastWaferMapFilePath>
+    <ReferencePoints>
+        <Reference Row="11" Col="3" LabelType="Int32" Label="1" />
+        <Reference Row="11" Col="5" LabelType="Int32" Label="2" />
+        <Reference Row="11" Col="7" LabelType="Int32" Label="3" />
+    </ReferencePoints>
+    <Strategies CurrentStrategyIndex="0">
+        <Strategy Active="True">
+            <Direction>LeftToRight_UpToDown</Direction>
+            <StartPoints>
+                <Start Row="12" Col="3" />
+            </StartPoints>
+            <SelectedChipTypes>
+                <ChipType ANSI="1" />
+            </SelectedChipTypes>
+        </Strategy>
+        <Strategy Active="False">
+            <Direction>LeftToRight_UpToDown</Direction>
+            <StartPoints />
+            <SelectedChipTypes />
+        </Strategy>
+    </Strategies>
+    <SearchRegion LimitType="Global">
+        <Region Row0="0" Col0="0" Row1="0" Col1="0" />
+    </SearchRegion>
+    <PickRegion LimitType="Global">
+        <Region Row0="0" Col0="19" Row1="19" Col1="19" />
+    </PickRegion>
+    <ProcessedChipTypes>
+        <ProcessedChipType BinType="Char_Int_Hex" ChipType="2A" />
+        <ProcessedChipType BinType="Int16_Hex" ChipType="FFFF" />
+    </ProcessedChipTypes>
+</WaferMap>

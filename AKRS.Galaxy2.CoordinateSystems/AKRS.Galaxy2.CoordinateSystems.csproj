@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{27D3507A-15E4-4190-B801-9F5426E904B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AKRS.Galaxy2.CoordinateSystems</RootNamespace>
+    <AssemblyName>AKRS.Galaxy2.CoordinateSystems</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\AKRS.ZX2200\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AKRS.Base">
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Infrastructure">
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Log">
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.ModulePublic">
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.ModulePublic.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.UserManager">
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.UserManager.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Logs">
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Logs.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="IMVSCalibTransformModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=737ede30d70c90df, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSCalibTransformModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSNPointCalibModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da4efc9666ec3aaa, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSNPointCalibModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MVDCalibTrans.Net, Version=4.2.1.4, Culture=neutral, PublicKeyToken=352ee58ba4cf465e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\VM算子\MVDCalibTrans.Net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MVDCore.Net, Version=4.2.1.4, Culture=neutral, PublicKeyToken=1325730a174c0650, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\MVDCore.Net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MVDNPointCalib.Net, Version=4.2.1.4, Culture=neutral, PublicKeyToken=a5c2d9b3a64ee3b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\VM算子\MVDNPointCalib.Net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VM.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=61600122bc9264b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\VM.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VM.PlatformSDKCS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1484a72052ee3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\VM.PlatformSDKCS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\FrmCoordinateOffset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\FrmCoordinateOffset.Designer.cs">
+      <DependentUpon>FrmCoordinateOffset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoordinateSystems\BaseCoordinateSystem.cs" />
+    <Compile Include="CoordinateSystems\DependentCoordinateSystem.cs" />
+    <Compile Include="CoordinateSystems\ElementCoordinate.cs" />
+    <Compile Include="CoordinateSystems\GeneralCoordinateSystem.cs" />
+    <Compile Include="CoordinateSystems\MachineCoordinateSystem.cs" />
+    <Compile Include="CoordinateSystems\TransformTool.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticPara.cs" />
+    <EmbeddedResource Include="Controls\FrmCoordinateOffset.resx">
+      <DependentUpon>FrmCoordinateOffset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

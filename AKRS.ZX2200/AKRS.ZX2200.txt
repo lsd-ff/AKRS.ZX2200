@@ -1,0 +1,2488 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2B9696AB-6629-45CA-AC34-98AB1A817ABB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AKRS.ZX2200</RootNamespace>
+    <AssemblyName>AKRS.ZX2200</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AKRS.EpoxyPatternEditor">
+      <HintPath>libs\AKRS.EpoxyPatternEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="IMVSBlobFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7fe8bad26cdedb7b, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBlobFindLabelsModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b8b30db40c995949, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBoxMergeModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c869d688c6719f8d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBoxFilterModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=619b5d81294f24b3, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBoxOverlapCalculationModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=274d19f8bbc7ef2f, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnSingleCharDetectModuCCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a0a50bebe561608a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnSingleCharDetectModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ad772401d31c66c1, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCharDetectModuCCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9ff606522a42e0cf, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCharDetectModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=11441092ae200d87, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSOcrDlModuCCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=18d9baf32b5c135a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSOcrDlModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=550f37a1d881ce6f, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCodeRecgModuCCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ec21f3cc2b45d9d4, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCnnCodeRecgModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c2d1fe7f3c7d7e4d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageCollectDalsaModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=48bc90db4681f2a4, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageCollectIKModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0181360a23a70c81, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMachineLearningClassifierModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e9aa2c4bf9b42307, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSNImageCalibModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0702e4ab0478508e, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSNPointCalibModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=da4efc9666ec3aaa, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMedianLineFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=487755f75952dd4d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVS2dBcrModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2d71b6e5385ea779, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVS2dArrayCorrectModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9debcbec6ff7603a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSIntensityMeasureModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6f453ce2b77ccc58, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSAffineTransformModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=791f18aaf7c22f80, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSFixtureModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e4dad505120a5f52, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPixelCountModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1fa808cae911914b, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPixelCountModuVACs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14172bf2f65df647, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LightModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1fb84aefb2e60473, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LightControlCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d708150847bf22aa, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GlobalVariableModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=df9beaf7c020f858, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GlobalCameraModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=48e7ef5a1f43f965, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GeometryCreateCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e5ea1d4f14e531ae, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGeometricTransformModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0d28241102e48e42, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BranchStringCpmLCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9f2feacddadafb85, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BranchModule_STDCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b25f4e77d5151502, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSDivideImageModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8e6b2d97ab3e4c5d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataAssembleModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d8aaebd8aa6cb7f2, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataAnalysisModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d044ff23bc3e0a86, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSScaleTransformModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2359f74d2b1d4722, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSSinglePointAlignModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b3fdadaaeb190014, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SinglePointGrabModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fb4f07aaff38d00b, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SinglePointMapAlignModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=edbf9ebcc0decc59, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SinglePointRectifyModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=843323ef518abdec, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCaliperModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=edbac3fa644be2c3, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SendDatasModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b327819980f6c95d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CalculatorModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=05c54d68067b9216, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSQuadrangleFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9cd04858519c6211, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBinaryModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=56b1b826c649d79f, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageFixtureModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ace97d2205d0b8b, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageEnhanceModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3cb886856ce96947, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageNormlizeModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e6513c7a5ccaae57, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImgStitchCalibModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0e461369836383d8, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageSourceModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6a03c4a48a6df5e6, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageFilterModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ed6eecc75ac3200c, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCorrectManualModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=254d45ffa21143af, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCombineProcessModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=10a06994332f2fc3, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageResizeModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2259d23cef2bdbc9, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageMathModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c2ed9ac3e656449a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMarkFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f5b7001f1805d7f5, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GraphicsSetModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=969f13d2d78c3370, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSC2CMeasureModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=50a6501e070f5742, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCircleEdgePairInspModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=dbd7725f6ba13758, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCircleEdgeInspModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a7209f682f18210, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCircleFitModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=43056db02cf11d53, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCircleFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cbed95538e129137, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPolarUnwarpModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=db47c4ad5a33133d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CoordinateTransformCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7f0c5d9200530b61, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSVerticalLineFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5e28ebef07bf0020, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Apps.ColorFun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cfdb8c430127f15b, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VM.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=61600122bc9264b9, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VM.PlatformSDKCS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1484a72052ee3d4, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.BaseInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14444b8df74b6e6a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.WPF.Release, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fdd2c8be7291c30c, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.Interface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cb41614600cf774b, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.RenderInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4bcfc50547abbb24, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.Winform.Release, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2efa940dfee4dc7e, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMultiImageFusionModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=55d88779c0e91b06, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageAcquisitionModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8581e2b6399e0aa2, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMultiLabelFilterModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d6c20246f1ff35fd, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMultiLineFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=77d8fa6b2e05bf95, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="StringCompareModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5685c4304d825d01, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMarkInspModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=318c90ff9c62747f, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMarkInspModuVACs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fd756fe7f28d3445, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSOcrModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aac3512f35327143, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSFrameMeanModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=08a547c1de91a86e, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TranslationCalibModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=865e9170186261eb, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPairLineModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2f9b5c6cdf56b08e, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSParallelCalculateModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c7e0f6a183706769, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSInspectModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a54341d93c0fea08, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageMorphModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=345d161ad378bbca, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSFastFeatureMatchModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ca9d2dd350762d2, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSRegionCopyModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=80a44d101397d808, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ReadDatasModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a989deb766dd29c, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataQueueModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=67d60b40029f11c3, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DataSetModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c4b4ade4437b1703, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SaveTextModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a3cde6a94e7998ed, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RotateCalibModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9d51363f4f396d36, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSRotateCalculateModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0b24ef9e00dbf488, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMapCalibModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3873379fa7af2da6, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IfBranchModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d1cd8cf5ae69cd49, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IfModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1ba1107829384f3c, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBcrModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6c8e56e03ac48b2e, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ReadCalibFileModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fc2c1c71094a56c4, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCalibBoardCalibModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=90420971e52f2d79, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCalibTransformModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=737ede30d70c90df, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FormatModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=dc3399e8d740ba6a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEllipseFitModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=60ffa9ef11ccaf10, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEllipseFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8ed79a8a6ba9ab09, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageSharpnessModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=15fee5829ecec07c, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGrayMatchModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a3f74a1522c95aea, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGrayMatchModuVACs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96929120b239ec13, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSP2CMeasureModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5cfb496049812c42, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSP2PMeasureModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2830a24bac4c62d2, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSP2LMeasureModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=54056a7ec1941bc3, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PointSetMODU_STDCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=febca48962b3ccf5, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMultiPointAlignModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cad5b8e53a935847, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCalibModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=24f57d5e2a91a31e, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSImageCorrectCalibModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb7d0f94ce1512f, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSTargetTrackModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c68d1bd5b7229054, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSHistToolModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d10c7ddae66a54c8, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineEdgePairInspModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=41789021bb481978, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineFitModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d48adae15822c46d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=15941e18b10db20b, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineFindGroupModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=285bb1ce9a494e3f, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineEdgeInspModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8c1bbb53f1f3cb07, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CameraIOModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=15b4774d678cd082, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCameraMapModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=369f02cc6412392e, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSRectFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=721f5f3c8736a915, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSL2CMeasureModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=05f448b89216c3f5, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineAlignModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=10b02c3045f7473d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSL2LMeasureModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=81fb95483587e890, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGroupCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93c2eed79fa68a0a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageBufferModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=88dbcb3c86128e2d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TimeStatisticModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1d7fec45a504a815, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ShellModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a88b3f19f0240810, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSSurfaceDefectFilterModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5375bd3473fcb9f0, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSAngleBisectorFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4784e51992e9031d, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TriggerModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7dfc417f04c596e4, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGluePathConductModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e482d4f1fe22af0c, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSContourMatchModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=91bd2ec83e827309, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SaveImageCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=71ec4914c8d95fd5, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCaliperCornerModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=afa702cf00f4d5ad, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgePosTrendAnalyModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b81611952a50af6c, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgePairPosTrendAnalyModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eca536b23bb46fbe, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgePairFlawInspModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4ad240f48982cf78, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgePairInspGroupModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9c81e11d424f49e3, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCaliperEdgeModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2e9b837021fe7c82, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgeFlawInspModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=20026c1ba1b73a11, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgeInspGroupModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=15301fd466445214, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageCollectModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1456d47d4d035431, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSInverseAffineTransformModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=47877414edd7a6b8, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CommManagerModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=17913397e05a26ba, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AndModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=426f9e88d7a6a158, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgeWidthFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b66ff8cc847f0230, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSShadeCorrectModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b06e146d1a4ca667, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMatrixCircleFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4c12340a350f0aaf, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSPeakFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=79a990e1e78ccb57, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSColorExtractModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3e790bdd13bf266c, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSColorMeasureModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=46d87ec08fc6b297, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSColorRecognitionModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2e91c65aeb847a34, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSColorTransformModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d910a412aa93dc5e, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSHPFeatureMatchModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3a8001c24b4e8881, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AKRS.Logs">
+      <HintPath>libs\AKRS.Logs.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v21.2.UI, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v21.2.Extensions, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.TreeMap.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v21.2.UI, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v21.2.UI, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v21.2.Wizard, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v21.2.UI, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraWizard.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="dex40net, Version=4.9.128.0, Culture=neutral, PublicKeyToken=9bf68223b43a6abc, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\dex40net.dll</HintPath>
+    </Reference>
+    <Reference Include="dmd40net, Version=4.38.128.0, Culture=neutral, PublicKeyToken=9bf68223b43a6abc, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\dmd40net.dll</HintPath>
+    </Reference>
+    <Reference Include="dsa40net, Version=4.38.128.0, Culture=neutral, PublicKeyToken=9bf68223b43a6abc, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\dsa40net.dll</HintPath>
+    </Reference>
+    <Reference Include="esc40net, Version=4.38.128.0, Culture=neutral, PublicKeyToken=9bf68223b43a6abc, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\esc40net.dll</HintPath>
+    </Reference>
+    <Reference Include="etb40net, Version=4.38.128.0, Culture=neutral, PublicKeyToken=9bf68223b43a6abc, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\etb40net.dll</HintPath>
+    </Reference>
+    <Reference Include="etne40net, Version=4.38.128.0, Culture=neutral, PublicKeyToken=9bf68223b43a6abc, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\etne40net.dll</HintPath>
+    </Reference>
+    <Reference Include="GateWay.Base.Xml, Version=1.0.0.0, Culture=neutral, PublicKeyToken=73b2b83bfc58a366, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\GateWay.Base.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="GateWay.Compress, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fd685b30a11be7a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\GateWay.Compress.dll</HintPath>
+    </Reference>
+    <Reference Include="GateWay.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ac9689c9fc3bcec7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\GateWay.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="GateWay.Localization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b9115be3962b7d58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\GateWay.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="GateWay.Util, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0e61bafe941204b5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\GateWay.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="GateWayCommonLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7ba8b4571f207866, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\GateWayCommonLib.dll</HintPath>
+    </Reference>
+    <Reference Include="GateWayServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5f8d29af3307bea5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\GateWayServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GatwWay.Interface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=489ae9ffd47ab236, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\GatwWay.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="halcondotnet, Version=17.12.0.0, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\halcondotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="MethodBoundaryAspect, Version=2.0.145.0, Culture=neutral, PublicKeyToken=296379d5065c9d61, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MethodBoundaryAspect.Fody.2.0.145\lib\net452\MethodBoundaryAspect.dll</HintPath>
+    </Reference>
+    <Reference Include="MVDCore.Net, Version=4.2.1.4, Culture=neutral, PublicKeyToken=1325730a174c0650, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\MVDCore.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="MVDImage.Net, Version=4.2.1.4, Culture=neutral, PublicKeyToken=ce2c144a3e6a9a93, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\MVDImage.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Mvvm, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e8271a241819f1f2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="PasswordWindowUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fcb81ef3d4890577, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\PasswordWindowUI.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.AccessControl">
+      <HintPath>libs\AKRS.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.AccessControl.Interface">
+      <HintPath>libs\AKRS.AccessControl.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Base">
+      <HintPath>libs\AKRS.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.DispensingPattern">
+      <HintPath>libs\AKRS.DispensingPattern.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.WM.FileParser">
+      <HintPath>libs\AKRS.WM.FileParser.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.WM.WaferMap">
+      <HintPath>libs\AKRS.WM.WaferMap.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.WM.WaferMapCtrl">
+      <HintPath>libs\AKRS.WM.WaferMapCtrl.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.WM.WaferMapForm">
+      <HintPath>libs\AKRS.WM.WaferMapForm.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.AlgebraGeometry, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.AlgebraGeometry.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Aop, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.BackgroundWorkThread, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.BackgroundWorkThread.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Communication, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.Communication.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Component.Simple, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.Component.Simple.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Dispense, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.Dispense.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Drive, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.Drive.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Force, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.Force.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.HardwareEditor, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.HardwareEditor.exe</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.IOControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.IOControl.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Log.TestDemo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.Log.TestDemo.exe</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.LogicHardware, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.LogicHardware.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.MeasureHeight, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.MeasureHeight.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.ModulePublic, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.ModulePublic.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Recipe, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.Recipe.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.ShowAccuary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.ShowAccuary.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.ShowAccuracyControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.ShowAccuracyControl.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Statistics, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.Statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.UserManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\AKRS.Galaxy2.UserManager.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.17, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v21.2" />
+    <Reference Include="DevExpress.CodeParser.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.Desktop.v21.2" />
+    <Reference Include="DevExpress.Data.v21.2" />
+    <Reference Include="DevExpress.DemoData.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Tutorials.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v21.2" />
+    <Reference Include="DevExpress.Sparkline.v21.2.Core" />
+    <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v21.2" />
+    <Reference Include="DevExpress.Printing.v21.2.Core" />
+    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="LanguageExt.Core, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\LanguageExt.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="SqlSugar, Version=5.0.7.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\SqlSugar.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VM.AppData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d08364abe153bcd0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.AppData.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.CalibGuide, Version=1.0.0.0, Culture=neutral, PublicKeyToken=25fc8eb4bd8049f2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.CalibGuide.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.CodeBuild, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c962d29269e23901, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.CodeBuild.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.CodeCompletion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7ec0213b45fa4354, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.CodeCompletion.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.CommonData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d0ff0db02475206f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.CommonData.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.Compress, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f1080dc9e52469e8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.Compress.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=48472957e1d7b05f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.CostomDialog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bca1e8d4ee35227f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.CostomDialog.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.ExtensionMethod, Version=1.0.0.0, Culture=neutral, PublicKeyToken=70a03fe49038b233, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.ExtensionMethod.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.ExternalCall, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692a5e6dc57fa151, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.ExternalCall.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.Framework.Container, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cdc74edaa7a3924b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.Framework.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.ModuleControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6903f2164b1b4178, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.ModuleControl.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.PcUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=84c8e2f6f2c615bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.PcUI.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.UnRedo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6b074dfefb48aac8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.UnRedo.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.User, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31fe0faf9d9529c8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.User.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.Util, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a8f590f1c0b8da86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.Utility, Version=1.0.0.0, Culture=neutral, PublicKeyToken=11e824e986ec8874, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.Xml, Version=1.0.0.0, Culture=neutral, PublicKeyToken=709cd60c51e2a7fb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VM.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="VMBaseControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=71707d2e549a163e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VMBaseControls.dll</HintPath>
+    </Reference>
+    <Reference Include="VMControls.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d3a6b40f3e34b5af, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VMControls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="VMControls.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fef8a9e4baab915f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\VMControls.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WriteableBitmapEx.Wpf, Version=1.6.8.0, Culture=neutral, PublicKeyToken=cd0083a1029b1193, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\HikVision\WriteableBitmapEx.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph">
+      <HintPath>libs\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AKRSMessageBoxExt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AKRSMessageBoxExt.Designer.cs">
+      <DependentUpon>AKRSMessageBoxExt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmBondPositionHeightTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmBondPositionHeightTeach.Designer.cs">
+      <DependentUpon>FrmBondPositionHeightTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmComponentAccuracyMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmComponentAccuracyMode.Designer.cs">
+      <DependentUpon>FrmComponentAccuracyMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmComponentPickup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmComponentPickup.Designer.cs">
+      <DependentUpon>FrmComponentPickup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmComponentPlacement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmComponentPlacement.Designer.cs">
+      <DependentUpon>FrmComponentPlacement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmLearnToolBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmLearnToolBank.Designer.cs">
+      <DependentUpon>FrmLearnToolBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmModuleSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmModuleSelect.Designer.cs">
+      <DependentUpon>FrmModuleSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmMoveToBondingPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmMoveToBondingPosition.Designer.cs">
+      <DependentUpon>FrmMoveToBondingPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmNozzleAlignmentTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmNozzleAlignmentTeach.Designer.cs">
+      <DependentUpon>FrmNozzleAlignmentTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmNozzleGeometryTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmNozzleGeometryTeach.Designer.cs">
+      <DependentUpon>FrmNozzleGeometryTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmNozzleHeightTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmNozzleHeightTeach.Designer.cs">
+      <DependentUpon>FrmNozzleHeightTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmPostBondTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmPostBondTeach.Designer.cs">
+      <DependentUpon>FrmPostBondTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmTeachBondingPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Assistant\FrmTeachBondingPosition.Designer.cs">
+      <DependentUpon>FrmTeachBondingPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmDistanceMeasurement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmDistanceMeasurement.Designer.cs">
+      <DependentUpon>FrmDistanceMeasurement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmDistanceMeasureResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmDistanceMeasureResult.Designer.cs">
+      <DependentUpon>FrmDistanceMeasureResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmMeasureTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmMeasureTool.Designer.cs">
+      <DependentUpon>FrmMeasureTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmRestart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmRestart.Designer.cs">
+      <DependentUpon>FrmRestart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmTUVisionControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmTUVisionControl.Designer.cs">
+      <DependentUpon>FrmTUVisionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmVacuum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\FrmVacuum.Designer.cs">
+      <DependentUpon>FrmVacuum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\UcNozzleBank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Manual\UcNozzleBank.Designer.cs">
+      <DependentUpon>UcNozzleBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\BondPosition\UcAddBondPosition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\BondPosition\UcAddBondPosition.Designer.cs">
+      <DependentUpon>UcAddBondPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\BondPosition\UcBondPositionEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\BondPosition\UcBondPositionEdit.Designer.cs">
+      <DependentUpon>UcBondPositionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\NozzleShelf\FrmNewCreateNozzle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\NozzleShelf\FrmNewCreateNozzle.Designer.cs">
+      <DependentUpon>FrmNewCreateNozzle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\NozzleShelf\FrmNozzleShelfSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\NozzleShelf\FrmNozzleShelfSetting.Designer.cs">
+      <DependentUpon>FrmNozzleShelfSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\Nozzle\UcNozzleEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\Nozzle\UcNozzleEdit.Designer.cs">
+      <DependentUpon>UcNozzleEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\PostBond\FrmNewCreatePostBond.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\PostBond\FrmNewCreatePostBond.Designer.cs">
+      <DependentUpon>FrmNewCreatePostBond.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\PostBond\UcAddPostBond.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\PostBond\UcAddPostBond.Designer.cs">
+      <DependentUpon>UcAddPostBond.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\PostBond\UcPostBondEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\Setting\PostBond\UcPostBondEdit.Designer.cs">
+      <DependentUpon>UcPostBondEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\UcBondModuelSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\UcBondModuelSetting.Designer.cs">
+      <DependentUpon>UcBondModuelSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Controls\VisionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BondSystem\Controls\VisionForm.Designer.cs">
+      <DependentUpon>VisionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BondSystem\Models\ActionNodes\BondActionNodeRepository.cs" />
+    <Compile Include="BondSystem\Models\ActionNodes\CAActionNode\BondSubstrateVision.cs" />
+    <Compile Include="BondSystem\Models\BondDomain.cs" />
+    <Compile Include="BondSystem\Models\ActionNodes\BPActionNode\AfterBondCheckActionNode.cs" />
+    <Compile Include="BondSystem\Models\ActionNodes\BPActionNode\BondActionNode.cs" />
+    <Compile Include="BondSystem\Models\ActionNodes\BPActionNode\BondCorrectionActionNode.cs" />
+    <Compile Include="BondSystem\Models\ActionNodes\BPActionNode\PickActionNode.cs" />
+    <Compile Include="BondSystem\Models\ActionNodes\BPActionNode\UpLookCorrectionActionNode.cs" />
+    <Compile Include="BondSystem\Models\ActionNodes\CAActionNode\BondCarrierVision.cs" />
+    <Compile Include="BondSystem\Models\DeviceParams\BMCDevicePara.cs" />
+    <Compile Include="BondSystem\Models\DeviceParams\BondHeadParam.cs" />
+    <Compile Include="BondSystem\Models\DeviceParams\CameraDevicePara.cs" />
+    <Compile Include="BondSystem\Models\DeviceParams\NozzleShelfParam.cs" />
+    <Compile Include="BondSystem\Models\Parameter\BondConfiguration.cs" />
+    <Compile Include="BondSystem\Models\Parameter\RunTimeProvider.cs" />
+    <Compile Include="BondSystem\Models\Programs\BondProgram.cs" />
+    <Compile Include="BondSystem\Models\Programs\NozzleShelfProgram.cs" />
+    <Compile Include="BondSystem\Modules\BondHead.cs" />
+    <Compile Include="BondSystem\Models\Repositories\Nozzle\Nozzle.cs" />
+    <Compile Include="BondSystem\Models\Repositories\NozzleShelf\NozzleShelf.cs" />
+    <Compile Include="BondSystem\Models\ActionNodes\IAActionNode\CheckInkDotActionNode.cs" />
+    <Compile Include="BondSystem\Models\ActionNodes\IAActionNode\BondIslandVision.cs" />
+    <Compile Include="BondSystem\Models\DeviceParams\BondDevicePara.cs" />
+    <Compile Include="BondSystem\Models\Enums\BondEnum.cs" />
+    <Compile Include="BondSystem\Models\Parameter\BondWorkMode.cs" />
+    <Compile Include="BondSystem\Models\Repositories\Nozzle\NozzleRepository.cs" />
+    <Compile Include="BondSystem\Models\Repositories\NozzleShelf\NozzleShelfRepository.cs" />
+    <Compile Include="BondSystem\Modules\NozzleShelfModule.cs" />
+    <Compile Include="BondSystem\Services\GeometryService.cs" />
+    <Compile Include="BondSystem\Tasks\BondTask.cs" />
+    <Compile Include="CalibSystem\Controls\Assistant\FrmDBCalibTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalibSystem\Controls\Assistant\FrmDBCalibTeach.Designer.cs">
+      <DependentUpon>FrmDBCalibTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalibSystem\Controls\Assistant\FrmBondCalibTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalibSystem\Controls\Assistant\FrmBondCalibTeach.Designer.cs">
+      <DependentUpon>FrmBondCalibTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalibSystem\Controls\Assistant\FrmDispenseCalibTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalibSystem\Controls\Assistant\FrmDispenseCalibTeach.Designer.cs">
+      <DependentUpon>FrmDispenseCalibTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalibSystem\Controls\FrmCalibResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalibSystem\Controls\FrmCalibResult.Designer.cs">
+      <DependentUpon>FrmCalibResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalibSystem\Controls\UcProgressStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CalibSystem\Controls\UcProgressStep.Designer.cs">
+      <DependentUpon>UcProgressStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalibSystem\Models\CalibrateResultPara.cs" />
+    <Compile Include="CalibSystem\Models\CalibrateRunPara.cs" />
+    <Compile Include="CalibSystem\Models\CalibrateTask.cs" />
+    <Compile Include="CalibSystem\Services\CalibService.cs" />
+    <Compile Include="Configurations\General\GeneralConfiguration.cs" />
+    <Compile Include="Configurations\General\UcGeneralConfiguration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configurations\General\UcGeneralConfiguration.Designer.cs">
+      <DependentUpon>UcGeneralConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommonControls\FrmRepository.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\CommonControls\FrmRepository.Designer.cs">
+      <DependentUpon>FrmRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Forms\FrmCustomerSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Forms\FrmCustomerSetup.Designer.cs">
+      <DependentUpon>FrmCustomerSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ModuleControls\UcAkrsPoint3D.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ModuleControls\UcAkrsPoint3D.Designer.cs">
+      <DependentUpon>UcAkrsPoint3D.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\FrmCreateProcessStep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\FrmCreateProcessStep.Designer.cs">
+      <DependentUpon>FrmCreateProcessStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcConfiguration1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcConfiguration1.Designer.cs">
+      <DependentUpon>UcConfiguration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcConfiguration2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcConfiguration2.Designer.cs">
+      <DependentUpon>UcConfiguration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcConfigurationDescription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcConfigurationDescription.Designer.cs">
+      <DependentUpon>UcConfigurationDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcDispenserDescription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcDispenserDescription.Designer.cs">
+      <DependentUpon>UcDispenserDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcProcessStepEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcProcessStepEdit.Designer.cs">
+      <DependentUpon>UcProcessStepEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ModuleControls\UcData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ModuleControls\UcData.Designer.cs">
+      <DependentUpon>UcData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ModuleControls\UcGuideMove.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ModuleControls\UcGuideMove.Designer.cs">
+      <DependentUpon>UcGuideMove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ModuleControls\UcLight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ModuleControls\UcLight.Designer.cs">
+      <DependentUpon>UcLight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ModuleControls\UcModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ModuleControls\UcModule.Designer.cs">
+      <DependentUpon>UcModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\FrmBaseTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\FrmBaseTeach.Designer.cs">
+      <DependentUpon>FrmBaseTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\FrmTeachNavigation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\FrmTeachNavigation.Designer.cs">
+      <DependentUpon>FrmTeachNavigation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\IProgrammingControl.cs" />
+    <Compile Include="Controls\ToolControls\Programming\UcEditProductProgramming.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcEditProductProgramming.designer.cs">
+      <DependentUpon>UcEditProductProgramming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcComponentsDescription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcComponentsDescription.Designer.cs">
+      <DependentUpon>UcComponentsDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcESToolsDescription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcESToolsDescription.Designer.cs">
+      <DependentUpon>UcESToolsDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcTransportUnitDescription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcTransportUnitDescription.Designer.cs">
+      <DependentUpon>UcTransportUnitDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcPPToolsDescription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcPPToolsDescription.Designer.cs">
+      <DependentUpon>UcPPToolsDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcTransportUnitFrame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolControls\Programming\UcTransportUnitFrame.Designer.cs">
+      <DependentUpon>UcTransportUnitFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Assistant\FrmChangeEpoxy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Assistant\FrmChangeEpoxy.Designer.cs">
+      <DependentUpon>FrmChangeEpoxy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Assistant\FrmDispensePlateAssistant.cs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Assistant\FrmDispensePlateAssistant.cs.Designer.cs">
+      <DependentUpon>FrmDispensePlateAssistant.cs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Assistant\FrmEpoxyApplicationAssistant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Assistant\FrmEpoxyApplicationAssistant.Designer.cs">
+      <DependentUpon>FrmEpoxyApplicationAssistant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Assistant\FrmSystem1Pos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Assistant\FrmSystem1Pos.Designer.cs">
+      <DependentUpon>FrmSystem1Pos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Assistant\FrmDispenseOverAllSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Assistant\FrmDispenseOverAllSettings.Designer.cs">
+      <DependentUpon>FrmDispenseOverAllSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\Dispenser\UcDispenser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\Dispenser\UcDispenser.Designer.cs">
+      <DependentUpon>UcDispenser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\EpoxyApplication\FrmNewCreateEpoxyApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\EpoxyApplication\FrmNewCreateEpoxyApplication.Designer.cs">
+      <DependentUpon>FrmNewCreateEpoxyApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcAddEpoxyApplication.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcAddEpoxyApplication.Designer.cs">
+      <DependentUpon>UcAddEpoxyApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcDispenseLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcDispenseLine.Designer.cs">
+      <DependentUpon>UcDispenseLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcEpoxyApplication.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcEpoxyApplication.Designer.cs">
+      <DependentUpon>UcEpoxyApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcEpoxyApplicationGuide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcEpoxyApplicationGuide.Designer.cs">
+      <DependentUpon>UcEpoxyApplicationGuide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Models\DeviceParams\DispenseModulePara.cs" />
+    <Compile Include="DispenseSystem\Models\DeviceParams\DispenserPara.cs" />
+    <Compile Include="DispenseSystem\Models\DeviceParams\PreDispensePlatePara.cs" />
+    <Compile Include="DispenseSystem\Models\DispenseAction\DispenseActionNodes.cs" />
+    <Compile Include="DispenseSystem\Models\DispenseAction\DispenseBPAction\S1DispenseActionNode.cs" />
+    <Compile Include="DispenseSystem\Models\DispenseAction\DispenseBPAction\S1DispenseCorrectionActionNode.cs" />
+    <Compile Include="DispenseSystem\Models\DispenseAction\DispenseBPAction\S1DispenseDefectActionNode.cs" />
+    <Compile Include="DispenseSystem\Models\DispenseAction\DispenseBPAction\S1DispenseMeasureActionNode.cs" />
+    <Compile Include="DispenseSystem\Models\DispenseAction\DispenseUpAction\S1CarrierVisionActionNode.cs" />
+    <Compile Include="DispenseSystem\Models\DispenseAction\DispenseUpAction\S1ModuleVisionActionNode.cs" />
+    <Compile Include="DispenseSystem\Models\DispenseAction\DispenseUpAction\S1SubstrateVisionActionNode.cs" />
+    <Compile Include="DispenseSystem\Models\DispenseAction\OtherAction\InteractiveAction.cs" />
+    <Compile Include="DispenseSystem\Models\DispenseAction\OtherAction\PredispenseAction.cs" />
+    <Compile Include="DispenseSystem\Models\System1Domain.cs" />
+    <Compile Include="DispenseSystem\Models\DeviceParams\DispenseDevicePara.cs" />
+    <Compile Include="DispenseSystem\Models\DispensePara\DispensePatternPara.cs" />
+    <Compile Include="DispenseSystem\Models\DispensePara\EpoxyApplicationLocation.cs" />
+    <Compile Include="DispenseSystem\Models\DispensePara\DispenseWorkPara.cs" />
+    <Compile Include="DispenseSystem\Models\Enums\DispenseEnum.cs" />
+    <Compile Include="DispenseSystem\Models\Programs\System1OtherProgram.cs" />
+    <Compile Include="DispenseSystem\Models\Repositories\Dispenser\PreDispense.cs" />
+    <Compile Include="DispenseSystem\Services\DispenserMoveHelper.cs" />
+    <Compile Include="DispenseSystem\Services\JudgeHelper.cs" />
+    <Compile Include="DispenseSystem\Services\System1Events.cs" />
+    <Compile Include="Helpers\CommonHelper.cs" />
+    <Compile Include="Helpers\MathHelper.cs" />
+    <Compile Include="Helpers\ObjectHelper.cs" />
+    <Compile Include="DispenseSystem\Tasks\DispenseWorkTask.cs" />
+    <Compile Include="DispenseSystem\Models\System1Program.cs" />
+    <Compile Include="DispenseSystem\Models\Programs\DispenserProgram.cs" />
+    <Compile Include="DispenseSystem\Models\Programs\EpoxyApplicationProgram.cs" />
+    <Compile Include="DispenseSystem\Models\Programs\EpoxyMaterialProgram.cs" />
+    <Compile Include="DispenseSystem\Models\Programs\PreDispensePlateProgram.cs" />
+    <Compile Include="Helpers\TreeListHelper.cs" />
+    <Compile Include="MainControls\FrmLoadProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainControls\FrmLoadProduct.Designer.cs">
+      <DependentUpon>FrmLoadProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainControls\UcMainSystem.System.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainControls\UcMainSystem.Diagnosis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainControls\UcMainSystem.Machine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainControls\UcMainSystem.Manual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainControls\UcMainSystem.Production.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainControls\FrmUcProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainControls\FrmUcProgressBar.Designer.cs">
+      <DependentUpon>FrmUcProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ActionNode.cs" />
+    <Compile Include="Models\ActionNodeInformation.cs" />
+    <Compile Include="Models\BaseOrderDsSetting.cs" />
+    <Compile Include="Models\BaseDsSetting.cs" />
+    <Compile Include="Models\BaseMaterial.cs" />
+    <Compile Include="Models\BaseProgramEntity.cs" />
+    <Compile Include="Models\BaseSettingRepository.cs" />
+    <Compile Include="Models\BaseTool.cs" />
+    <Compile Include="Models\CommonModels\AdjustConfig.cs" />
+    <Compile Include="Models\CommonModels\AssistantConfig.cs" />
+    <Compile Include="Models\CommonModels\ZX2200PathConfig.cs" />
+    <Compile Include="Models\ITool.cs" />
+    <Compile Include="BondSystem\Modules\BondModule.cs" />
+    <Compile Include="BondSystem\Modules\BrushGlueModule.cs" />
+    <Compile Include="DispenseSystem\Modules\DispenseModule.cs" />
+    <Compile Include="BondSystem\Modules\UpLookModule.cs" />
+    <Compile Include="Parameters\ObjParameter\NozzleshelfPara.cs" />
+    <Compile Include="Parameters\ObjParameter\ParameterManage.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseSystem\Models\Repositories\Dispenser\Dispenser.cs" />
+    <Compile Include="DispenseSystem\Models\Repositories\Dispenser\DispenserRepository.cs" />
+    <Compile Include="DispenseSystem\Models\Repositories\EpoxyMaterial\EpoxyMaterial.cs" />
+    <Compile Include="DispenseSystem\Models\Repositories\EpoxyMaterial\EpoxyMaterialRepository.cs" />
+    <Compile Include="DispenseSystem\Models\Repositories\Pattern\EpoxyApplication.cs" />
+    <Compile Include="DispenseSystem\Models\Repositories\Pattern\EpoxyApplicationRepository.cs" />
+    <Compile Include="BondSystem\Models\Repositories\PostBondInspection\PostBondInspection.cs" />
+    <Compile Include="BondSystem\Models\Repositories\PostBondInspection\PostBondInspectionRepository.cs" />
+    <Compile Include="Repository\ProcessStep\ProcessStepPool.cs" />
+    <Compile Include="Services\ActionNodeMessage.cs" />
+    <Compile Include="Repository\ProcessStep\ProcessStep.cs" />
+    <Compile Include="Repository\ProcessStep\ProcessStepRepository.cs" />
+    <Compile Include="Machine.cs" />
+    <Compile Include="MainControls\UcHardwareEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainControls\UcHardwareEditor.designer.cs">
+      <DependentUpon>UcHardwareEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainControls\UcMainSystem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainControls\UcMainSystem.designer.cs">
+      <DependentUpon>UcMainSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainControls\UcUserManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainControls\UcUserManager.designer.cs">
+      <DependentUpon>UcUserManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ControllerHelper.cs" />
+    <Compile Include="Services\System1Controller.cs" />
+    <Compile Include="Services\System2Controller.cs" />
+    <Compile Include="TransportSystem\Controls\Manual\FrmTransportSystemProductLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Manual\FrmTransportSystemProductLocation.Designer.cs">
+      <DependentUpon>FrmTransportSystemProductLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUAdjustTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUAdjustTeach.Designer.cs">
+      <DependentUpon>FrmTUAdjustTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUHeightTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUHeightTeach.Designer.cs">
+      <DependentUpon>FrmTUHeightTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUIdentificationTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUIdentificationTeach.Designer.cs">
+      <DependentUpon>FrmTUIdentificationTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUPositionTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUPositionTeach.Designer.cs">
+      <DependentUpon>FrmTUPositionTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmBadModuleTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmBadModuleTeach.Designer.cs">
+      <DependentUpon>FrmBadModuleTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmModuleAdjustTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmModuleAdjustTeach.Designer.cs">
+      <DependentUpon>FrmModuleAdjustTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmModuleHeightTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmModuleHeightTeach.Designer.cs">
+      <DependentUpon>FrmModuleHeightTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmModuleInkDotTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmModuleInkDotTeach.Designer.cs">
+      <DependentUpon>FrmModuleInkDotTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmModulePositionTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmModulePositionTeach.Designer.cs">
+      <DependentUpon>FrmModulePositionTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstrateHeight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstrateHeight.Designer.cs">
+      <DependentUpon>FrmSubstrateHeight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstrateIdentificationTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstrateIdentificationTeach.Designer.cs">
+      <DependentUpon>FrmSubstrateIdentificationTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstrateInkDotTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstrateInkDotTeach.Designer.cs">
+      <DependentUpon>FrmSubstrateInkDotTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstrateAdjustTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstrateAdjustTeach.Designer.cs">
+      <DependentUpon>FrmSubstrateAdjustTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstratePositionTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstratePositionTeach.Designer.cs">
+      <DependentUpon>FrmSubstratePositionTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Manual\FrmTransportSystemManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Manual\FrmTransportSystemManual.Designer.cs">
+      <DependentUpon>FrmTransportSystemManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Setting\UcBeltSystem1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Setting\UcBeltSystem1.Designer.cs">
+      <DependentUpon>UcBeltSystem1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Setting\UcBeltSystem2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Setting\UcBeltSystem2.Designer.cs">
+      <DependentUpon>UcBeltSystem2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Setting\UcInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Setting\UcInput.Designer.cs">
+      <DependentUpon>UcInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Setting\UcOutput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Setting\UcOutput.Designer.cs">
+      <DependentUpon>UcOutput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Setting\UcTransportSystem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransportSystem\Controls\Setting\UcTransportSystem.Designer.cs">
+      <DependentUpon>UcTransportSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportSystem\Models\Enums\SubstrateRunnerEnum.cs" />
+    <Compile Include="TransportSystem\Models\DatasetModels\Bondinsert\BondinsertSetting.cs" />
+    <Compile Include="TransportSystem\Models\DatasetModels\Bondinsert\BondinsertSettingRepository.cs" />
+    <Compile Include="TransportSystem\Models\DatasetModels\InOutPut\InOutPutBeltSetting.cs" />
+    <Compile Include="TransportSystem\Models\DatasetModels\InOutPut\InOutPutBeltSettingRepository.cs" />
+    <Compile Include="TransportSystem\Models\DatasetModels\TansportBelt\TransportBeltSetting.cs" />
+    <Compile Include="TransportSystem\Models\DatasetModels\TansportBelt\TransportBeltSettingRepository.cs" />
+    <Compile Include="TransportSystem\Models\TransportDevicePara.cs" />
+    <Compile Include="TransportSystem\Modules\BaseSubSectionModule.cs" />
+    <Compile Include="TransportSystem\Modules\BondSubSectionModule.cs" />
+    <Compile Include="TransportSystem\Modules\DispenseSubSectionModule.cs" />
+    <Compile Include="TransportSystem\Modules\LoadingSubSectionModule.cs" />
+    <Compile Include="TransportSystem\Modules\UnloadingSubSectionModule.cs" />
+    <Compile Include="TransportSystem\Modules\WaitingUnloadSubSectionModule.cs" />
+    <Compile Include="TransportSystem\Models\Programs\BaseSubSectionProgram.cs" />
+    <Compile Include="TransportSystem\Models\Programs\BondSubSectionProgram.cs" />
+    <Compile Include="TransportSystem\Models\Programs\DispenseSubSectionProgram.cs" />
+    <Compile Include="TransportSystem\Models\Programs\LoadingSubSectionProgram.cs" />
+    <Compile Include="TransportSystem\Models\Programs\UnloadingSubSectionProgram.cs" />
+    <Compile Include="TransportSystem\Models\Programs\WaitingUnloadSubSectionProgram.cs" />
+    <Compile Include="TransportSystem\Models\TransportDomain.cs" />
+    <Compile Include="TransportSystem\Models\TransportModule.cs" />
+    <Compile Include="TransportSystem\Models\TransportProgram.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransportSystem\Models\TransportProvider.cs" />
+    <Compile Include="TransportSystem\Tasks\TransportTask.cs" />
+    <Compile Include="Tasks\TaskBase.cs" />
+    <Compile Include="FrmBear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBear.designer.cs">
+      <DependentUpon>FrmBear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\PathConfig.cs" />
+    <Compile Include="TransportUnit\Controls\Assistant\TUAssistantHelper.cs" />
+    <Compile Include="TransportUnit\Controls\Setting\UcModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Setting\UcModule.Designer.cs">
+      <DependentUpon>UcModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Setting\UcSubstrate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Setting\UcSubstrate.Designer.cs">
+      <DependentUpon>UcSubstrate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Setting\UcTransportUnit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransportUnit\Controls\Setting\UcTransportUnit.Designer.cs">
+      <DependentUpon>UcTransportUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmChangeTabletTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmChangeTabletTeach.Designer.cs">
+      <DependentUpon>FrmChangeTabletTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmChangeWaferMapTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmChangeWaferMapTeach.Designer.cs">
+      <DependentUpon>FrmChangeWaferMapTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmChangeWaffleMapTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmChangeWaffleMapTeach.Designer.cs">
+      <DependentUpon>FrmChangeWaffleMapTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmWaffleMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmWaffleMap.Designer.cs">
+      <DependentUpon>FrmWaffleMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\UcWaffleMap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\UcWaffleMap.Designer.cs">
+      <DependentUpon>UcWaffleMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmChooseWafer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmChooseWafer.Designer.cs">
+      <DependentUpon>FrmChooseWafer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentCarrierAdjustWithWaferTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentCarrierAdjustWithWaferTeach.Designer.cs">
+      <DependentUpon>FrmComponentCarrierAdjustWithWaferTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentCarrierGeometryWithWaferTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentCarrierGeometryWithWaferTeach.Designer.cs">
+      <DependentUpon>FrmComponentCarrierGeometryWithWaferTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentCarrierGeometryWithWaffleTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentCarrierGeometryWithWaffleTeach.Designer.cs">
+      <DependentUpon>FrmComponentCarrierGeometryWithWaffleTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentGeometryWithWaferTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentGeometryWithWaferTeach.Designer.cs">
+      <DependentUpon>FrmComponentGeometryWithWaferTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentGeometryWithWaffleTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentGeometryWithWaffleTeach.Designer.cs">
+      <DependentUpon>FrmComponentGeometryWithWaffleTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInkDotWithWaffleTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInkDotWithWaffleTeach.Designer.cs">
+      <DependentUpon>FrmInkDotWithWaffleTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInkDotWithWaferTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInkDotWithWaferTeach.Designer.cs">
+      <DependentUpon>FrmInkDotWithWaferTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInputColumns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInputColumns.Designer.cs">
+      <DependentUpon>FrmInputColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInputNumberOfSteps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInputNumberOfSteps.Designer.cs">
+      <DependentUpon>FrmInputNumberOfSteps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInputRows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInputRows.Designer.cs">
+      <DependentUpon>FrmInputRows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmWaferEdgeWithWaferTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmWaferEdgeWithWaferTeach.Designer.cs">
+      <DependentUpon>FrmWaferEdgeWithWaferTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\EjectionConfigurationTeach\FrmEjectionSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\EjectionConfigurationTeach\FrmEjectionSetting.Designer.cs">
+      <DependentUpon>FrmEjectionSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\EjectionConfigurationTeach\FrmNewCreateEjection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\EjectionConfigurationTeach\FrmNewCreateEjection.Designer.cs">
+      <DependentUpon>FrmNewCreateEjection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\EjectionsTeach\FrmHeightMeasurementTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\EjectionsTeach\FrmHeightMeasurementTeach.Designer.cs">
+      <DependentUpon>FrmHeightMeasurementTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\EjectionsTeach\FrmNeedleZeroPositionTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\EjectionsTeach\FrmNeedleZeroPositionTeach.Designer.cs">
+      <DependentUpon>FrmNeedleZeroPositionTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\EjectionsTeach\FrmXYPositionTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\EjectionsTeach\FrmXYPositionTeach.Designer.cs">
+      <DependentUpon>FrmXYPositionTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\MagazineTeach\FrmMagazineFilling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\MagazineTeach\FrmMagazineFilling.Designer.cs">
+      <DependentUpon>FrmMagazineFilling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\MagazineTeach\FrmNewCreateAdapter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\MagazineTeach\FrmNewCreateAdapter.Designer.cs">
+      <DependentUpon>FrmNewCreateAdapter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\MagazineTeach\FrmNewCreateComponent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\MagazineTeach\FrmNewCreateComponent.Designer.cs">
+      <DependentUpon>FrmNewCreateComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmRegripSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmRegripSet.Designer.cs">
+      <DependentUpon>FrmRegripSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmWaferChangeTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmWaferChangeTeach.Designer.cs">
+      <DependentUpon>FrmWaferChangeTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmWaferMagazineGeoTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmWaferMagazineGeoTeach.Designer.cs">
+      <DependentUpon>FrmWaferMagazineGeoTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmWaferTableCollisionCircleTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmWaferTableCollisionCircleTeach.Designer.cs">
+      <DependentUpon>FrmWaferTableCollisionCircleTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\FrmDebug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\FrmDebug.Designer.cs">
+      <DependentUpon>FrmDebug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\UcSlotsState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\UcSlotsState.Designer.cs">
+      <DependentUpon>UcSlotsState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Manual\UcComponentHandling.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Manual\UcComponentHandling.Designer.cs">
+      <DependentUpon>UcComponentHandling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Manual\UcEjectBank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Manual\UcEjectBank.Designer.cs">
+      <DependentUpon>UcEjectBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Setting\Component\UcComponentEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Setting\Component\UcComponentEdit.Designer.cs">
+      <DependentUpon>UcComponentEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Setting\Waferhandling\UcMagazineGeometry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Setting\Waferhandling\UcMagazineGeometry.Designer.cs">
+      <DependentUpon>UcMagazineGeometry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Setting\Waferhandling\UcWaferHanding.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WaferSubSystem\Controls\Setting\Waferhandling\UcWaferHanding.Designer.cs">
+      <DependentUpon>UcWaferHanding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaferSubSystem\Models\DeviceParams\EjectDevicePara.cs" />
+    <Compile Include="WaferSubSystem\Models\DeviceParams\FlipChipDevicePara.cs" />
+    <Compile Include="WaferSubSystem\Models\DeviceParams\MagazineBoxDevicePara.cs" />
+    <Compile Include="WaferSubSystem\Models\DeviceParams\WaferTableDevicePara.cs" />
+    <Compile Include="WaferSubSystem\Models\DeviceParams\WaferSubDevicePara.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\AdapterTabletState.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\BaseCarrier.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\EjectionBankSlot.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\Node.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\SearchChip\Block.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\SearchChip\Block.SearchDieBox.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\SearchChip\Block.SearchMapping.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\SearchChip\Block.SearchNine.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\SearchChip\Block.SearchSingle.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\SearchChip\PickRefEnd.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\Slot.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\Tablet\AdapterTablet.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\Tablet\BaseTablet.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\Tablet\NullTablet.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\Tablet\WaferTablet.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\WafflePlateSlot.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\WafflePlateSlotsState.cs" />
+    <Compile Include="WaferSubSystem\Models\Entities\WaffleSlot.cs" />
+    <Compile Include="WaferSubSystem\Models\Enums\EnumWaferSubSystem.cs" />
+    <Compile Include="WaferSubSystem\Models\Programs\EjectionBankProgram.cs" />
+    <Compile Include="WaferSubSystem\Models\Programs\MagazineAllocationsProgram.cs" />
+    <Compile Include="WaferSubSystem\Models\Programs\MagazineBoxProgram.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\Adapter\AdapterRepository.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\Adapter\AdapterSetting.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\Carrier\CarrierWithWafer.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\Carrier\CarrierRepository.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\Carrier\CarrierWithWaffle.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\EjectionBank\EjectionBankRepository.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\EjectionBank\EjectionBankSetting.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\Ejection\EjectionRepository.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\Ejection\EjectionSetting.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\MagazineAllocations\MagazineAllocationsRepository.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\MagazineAllocations\MagazineAllocationsSetting.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\MagazineBoxGeo\MagazineBoxGeoRepository.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\MagazineBoxGeo\MagazineBoxGeoSetting.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\MagazineBox\MagazineBoxRepository.cs" />
+    <Compile Include="WaferSubSystem\Models\Repositories\MagazineBox\MagazineBoxSetting.cs" />
+    <Compile Include="WaferSubSystem\Models\Structs\StructWaferSubSystem.cs" />
+    <Compile Include="WaferSubSystem\Models\WaferSystemDomain.cs" />
+    <Compile Include="WaferSubSystem\Models\WaferSystemProgram.cs" />
+    <Compile Include="WaferSubSystem\Modules\EjectModule.cs" />
+    <Compile Include="WaferSubSystem\Modules\FlipChipModule.cs" />
+    <Compile Include="WaferSubSystem\Modules\MagazineBoxModule.cs" />
+    <Compile Include="WaferSubSystem\Modules\WaferSubModule.cs" />
+    <Compile Include="WaferSubSystem\Modules\WaferTableModule.cs" />
+    <Compile Include="WaferSubSystem\Services\Static.cs" />
+    <Compile Include="WaferSubSystem\Tasks\WaferSubSystemTask.cs" />
+    <EmbeddedResource Include="AKRSMessageBoxExt.resx">
+      <DependentUpon>AKRSMessageBoxExt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmBondPositionHeightTeach.resx">
+      <DependentUpon>FrmBondPositionHeightTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmComponentAccuracyMode.resx">
+      <DependentUpon>FrmComponentAccuracyMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmComponentPickup.resx">
+      <DependentUpon>FrmComponentPickup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmComponentPlacement.resx">
+      <DependentUpon>FrmComponentPlacement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmLearnToolBank.resx">
+      <DependentUpon>FrmLearnToolBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmModuleSelect.resx">
+      <DependentUpon>FrmModuleSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmMoveToBondingPosition.resx">
+      <DependentUpon>FrmMoveToBondingPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmNozzleAlignmentTeach.resx">
+      <DependentUpon>FrmNozzleAlignmentTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmNozzleGeometryTeach.resx">
+      <DependentUpon>FrmNozzleGeometryTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmNozzleHeightTeach.resx">
+      <DependentUpon>FrmNozzleHeightTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmPostBondTeach.resx">
+      <DependentUpon>FrmPostBondTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Assistant\FrmTeachBondingPosition.resx">
+      <DependentUpon>FrmTeachBondingPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Manual\FrmDistanceMeasurement.resx">
+      <DependentUpon>FrmDistanceMeasurement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Manual\FrmDistanceMeasureResult.resx">
+      <DependentUpon>FrmDistanceMeasureResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Manual\FrmMeasureTool.resx">
+      <DependentUpon>FrmMeasureTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Manual\FrmRestart.resx">
+      <DependentUpon>FrmRestart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Manual\FrmTUVisionControl.resx">
+      <DependentUpon>FrmTUVisionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Manual\FrmVacuum.resx">
+      <DependentUpon>FrmVacuum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Manual\UcNozzleBank.resx">
+      <DependentUpon>UcNozzleBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Setting\BondPosition\UcAddBondPosition.resx">
+      <DependentUpon>UcAddBondPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Setting\BondPosition\UcBondPositionEdit.resx">
+      <DependentUpon>UcBondPositionEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Setting\NozzleShelf\FrmNewCreateNozzle.resx">
+      <DependentUpon>FrmNewCreateNozzle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Setting\NozzleShelf\FrmNozzleShelfSetting.resx">
+      <DependentUpon>FrmNozzleShelfSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Setting\Nozzle\UcNozzleEdit.resx">
+      <DependentUpon>UcNozzleEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Setting\PostBond\FrmNewCreatePostBond.resx">
+      <DependentUpon>FrmNewCreatePostBond.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Setting\PostBond\UcAddPostBond.resx">
+      <DependentUpon>UcAddPostBond.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\Setting\PostBond\UcPostBondEdit.resx">
+      <DependentUpon>UcPostBondEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\UcBondModuelSetting.resx">
+      <DependentUpon>UcBondModuelSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BondSystem\Controls\VisionForm.resx">
+      <DependentUpon>VisionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalibSystem\Controls\Assistant\FrmDBCalibTeach.resx">
+      <DependentUpon>FrmDBCalibTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalibSystem\Controls\Assistant\FrmBondCalibTeach.resx">
+      <DependentUpon>FrmBondCalibTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalibSystem\Controls\Assistant\FrmDispenseCalibTeach.resx">
+      <DependentUpon>FrmDispenseCalibTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalibSystem\Controls\FrmCalibResult.resx">
+      <DependentUpon>FrmCalibResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalibSystem\Controls\UcProgressStep.resx">
+      <DependentUpon>UcProgressStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configurations\General\UcGeneralConfiguration.resx">
+      <DependentUpon>UcGeneralConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CommonControls\FrmRepository.resx">
+      <DependentUpon>FrmRepository.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Forms\FrmCustomerSetup.resx">
+      <DependentUpon>FrmCustomerSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ModuleControls\UcAkrsPoint3D.resx">
+      <DependentUpon>UcAkrsPoint3D.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\FrmCreateProcessStep.resx">
+      <DependentUpon>FrmCreateProcessStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\UcConfiguration1.resx">
+      <DependentUpon>UcConfiguration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\UcConfiguration2.resx">
+      <DependentUpon>UcConfiguration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\UcConfigurationDescription.resx">
+      <DependentUpon>UcConfigurationDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\UcDispenserDescription.resx">
+      <DependentUpon>UcDispenserDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\UcProcessStepEdit.resx">
+      <DependentUpon>UcProcessStepEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ModuleControls\UcData.resx">
+      <DependentUpon>UcData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ModuleControls\UcGuideMove.resx">
+      <DependentUpon>UcGuideMove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ModuleControls\UcLight.resx">
+      <DependentUpon>UcLight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ModuleControls\UcModule.resx">
+      <DependentUpon>UcModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\FrmBaseTeach.resx">
+      <DependentUpon>FrmBaseTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\FrmTeachNavigation.resx">
+      <DependentUpon>FrmTeachNavigation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\UcEditProductProgramming.resx">
+      <DependentUpon>UcEditProductProgramming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\UcComponentsDescription.resx">
+      <DependentUpon>UcComponentsDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\UcESToolsDescription.resx">
+      <DependentUpon>UcESToolsDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\UcTransportUnitDescription.resx">
+      <DependentUpon>UcTransportUnitDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\UcPPToolsDescription.resx">
+      <DependentUpon>UcPPToolsDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolControls\Programming\UcTransportUnitFrame.resx">
+      <DependentUpon>UcTransportUnitFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseSystem\Controls\Assistant\FrmChangeEpoxy.resx">
+      <DependentUpon>FrmChangeEpoxy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseSystem\Controls\Assistant\FrmDispensePlateAssistant.cs.resx">
+      <DependentUpon>FrmDispensePlateAssistant.cs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseSystem\Controls\Assistant\FrmEpoxyApplicationAssistant.resx">
+      <DependentUpon>FrmEpoxyApplicationAssistant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseSystem\Controls\Assistant\FrmSystem1Pos.resx">
+      <DependentUpon>FrmSystem1Pos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseSystem\Controls\Assistant\FrmDispenseOverAllSettings.resx">
+      <DependentUpon>FrmDispenseOverAllSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseSystem\Controls\Setting\Dispenser\UcDispenser.resx">
+      <DependentUpon>UcDispenser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseSystem\Controls\Setting\EpoxyApplication\FrmNewCreateEpoxyApplication.resx">
+      <DependentUpon>FrmNewCreateEpoxyApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcAddEpoxyApplication.resx">
+      <DependentUpon>UcAddEpoxyApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcDispenseLine.resx">
+      <DependentUpon>UcDispenseLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcEpoxyApplication.resx">
+      <DependentUpon>UcEpoxyApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseSystem\Controls\Setting\EpoxyApplication\UcEpoxyApplicationGuide.resx">
+      <DependentUpon>UcEpoxyApplicationGuide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainControls\FrmLoadProduct.resx">
+      <DependentUpon>FrmLoadProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainControls\FrmUcProgressBar.resx">
+      <DependentUpon>FrmUcProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainControls\UcHardwareEditor.resx">
+      <DependentUpon>UcHardwareEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainControls\UcMainSystem.resx">
+      <DependentUpon>UcMainSystem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainControls\UcUserManager.resx">
+      <DependentUpon>UcUserManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportSystem\Controls\Manual\FrmTransportSystemProductLocation.resx">
+      <DependentUpon>FrmTransportSystemProductLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUAdjustTeach.resx">
+      <DependentUpon>FrmTUAdjustTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUHeightTeach.resx">
+      <DependentUpon>FrmTUHeightTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUIdentificationTeach.resx">
+      <DependentUpon>FrmTUIdentificationTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Assistant\CarrierTeach\FrmTUPositionTeach.resx">
+      <DependentUpon>FrmTUPositionTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmModuleAdjustTeach.resx">
+      <DependentUpon>FrmModuleAdjustTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Assistant\ModuleTeach\FrmModulePositionTeach.resx">
+      <DependentUpon>FrmModulePositionTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstrateInkDotTeach.resx">
+      <DependentUpon>FrmSubstrateInkDotTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstrateAdjustTeach.resx">
+      <DependentUpon>FrmSubstrateAdjustTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Assistant\SubstrateTeach\FrmSubstratePositionTeach.resx">
+      <DependentUpon>FrmSubstratePositionTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportSystem\Controls\Manual\FrmTransportSystemManual.resx">
+      <DependentUpon>FrmTransportSystemManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportSystem\Controls\Setting\UcBeltSystem1.resx">
+      <DependentUpon>UcBeltSystem1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportSystem\Controls\Setting\UcBeltSystem2.resx">
+      <DependentUpon>UcBeltSystem2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportSystem\Controls\Setting\UcInput.resx">
+      <DependentUpon>UcInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportSystem\Controls\Setting\UcOutput.resx">
+      <DependentUpon>UcOutput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportSystem\Controls\Setting\UcTransportSystem.resx">
+      <DependentUpon>UcTransportSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBear.resx">
+      <DependentUpon>FrmBear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Setting\UcModule.resx">
+      <DependentUpon>UcModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Setting\UcSubstrate.resx">
+      <DependentUpon>UcSubstrate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportUnit\Controls\Setting\UcTransportUnit.resx">
+      <DependentUpon>UcTransportUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmChangeTabletTeach.resx">
+      <DependentUpon>FrmChangeTabletTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmChangeWaferMapTeach.resx">
+      <DependentUpon>FrmChangeWaferMapTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmChangeWaffleMapTeach.resx">
+      <DependentUpon>FrmChangeWaffleMapTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\FrmWaffleMap.resx">
+      <DependentUpon>FrmWaffleMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ChangeMapTeach\UcWaffleMap.resx">
+      <DependentUpon>UcWaffleMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmChooseWafer.resx">
+      <DependentUpon>FrmChooseWafer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentCarrierAdjustWithWaferTeach.resx">
+      <DependentUpon>FrmComponentCarrierAdjustWithWaferTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentCarrierGeometryWithWaferTeach.resx">
+      <DependentUpon>FrmComponentCarrierGeometryWithWaferTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentCarrierGeometryWithWaffleTeach.resx">
+      <DependentUpon>FrmComponentCarrierGeometryWithWaffleTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentGeometryWithWaferTeach.resx">
+      <DependentUpon>FrmComponentGeometryWithWaferTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmComponentGeometryWithWaffleTeach.resx">
+      <DependentUpon>FrmComponentGeometryWithWaffleTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInkDotWithWaffleTeach.resx">
+      <DependentUpon>FrmInkDotWithWaffleTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInkDotWithWaferTeach.resx">
+      <DependentUpon>FrmInkDotWithWaferTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInputColumns.resx">
+      <DependentUpon>FrmInputColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInputNumberOfSteps.resx">
+      <DependentUpon>FrmInputNumberOfSteps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmInputRows.resx">
+      <DependentUpon>FrmInputRows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\ComponentsTeach\FrmWaferEdgeWithWaferTeach.resx">
+      <DependentUpon>FrmWaferEdgeWithWaferTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\EjectionConfigurationTeach\FrmEjectionSetting.resx">
+      <DependentUpon>FrmEjectionSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\EjectionConfigurationTeach\FrmNewCreateEjection.resx">
+      <DependentUpon>FrmNewCreateEjection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\EjectionsTeach\FrmHeightMeasurementTeach.resx">
+      <DependentUpon>FrmHeightMeasurementTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\EjectionsTeach\FrmNeedleZeroPositionTeach.resx">
+      <DependentUpon>FrmNeedleZeroPositionTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\EjectionsTeach\FrmXYPositionTeach.resx">
+      <DependentUpon>FrmXYPositionTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\MagazineTeach\FrmMagazineFilling.resx">
+      <DependentUpon>FrmMagazineFilling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\MagazineTeach\FrmNewCreateAdapter.resx">
+      <DependentUpon>FrmNewCreateAdapter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\MagazineTeach\FrmNewCreateComponent.resx">
+      <DependentUpon>FrmNewCreateComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmRegripSet.resx">
+      <DependentUpon>FrmRegripSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmWaferChangeTeach.resx">
+      <DependentUpon>FrmWaferChangeTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmWaferMagazineGeoTeach.resx">
+      <DependentUpon>FrmWaferMagazineGeoTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Assistant\WaferHandlingTeach\FrmWaferTableCollisionCircleTeach.resx">
+      <DependentUpon>FrmWaferTableCollisionCircleTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\FrmDebug.resx">
+      <DependentUpon>FrmDebug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\UcSlotsState.resx">
+      <DependentUpon>UcSlotsState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Manual\UcComponentHandling.resx">
+      <DependentUpon>UcComponentHandling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Manual\UcEjectBank.resx">
+      <DependentUpon>UcEjectBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Setting\Component\UcComponentEdit.resx">
+      <DependentUpon>UcComponentEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Setting\Waferhandling\UcMagazineGeometry.resx">
+      <DependentUpon>UcMagazineGeometry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaferSubSystem\Controls\Setting\Waferhandling\UcWaferHanding.resx">
+      <DependentUpon>UcWaferHanding.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configurations\Advanced\" />
+    <Folder Include="Configurations\Application\" />
+    <Folder Include="Configurations\Hardware\" />
+    <Folder Include="Configurations\Secure\" />
+    <Folder Include="Configurations\Software\" />
+    <Folder Include="DispenseSystem\Controls\Manual\" />
+    <Folder Include="Programs\ActionNodes\" />
+    <Folder Include="Programs\Repository\" />
+    <Folder Include="Tests\" />
+    <Folder Include="TransportUnit\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bordersall_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bordernone_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\technology_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customizegrid_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagesetup_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\moveup_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\movedown_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\replace_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pie3d_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loadfrom_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loadfrom_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inserttablerowsabove_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red.svg" />
+    <None Include="Resources\svg %282%29.svg" />
+    <None Include="Resources\webps.svg" />
+    <None Include="Resources\Blue.svg" />
+    <None Include="Resources\Customize.svg" />
+    <None Include="Resources\Cyan.svg" />
+    <None Include="Resources\Greed.svg" />
+    <None Include="Resources\Magenta.svg" />
+    <None Include="Resources\White.svg" />
+    <None Include="Resources\Yellow.svg" />
+    <Content Include="Resources\Bond.bmp" />
+    <Content Include="Resources\Dispenser.bmp" />
+    <Content Include="Resources\右移.png" />
+    <Content Include="Resources\左移.png" />
+    <None Include="Resources\向左边1.png" />
+    <None Include="Resources\向右边1.png" />
+    <None Include="Resources\吸取材质.png" />
+    <None Include="Resources\胶水.png" />
+    <None Include="Resources\胶水 %281%29.png" />
+    <None Include="Resources\铅笔.png" />
+    <None Include="Resources\向左边.png" />
+    <None Include="Resources\向右边.png" />
+    <None Include="Resources\保存成功.png" />
+    <None Include="Resources\保存.png" />
+    <None Include="Resources\高度.png" />
+    <None Include="Resources\首页-首页.png" />
+    <None Include="Resources\home %283%29.png" />
+    <None Include="Resources\home %282%29.png" />
+    <None Include="Resources\home %281%29.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\home_fill.png" />
+    <None Include="Resources\banana-spade.png" />
+    <None Include="Resources\highlight %282%29.png" />
+    <None Include="Resources\highlight %281%29.png" />
+    <None Include="Resources\highlight.png" />
+    <None Include="Resources\MedStyleC.png" />
+    <None Include="Images\Add_16x16.png" />
+    <None Include="Images\Delete_16x16.png" />
+    <None Include="Images\SaveAndNew_16x16.png" />
+    <Content Include="Resources\ToDownLeft.GIF" />
+    <Content Include="Resources\ToDownRight.GIF" />
+    <Content Include="Resources\ToLeftDown.GIF" />
+    <Content Include="Resources\ToLeftUp.GIF" />
+    <Content Include="Resources\ToRightDown.GIF" />
+    <Content Include="Resources\ToRightUp.GIF" />
+    <Content Include="Resources\ToUpLeft.GIF" />
+    <Content Include="Resources\ToUpRight.GIF" />
+    <None Include="Resources\下一步-03.png" />
+    <None Include="Resources\上一步-03.png" />
+    <None Include="Resources\对.png" />
+    <None Include="Resources\取消.png" />
+    <None Include="Resources\加.png" />
+    <None Include="Resources\加 %281%29.png" />
+    <None Include="Resources\删除.png" />
+    <None Include="Resources\编辑色块.png" />
+    <None Include="Resources\向上.png" />
+    <None Include="Resources\排序.png" />
+    <None Include="Resources\排序 %281%29.png" />
+    <None Include="Resources\向上 %281%29.png" />
+    <None Include="Resources\更改库存说明.png" />
+    <None Include="Resources\失败处继续.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AKRS.Calibration\AKRS.Calibration.csproj">
+      <Project>{58b058a0-033b-4664-a96e-60ea7d42d7dc}</Project>
+      <Name>AKRS.Calibration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AKRS.Galaxy2.Carriers\AKRS.Galaxy2.Carriers.csproj">
+      <Project>{019a7d54-7efd-4435-8bb9-5fd3d9844f29}</Project>
+      <Name>AKRS.Galaxy2.Carrier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AKRS.Galaxy2.CoordinateSystems\AKRS.Galaxy2.CoordinateSystems.csproj">
+      <Project>{27d3507a-15e4-4190-b801-9f5426e904b3}</Project>
+      <Name>AKRS.Galaxy2.CoordinateSystems</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AKRS.Galaxy2.MachineSupport\AKRS.Galaxy2.MachineSupport.csproj">
+      <Project>{6bed4d85-11cd-4da4-8d6c-6f0cdee5d72b}</Project>
+      <Name>AKRS.Galaxy2.MachineSupport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AKRS.Galaxy2.Machine\AKRS.Galaxy2.Machine.csproj">
+      <Project>{EB3C2BCE-635D-440B-BE73-148BB644A62C}</Project>
+      <Name>AKRS.Galaxy2.Machine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AKRS.Galaxy2.Parameters\AKRS.Galaxy2.Parameters.csproj">
+      <Project>{7DCC4392-8F20-4FC9-966E-105AD9C66F4A}</Project>
+      <Name>AKRS.Galaxy2.Parameters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AKRS.Galaxy2.PR\AKRS.Galaxy2.PR.csproj">
+      <Project>{D8062B58-0349-4E5D-A5C4-0CA9D3FC4FA1}</Project>
+      <Name>AKRS.Galaxy2.PR</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MethodBoundaryAspect.Fody">
+      <Version>2.0.145</Version>
+    </PackageReference>
+    <PackageReference Include="PropertyChanged.Fody">
+      <Version>4.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Dataflow">
+      <Version>6.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

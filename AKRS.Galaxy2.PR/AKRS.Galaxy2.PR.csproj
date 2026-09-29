@@ -1,0 +1,651 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D8062B58-0349-4E5D-A5C4-0CA9D3FC4FA1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AKRS.Galaxy2.PR</RootNamespace>
+    <AssemblyName>AKRS.Galaxy2.PR</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\AKRS.ZX2200\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AKRS.Galaxy2.HardwareEditor, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\bin\Debug\AKRS.Galaxy2.HardwareEditor.exe</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Infrastructure">
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphicsSetModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=969f13d2d78c3370, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\GraphicsSetModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="halcondotnet, Version=17.12.0.0, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\halcondotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="IMVS2dBcrModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2d71b6e5385ea779, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVS2dBcrModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSEdgeFlawInspModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=20026c1ba1b73a11, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSEdgeFlawInspModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGroupCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93c2eed79fa68a0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSGroupCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=15941e18b10db20b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSLineFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSLineFitModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d48adae15822c46d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSLineFitModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MWArray, Version=2.22.1.0, Culture=neutral, PublicKeyToken=e1d84a0da19db86f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\MATLAB\MATLAB Runtime\R2022b\toolbox\dotnetbuilder\bin\win64\v4.0\MWArray.dll</HintPath>
+    </Reference>
+    <Reference Include="predictPD">
+      <HintPath>..\AKRS.ZX2200\libs\predictPD.dll</HintPath>
+    </Reference>
+    <Reference Include="predictPDNative">
+      <HintPath>..\AKRS.ZX2200\libs\predictPDNative.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\PublicAssemblies\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="VM.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=61600122bc9264b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\VM.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VM.PlatformSDKCS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1484a72052ee3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\VM.PlatformSDKCS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Aop, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Communication, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.Communication.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Component.Simple, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.Component.Simple.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Drive, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.Drive.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.LogicHardware, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.LogicHardware.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.Machine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.Machine.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.MachineSupport, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.MachineSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.ModulePublic, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.ModulePublic.dll</HintPath>
+    </Reference>
+    <Reference Include="AKRS.Galaxy2.UserManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\AKRS.Galaxy2.UserManager.dll</HintPath>
+    </Reference>
+    <Reference Include="BranchModule_STDCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b25f4e77d5151502, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\BranchModule_STDCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GeometryCreateCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e5ea1d4f14e531ae, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\GeometryCreateCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ImageSourceModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6a03c4a48a6df5e6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\ImageSourceModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSBlobFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7fe8bad26cdedb7b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSBlobFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCaliperCornerModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=afa702cf00f4d5ad, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSCaliperCornerModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCaliperEdgeModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2e9b837021fe7c82, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSCaliperEdgeModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSCircleFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cbed95538e129137, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSCircleFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSContourMatchModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=91bd2ec83e827309, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSContourMatchModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSFastFeatureMatchModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ca9d2dd350762d2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSFastFeatureMatchModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSFixtureModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e4dad505120a5f52, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSFixtureModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGrayMatchModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a3f74a1522c95aea, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSGrayMatchModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSGrayMatchModuVACs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96929120b239ec13, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSGrayMatchModuVACs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSHPFeatureMatchModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3a8001c24b4e8881, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSHPFeatureMatchModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSMarkFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f5b7001f1805d7f5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSMarkFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSQuadrangleFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9cd04858519c6211, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSQuadrangleFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IMVSRectFindModuCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=721f5f3c8736a915, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\IMVSRectFindModuCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LanguageExt.Core">
+      <HintPath>..\AKRS.ZX2200\libs\LanguageExt.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v21.2" />
+    <Reference Include="DevExpress.Data.Desktop.v21.2" />
+    <Reference Include="DevExpress.Data.v21.2" />
+    <Reference Include="DevExpress.Dialogs.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v21.2" />
+    <Reference Include="DevExpress.Sparkline.v21.2.Core" />
+    <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDialogs.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v21.2" />
+    <Reference Include="DevExpress.Printing.v21.2.Core" />
+    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraWizard.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="MethodBoundaryAspect">
+      <HintPath>..\AKRS.ZX2200\libs\MethodBoundaryAspect.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\AKRS.ZX2200\libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SaveImageCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=71ec4914c8d95fd5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\SaveImageCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ShellModuleCs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a88b3f19f0240810, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\ShellModuleCs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VMControls.BaseInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14444b8df74b6e6a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\VMControls.BaseInterface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.Interface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cb41614600cf774b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\VMControls.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.RenderInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4bcfc50547abbb24, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\VMControls.RenderInterface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.Winform.Release, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2efa940dfee4dc7e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\VMControls.Winform.Release.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMControls.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fef8a9e4baab915f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AKRS.ZX2200\libs\HikVision\VMControls.WPF.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\AlgControls\ParamsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AlgControls\ParamsControl.Designer.cs">
+      <DependentUpon>ParamsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AlgControls\RenderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AlgControls\RenderControl.Designer.cs">
+      <DependentUpon>RenderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AlgControls\UcAlgEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AlgControls\UcAlgEditor.designer.cs">
+      <DependentUpon>UcAlgEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AlgControls\viewform.Designer.cs" />
+    <Compile Include="Controls\AlgControls\ViewformControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FrmDefectResult.cs" />
+    <Compile Include="Controls\FrmDefectResult.Designer.cs">
+      <DependentUpon>FrmDefectResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrmHardwareSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\FrmHardwareSet.designer.cs">
+      <DependentUpon>FrmHardwareSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrmName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\FrmName.designer.cs">
+      <DependentUpon>FrmName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrmPREditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\FrmPREditor.designer.cs">
+      <DependentUpon>FrmPREditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrmPRImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\FrmPRImage.Designer.cs">
+      <DependentUpon>FrmPRImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrmShowPRResultsNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\FrmShowPRResultsNew.Designer.cs">
+      <DependentUpon>FrmShowPRResultsNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrmShowPRResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\FrmShowPRResults.Designer.cs">
+      <DependentUpon>FrmShowPRResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FrmVmVisionResult.cs" />
+    <Compile Include="Controls\FrmVmVisionResult.Designer.cs">
+      <DependentUpon>FrmVmVisionResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UcPRLight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UcPRLight.Designer.cs">
+      <DependentUpon>UcPRLight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UcVmResultShow.cs" />
+    <Compile Include="Controls\UcVmResultShow.Designer.cs">
+      <DependentUpon>UcVmResultShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UcVmShowPRResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UcVmShowPRResult.Designer.cs">
+      <DependentUpon>UcVmShowPRResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UcShowPRResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UcShowPRResult.Designer.cs">
+      <DependentUpon>UcShowPRResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ZoomablePictureBox.cs" />
+    <Compile Include="Controls\ZoomablePictureBox.Designer.cs">
+      <DependentUpon>ZoomablePictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Algs\AlgsFactory.cs" />
+    <Compile Include="Models\Algs\BaseAlg.cs" />
+    <Compile Include="Models\Algs\CenterSearchAlg.cs" />
+    <Compile Include="Models\Algs\CornerDetectAlg.cs" />
+    <Compile Include="Models\Algs\CircleFindAlg.cs" />
+    <Compile Include="Models\Algs\CrossSearchAlg.cs" />
+    <Compile Include="Models\Algs\EdgeBreakDetectAlg.cs" />
+    <Compile Include="Models\Algs\FcEdgeBreakDetectAlg.cs" />
+    <Compile Include="Models\Algs\FcUplookModelAlg.cs" />
+    <Compile Include="Models\Algs\FiducialFindAlg.cs" />
+    <Compile Include="Models\Algs\FocusAlg.cs" />
+    <Compile Include="Models\Algs\HighPreModelAlgWithCorner.cs" />
+    <Compile Include="Models\Algs\HybridPositionAlg.cs" />
+    <Compile Include="Models\Algs\CircleAndLineAlg.cs" />
+    <Compile Include="Models\Algs\QrCodeDetectAlg.cs" />
+    <Compile Include="Models\Algs\SurfaceDetectAlg.cs" />
+    <Compile Include="Models\Algs\SymmetricModelAlg.cs" />
+    <Compile Include="Models\Algs\HighPreModelAlgWithBlob.cs" />
+    <Compile Include="Models\Algs\HighPreModelAlgWithRefer.cs" />
+    <Compile Include="Models\Algs\LineDetectAlg.cs" />
+    <Compile Include="Models\Algs\DistanceMeasureAlg.cs" />
+    <Compile Include="Models\Algs\RectangleSecondDetectAlg.cs" />
+    <Compile Include="Models\Algs\RectangleDetectAlg.cs" />
+    <Compile Include="Models\Algs\EpoxyDetectAlg.cs" />
+    <Compile Include="Models\Algs\FastModelAlg.cs" />
+    <Compile Include="Models\Algs\HighPreModelAlg.cs" />
+    <Compile Include="Models\Algs\InkDotDetectAlg.cs" />
+    <Compile Include="Models\Algs\NccModelAlg.cs" />
+    <Compile Include="Models\Algs\PostBondDetectAlg.cs" />
+    <Compile Include="Models\Algs\PreventReverseAlg.cs" />
+    <Compile Include="Models\Algs\PreventWrongAlg.cs" />
+    <Compile Include="Models\Algs\XldModelAlg.cs" />
+    <Compile Include="Models\CommonModels\Enums.cs" />
+    <Compile Include="Models\Entities\BaseVisionEntity.cs" />
+    <Compile Include="Models\Entities\PRHardware.cs" />
+    <Compile Include="Models\Entities\PRLight.cs" />
+    <Compile Include="Models\MatchResults\BaseAlgResult.cs" />
+    <Compile Include="Models\MatchResults\BlobResult.cs" />
+    <Compile Include="Models\MatchResults\CodeResult.cs" />
+    <Compile Include="Models\MatchResults\FocusResult.cs" />
+    <Compile Include="Models\MatchResults\MatchResult.cs" />
+    <Compile Include="Models\Entities\PREntity.cs" />
+    <Compile Include="Models\CommonModels\PRResultShowModel.cs" />
+    <Compile Include="Models\Services\ImageHelp.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resipository\FrmPRList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resipository\FrmPRList.designer.cs">
+      <DependentUpon>FrmPRList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resipository\VisionEntityRepository.cs" />
+    <EmbeddedResource Include="Controls\AlgControls\ParamsControl.resx">
+      <DependentUpon>ParamsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AlgControls\RenderControl.resx">
+      <DependentUpon>RenderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AlgControls\UcAlgEditor.resx">
+      <DependentUpon>UcAlgEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AlgControls\viewform.resx" />
+    <EmbeddedResource Include="Controls\FrmDefectResult.resx">
+      <DependentUpon>FrmDefectResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FrmHardwareSet.resx">
+      <DependentUpon>FrmHardwareSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FrmName.resx">
+      <DependentUpon>FrmName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FrmPREditor.resx">
+      <DependentUpon>FrmPREditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FrmPRImage.resx">
+      <DependentUpon>FrmPRImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FrmShowPRResultsNew.resx">
+      <DependentUpon>FrmShowPRResultsNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FrmShowPRResults.resx">
+      <DependentUpon>FrmShowPRResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FrmVmVisionResult.resx">
+      <DependentUpon>FrmVmVisionResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UcPRLight.resx">
+      <DependentUpon>UcPRLight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UcVmResultShow.resx">
+      <DependentUpon>UcVmResultShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UcVmShowPRResult.resx">
+      <DependentUpon>UcVmShowPRResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UcShowPRResult.resx">
+      <DependentUpon>UcShowPRResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ZoomablePictureBox.resx">
+      <DependentUpon>ZoomablePictureBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resipository\FrmPRList.resx">
+      <DependentUpon>FrmPRList.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="AlgFlowTemplates\FC上视定位.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\FC崩边检测.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\中心查找.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\二维码识别.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\交点查找.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\圆心和角度.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\圆查找.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\基准查找.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\墨点检测.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\对称模板匹配.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\带墨点检测的高精度匹配.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\带粗定位高精度匹配.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\带缺角检测的轮廓匹配.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\快速匹配.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\清晰度评价.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\灰度匹配.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\焊后检测.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\矩形检测.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\矩形检测2.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\线检测.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\组合定位.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\缺角检测.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\胶量检测.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\距离测量.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\轮廓匹配.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\防反检测.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\防错检测.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AlgFlowTemplates\高精度匹配.prc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Customize.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cyan.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Greed.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Magenta.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\svg %282%29.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webps.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\White.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Yellow.svg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

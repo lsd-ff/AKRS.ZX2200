@@ -1,0 +1,34 @@
+{
+  "ribbonPage1": {
+    "Chinese": "文件操作",
+    "English": "Files operations"
+  },
+  "RibbonPageProduction": {
+    "Chinese": "自动工作",
+    "English": "Auto working"
+  },
+  "RibbonPageProgramming": {
+    "Chinese": "程式",
+    "English": "Programming"
+  },
+  "RibbonPageManual": {
+    "Chinese": "手动操作",
+    "English": "Manual working"
+  },
+  "RibbonPageDataAdministrator": {
+    "Chinese": "数据管理",
+    "English": "Data management"
+  },
+  "RibbonPageMachine": {
+    "Chinese": "设备功能",
+    "English": "Equipment functions"
+  },
+  "RibbonPageDiagnosis": {
+    "Chinese": "实验",
+    "English": "Test"
+  },
+  "RibbonPageSystem": {
+    "Chinese": "系统",
+    "English": "System"
+  }
+}

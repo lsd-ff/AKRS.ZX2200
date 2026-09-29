@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MVDCNNUnsupervisedSegment.Net</name>
+    </assembly>
+    <members>
+        <member name="T:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentBasicParam">
+            <summary>
+            Classes for describing information of CNNUnsupervisedSegment BasicParam.
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentBasicParam.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentBasicParam.LoadModel(System.String)">
+            <summary>
+            Load model from local file.
+            </summary>
+            <param name="filePath">file path of the model</param>
+        </member>
+        <member name="M:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentBasicParam.LoadModelData(System.Byte[],System.Int64)">
+            <summary>
+            Load model from local data.
+            </summary>
+            <param name="modeldata">data of the model</param>
+            <param name="modelsize">size of the model</param>
+        </member>
+        <member name="P:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentBasicParam.ModelData">
+            <summary>
+            Model data.
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentBasicParam.UpdateStatus">
+            <summary>
+            Update Status.
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentResult">
+            <summary>
+            Classes for describing information of CNNUnsupervisedSegment result.
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentResult.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentResult.OutputImage">
+            <summary>
+            输出图像
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentTool">
+            <summary>
+            CNNUnsupervisedSegmentTool
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentTool.#ctor(VisionDesigner.MVD_ALGORITHM_PLATFORM_TYPE)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentTool.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentTool.Dispose">
+            <summary>
+            Release
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentTool.Run">
+            <summary>
+            Runs the tool using the current parameter settings.
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentTool.GetAlgRunTime">
+            <summary>
+            获取运行时间
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentTool.Dispose(System.Boolean)">
+            <summary>
+            Release resources
+            </summary>
+            <param name="bDisposeStatus">Flag of whether to release managed and unmanaged resource.</param>
+        </member>
+        <member name="P:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentTool.InputImage">
+            <summary>
+            input image to process
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentTool.BasicParam">
+            <summary>
+            基本参数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.MVDCNNUnsupervisedSegment.CNNUnsupervisedSegmentTool.Result">
+            <summary>
+            Result from the last invocation of Run.
+            </summary>
+        </member>
+    </members>
+</doc>

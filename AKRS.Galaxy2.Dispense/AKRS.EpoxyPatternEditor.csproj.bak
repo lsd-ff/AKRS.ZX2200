@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{545654F5-F47B-498B-BD64-7ADB4CB4FB97}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AKRS.EpoxyPatternEditor</RootNamespace>
+    <AssemblyName>AKRS.EpoxyPatternEditor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Action.cs" />
+    <Compile Include="Curve.cs" />
+    <Compile Include="DataGridViewIntegerInputColumn.cs" />
+    <Compile Include="DataGridViewIntegerInputCell.cs" />
+    <Compile Include="DataGridViewIntegerInputEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataViewer.cs" />
+    <Compile Include="DialogBox\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBox\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Endpoint.cs" />
+    <Compile Include="EndpointFlags.cs" />
+    <Compile Include="EndpointInfo.cs" />
+    <Compile Include="EPEData.cs" />
+    <Compile Include="EPEPoint.cs" />
+    <Compile Include="EpoxyPatternControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EpoxyPatternControl.Designer.cs">
+      <DependentUpon>EpoxyPatternControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EpoxyPatternForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EpoxyPatternForm.Designer.cs">
+      <DependentUpon>EpoxyPatternForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBox\ManageRepositoryDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBox\ManageRepositoryDialogBox.Designer.cs">
+      <DependentUpon>ManageRepositoryDialogBox.cs</DependentUpon>
+    </Compile>
+
+    <Compile Include="DialogBox\RetrieveEpoxyPatternDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBox\RetrieveEpoxyPatternDialogBox.Designer.cs">
+      <DependentUpon>RetrieveEpoxyPatternDialogBox.cs</DependentUpon>
+    </Compile>
+
+    <Compile Include="DialogBox\SaveEpoxyPatternDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBox\SaveEpoxyPatternDialogBox.Designer.cs">
+      <DependentUpon>SaveEpoxyPatternDialogBox.cs</DependentUpon>
+    </Compile>
+
+    <Compile Include="DialogBox\SaveEpoxyPatternDialogBox.Designer.cs">
+      <DependentUpon>SaveEpoxyPatternDialogBox.cs</DependentUpon>
+    </Compile>
+
+
+    <Compile Include="EventArgs\ActionChangedEventArgs.cs" />
+    <Compile Include="EventArgs\ArcTypeChangedEventArgs.cs" />
+    <Compile Include="EventArgs\LineEventArgs.cs" />
+    <Compile Include="EventArgs\PointEventArgs.cs" />
+    <Compile Include="Handler\AbstractHandler.cs" />
+    <Compile Include="Handler\AppendPointHandler.cs" />
+    <Compile Include="Handler\ErasePointHandler.cs" />
+    <Compile Include="Handler\InsertPointHandler.cs" />
+    <Compile Include="Handler\MovePointHandler.cs" />
+    <Compile Include="Handler\NullHandler.cs" />
+    <Compile Include="Handler\PaintCurveHandler.cs" />
+    <Compile Include="ImageInfo.cs" />
+    <Compile Include="ImageResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PaintTool.cs" />
+    <Compile Include="Point2D.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectArcModeControl.cs" />
+    <Compile Include="SelectArcModeControl.Designer.cs">
+      <DependentUpon>SelectArcModeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\360截图20201013131238891.jpg" />
+    <Content Include="Resources\360截图20201013131543392.jpg" />
+    <Content Include="Resources\360截图20201013131611689.jpg" />
+    <Content Include="Resources\360截图20201013131618883.jpg" />
+    <Content Include="Resources\360截图20201013131628375.jpg" />
+    <Content Include="Resources\360截图20201013131635058.jpg" />
+    <Content Include="Resources\360截图20201013131642038.jpg" />
+    <Content Include="Resources\360截图20201013131648879.jpg" />
+    <Content Include="Resources\Add_32px_1183388_easyicon.net.png" />
+    <Content Include="Resources\Arrow_down_32px_1184716_easyicon.net.png" />
+    <Content Include="Resources\Arrow_left_32px_1184717_easyicon.net.png" />
+    <Content Include="Resources\Arrow_right_32px_1184718_easyicon.net.png" />
+    <Content Include="Resources\Arrow_up_32px_1184719_easyicon.net.png" />
+    <Content Include="Resources\Chart_Curve_Add_24px_529193_easyicon.net.png" />
+    <Content Include="Resources\delete_31.466666666667px_1122573_easyicon.net.png" />
+    <Content Include="Resources\left_object_rotate_32px_5652_easyicon.net.png" />
+    <Content Include="Resources\move_32px_1205459_easyicon.net.png" />
+    <Content Include="Resources\object_right_rotate_32px_5392_easyicon.net.png" />
+    <Content Include="Resources\Portfolio_Remove_24px_1079636_easyicon.net.png" />
+    <Content Include="Resources\Remove_32px_1183443_easyicon.net.png" />
+    <Content Include="Resources\Share_26.889208633094px_1183447_easyicon.net.png" />
+    <Content Include="Resources\zoom_in_24px_1175692_easyicon.net.png" />
+    <Content Include="Resources\zoom_out_24px_1175693_easyicon.net.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\.svn\entries" />
+    <None Include="Resources\.svn\prop-base\Add_32px_1183388_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Arrow_down_32px_1184716_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Arrow_left_32px_1184717_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Arrow_right_32px_1184718_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Arrow_up_32px_1184719_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Chart_Curve_Add_24px_529193_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\delete_31.466666666667px_1122573_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\left_object_rotate_32px_5652_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\move_32px_1205459_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\object_right_rotate_32px_5392_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Portfolio_Remove_24px_1079636_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Remove_32px_1183443_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\Share_26.889208633094px_1183447_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\zoom_in_24px_1175692_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\prop-base\zoom_out_24px_1175693_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Add_32px_1183388_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Arrow_down_32px_1184716_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Arrow_left_32px_1184717_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Arrow_right_32px_1184718_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Arrow_up_32px_1184719_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Chart_Curve_Add_24px_529193_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\delete_31.466666666667px_1122573_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\left_object_rotate_32px_5652_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\move_32px_1205459_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\object_right_rotate_32px_5392_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Portfolio_Remove_24px_1079636_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Remove_32px_1183443_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\Share_26.889208633094px_1183447_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\zoom_in_24px_1175692_easyicon.net.png.svn-base" />
+    <None Include="Resources\.svn\text-base\zoom_out_24px_1175693_easyicon.net.png.svn-base" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EpoxyPatternControl.resx">
+      <DependentUpon>EpoxyPatternControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EpoxyPatternForm.resx">
+      <DependentUpon>EpoxyPatternForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogBox\ManageRepositoryDialogBox.resx">
+      <DependentUpon>ManageRepositoryDialogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="DialogBox\RetrieveEpoxyPatternDialogBox.resx">
+      <DependentUpon>RetrieveEpoxyPatternDialogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="DialogBox\SaveEpoxyPatternDialogBox.resx">
+      <DependentUpon>SaveEpoxyPatternDialogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="ImageResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImageResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectArcModeControl.resx">
+      <DependentUpon>SelectArcModeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TextResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
+    <Folder Include="Resources\.svn\props\" />
+    <Folder Include="Resources\.svn\tmp\prop-base\" />
+    <Folder Include="Resources\.svn\tmp\props\" />
+    <Folder Include="Resources\.svn\tmp\text-base\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

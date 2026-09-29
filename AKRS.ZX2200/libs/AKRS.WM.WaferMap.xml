@@ -1,0 +1,3963 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AKRS.WM.WaferMap</name>
+    </assembly>
+    <members>
+        <member name="T:AKRS.WM.BinType">
+            <summary>
+            Bin值的类型。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.BinType.Char">
+            <summary>
+            UTF-16字符。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.BinType.Int16">
+            <summary>
+            16位整型，UTF-16字符表示。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.BinType.Int16_Hex">
+            <summary>
+            16位整型，16进制表示。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.BinType.Char_Int_Hex">
+            <summary>
+            12位字符（0~4095）或12位整型（-2048~2047），16进制表示。
+            2个字节，bit12~bit15表示数据类型，bit0~bit11表示值。
+            最高4位等于0表示字符型，等于1表示整型。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.DataType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.DataType.Char12">
+            <summary>
+            12位字符。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.DataType.Int12">
+            <summary>
+            12位整型。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.BinTypeExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.BinTypeExtensions.Decompose(System.Int16,AKRS.WM.DataType@,System.Int16@)">
+            <summary>
+            分解出“数据类型”和“数据值”。
+            </summary>
+            <param name="val"></param>
+            <param name="dataType">返回“数据类型”。</param>
+            <param name="dataVal">返回“数据值”。</param>
+        </member>
+        <member name="M:AKRS.WM.BinTypeExtensions.Compose(System.Int16)">
+            <summary>
+            在高4位加上数据类型，组合成一个新的值。
+            </summary>
+            <param name="shortVal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.BinTypeExtensions.Compose(System.Char)">
+            <summary>
+            在高4位加上数据类型，组合成一个新的值。
+            </summary>
+            <param name="charVal"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.NotStandardSyntaxWaferMapFile">
+            <summary>
+            不是标准格式的晶圆图文件。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.NotStandardSyntaxWaferMapFile.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="waferMapFilePath"></param>
+        </member>
+        <member name="P:AKRS.WM.NotStandardSyntaxWaferMapFile.WaferMapFilePath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.NotStandardSyntaxWaferMapFile.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.FirstPointInitialPosition">
+            <summary>
+            起点的初始位置。
+            即载入新的晶圆图文件后，设置起点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.FirstPointInitialPosition.None">
+            <summary>
+            不设置。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.FirstPointInitialPosition.FirstPickable">
+            <summary>
+            设置成第一个可提取的晶片位置（根据提取类型和方向）。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.FirstPointInitialPosition.PreviousSetting">
+            <summary>
+            沿用最近一次设置的位置。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.AStar">
+            <summary>
+            “A*”算法-寻路算法类。
+            参考资料：
+            http://theory.stanford.edu/~amitp/GameProgramming/
+            https://www.redblobgames.com/pathfinding/a-star/introduction.html
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.AStar.Node.Position">
+            <summary>
+            获取位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.AStar.Node.Parent">
+            <summary>
+            获取父节点的位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.AStar.Node.G">
+            <summary>
+            获取G值。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.AStar.Node.H">
+            <summary>
+            获取H值。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.AStar.Node.F">
+            <summary>
+            返回F值，即G和H的和。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.AStar.Node.ToString">
+            <summary>
+            已经重载。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:AKRS.WM.AStar.DEFAULT_H_SCALE">
+            <summary>
+            h值的默认缩放比。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.AStar.DEFAULT_G_SCALE">
+            <summary>
+            g值的默认缩放比。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.AStar._openList">
+            <summary>
+            开集合。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.AStar._closeList">
+            <summary>
+            闭集合。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.AStar._neighbors">
+            <summary>
+            邻居。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.AStar._hScale">
+            <summary>
+            h值的放大比例。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.AStar._gScale">
+            <summary>
+            g值的放大比例。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.AStar._bFinding">
+            <summary>
+            旗标，用于控制寻找提前终止。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.AStar.#ctor(AKRS.WM.PathKind)">
+            <summary>
+            构造方法。
+            </summary>
+            <param name="pathKind">路径种类</param>
+        </member>
+        <member name="M:AKRS.WM.AStar.#ctor(AKRS.WM.PathKind,System.Int32,System.Int32)">
+            <summary>
+            构造方法。
+            </summary>
+            <param name="pathKind">路径种类</param>
+            <param name="hScale">h值的放大比例（默认值是<code>DEFAULT_H_SCALE</code>）。必须是正值。</param>
+            <param name="gScale">g值的放大比例（默认值是<code>DEFAULT_G_SCALE</code>）。必须是正值。</param>
+            <exception cref="T:System.ArgumentException">参数<paramref name="hScale"/>或<paramref name="gScale"/>的值不合法。</exception>
+        </member>
+        <member name="M:AKRS.WM.AStar.Dispose">
+            <summary>
+            实现IDisposable接口定义的方法。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.AStar.AbortFinding">
+            <summary>
+            放弃或终止查找。由其他线程调用，使得FindPath方法提前退出。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.AStar.FindPath(AKRS.WM.Chip[0:,0:],AKRS.WM.Position,AKRS.WM.Position,System.Int32,System.Collections.Generic.IEnumerable{AKRS.WM.ChipType})">
+            <summary>
+            寻找从起点到终点的路径。
+            </summary>
+            <param name="matrix">晶片矩阵。</param>
+            <param name="start">起点。</param>
+            <param name="end">终点。</param>
+            <param name="step">步数。</param>
+            <param name="validTypes">有效类型列表。</param>
+            <returns>从起点（<paramref name="start"/>）到终点（<paramref name="end"/>）的路径；null表示没有路径。</returns>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="matrix"/>或<paramref name="validTypes"/>是空引用。</exception>
+            <exception cref="T:System.ArgumentException">参数<paramref name="start"/>和参数<paramref name="end"/>的值相同。</exception>
+        </member>
+        <member name="M:AKRS.WM.AStar.FindPath(AKRS.WM.Chip[0:,0:],AKRS.WM.Position,AKRS.WM.Position,System.Int32,System.Collections.Generic.IEnumerable{AKRS.WM.ChipType},System.Collections.Generic.IEnumerable{AKRS.WM.Position})">
+            <summary>
+            寻找从起点到终点的路径。
+            </summary>
+            <param name="matrix">晶片矩阵。</param>
+            <param name="start">起点。</param>
+            <param name="end">终点。</param>
+            <param name="step">步数。</param>
+            <param name="validTypes">有效类型列表。</param>
+            <param name="specialPositions"></param>
+            <returns>从起点（<paramref name="start"/>）到终点（<paramref name="end"/>）的路径；null表示没有路径。</returns>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="matrix"/>、<paramref name="validTypes"/>或<paramref name="specialPositions"/>是空引用。</exception>
+            <exception cref="T:System.ArgumentException">参数<paramref name="start"/>和参数<paramref name="end"/>的值相同。</exception>
+        </member>
+        <member name="M:AKRS.WM.AStar.FindPath(AKRS.WM.Chip[0:,0:],AKRS.WM.MapRegion,AKRS.WM.Position,AKRS.WM.Position,System.Int32,System.Collections.Generic.IEnumerable{AKRS.WM.ChipType})">
+            <summary>
+            寻找从起点到终点的路径。
+            </summary>
+            <param name="matrix">晶片矩阵。</param>
+            <param name="limitedRegion">矩阵内的限制区域。</param>
+            <param name="start">起点。</param>
+            <param name="end">终点。</param>
+            <param name="step">步数。</param>
+            <param name="validTypes">有效类型列表。</param>
+            <returns>从起点（<paramref name="start"/>）到终点（<paramref name="end"/>）的路径；null表示没有路径。</returns>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="matrix"/>或<paramref name="validTypes"/>是空引用。</exception>
+            <exception cref="T:System.ArgumentException">参数<paramref name="start"/>和参数<paramref name="end"/>的值相同。</exception>
+            <exception cref="T:AKRS.WM.PositionOutOfRegionException">参数<paramref name="start"/>或<paramref name="end"/>指定的位置超出了限制区域。</exception>
+        </member>
+        <member name="M:AKRS.WM.AStar.FindPath(AKRS.WM.Chip[0:,0:],AKRS.WM.MapRegion,AKRS.WM.Position,AKRS.WM.Position,System.Int32,System.Collections.Generic.IEnumerable{AKRS.WM.ChipType},System.Collections.Generic.IEnumerable{AKRS.WM.Position})">
+            <summary>
+            寻找从起点到终点的路径。
+            </summary>
+            <param name="matrix">晶片矩阵。</param>
+            <param name="limitedRegion">矩阵内的限制区域。</param>
+            <param name="start">起点。</param>
+            <param name="end">终点。</param>
+            <param name="step">步数。</param>
+            <param name="validChipTypes">有效类型列表。</param>
+            <param name="specialPositions">可以出现在路径中的特殊位置的列表。</param>
+            <returns>从起点（<paramref name="start"/>）到终点（<paramref name="end"/>）的路径；null表示没有路径。</returns>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="matrix"/>、<paramref name="validChipTypes"/>或<paramref name="specialPositions"/>是空引用。</exception>
+            <exception cref="T:System.ArgumentException">参数<paramref name="start"/>和参数<paramref name="end"/>的值相同。</exception>
+            <exception cref="T:AKRS.WM.PositionOutOfRegionException">参数<paramref name="start"/>或<paramref name="end"/>指定的位置超出了限制区域。</exception>
+        </member>
+        <member name="M:AKRS.WM.AStar.FindQuickPath(AKRS.WM.Chip[0:,0:],AKRS.WM.MapRegion,AKRS.WM.Position,AKRS.WM.Position,System.Int32,System.Collections.Generic.IEnumerable{AKRS.WM.ChipType},System.Collections.Generic.IEnumerable{AKRS.WM.Position})">
+            <summary>
+            找快速路径。
+            </summary>
+            <param name="matrix">晶片矩阵。</param>
+            <param name="limitedRegion">矩阵内的限制区域。</param>
+            <param name="start">起点。</param>
+            <param name="end">终点。</param>
+            <param name="step">步数。</param>
+            <param name="validChipTypes">有效类型列表。</param>
+            <param name="specialPositions">可以出现在路径中的特殊位置的列表。</param>
+            <returns>从起点（<paramref name="start"/>）到终点（<paramref name="end"/>）的路径；null表示没有路径。</returns>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="matrix"/>、<paramref name="validChipTypes"/>或<paramref name="specialPositions"/>是空引用。</exception>
+            <exception cref="T:System.ArgumentException">参数<paramref name="start"/>和参数<paramref name="end"/>的值相同。</exception>
+            <exception cref="T:AKRS.WM.PositionOutOfRegionException">参数<paramref name="start"/>或<paramref name="end"/>指定的位置超出了限制区域。</exception>
+        </member>
+        <member name="M:AKRS.WM.AStar.CalculateH(AKRS.WM.Position,AKRS.WM.Position)">
+            <summary>
+            H：当前位置到终点的预计费用。
+            </summary>
+            <param name="curr"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.AStar.CalculateG(AKRS.WM.Position,AKRS.WM.Position,System.Int32)">
+            <summary>
+            G：起点到当前位置的费用。
+            </summary>
+            <param name="curr"></param>
+            <param name="parent"></param>
+            <param name="step"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.AStar.CreatePath(AKRS.WM.Position,AKRS.WM.Position)">
+            <summary>
+            根据_dict，创建从<paramref name="start"/>到<paramref name="end"/>的路径。
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.AStar.ExpandPath(AKRS.WM.Chip[0:,0:],AKRS.WM.MapRegion,System.Collections.Generic.IEnumerable{AKRS.WM.ChipType},System.Collections.Generic.IEnumerable{AKRS.WM.Position},AKRS.WM.Position[],System.Int32,System.Int32,System.Collections.Generic.List{AKRS.WM.Position})">
+            <summary>
+            扩展为详细的路径。
+            </summary>
+            <param name="matrix">晶片矩阵。</param>
+            <param name="limitedRegion">矩阵内的限制区域。</param>
+            <param name="validChipTypes">有效类型列表。</param>
+            <param name="specialPositions">可以出现在路径中的特殊位置的列表。</param>
+            <param name="path"></param>
+            <param name="targetIndex"></param>
+            <param name="currentStep"></param>
+            <param name="list"></param>
+        </member>
+        <member name="P:AKRS.WM.AStar.PathKind">
+            <summary>
+            获取 路径种类。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.AStar.HScale">
+            <summary>
+            获取 算法中h值的放大比例。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.AStar.GScale">
+            <summary>
+            获取 算法中g值的放大比例。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.PathSeeker">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.PathSeeker.AssistThread">
+            <summary>
+            辅助线程。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.PathSeeker.AssistThread.IAsyncResultNotifier">
+            <summary>
+            异步结果通知器。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker.AssistThread._step">
+            <summary>
+            步数。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker.AssistThread._matrix">
+            <summary>
+            元素是晶片的二维数组。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker.AssistThread._limitedRegion">
+            <summary>
+            限制搜索范围。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker.AssistThread._validTypeList">
+            <summary>
+            有效类型列表。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker.AssistThread._pathKind">
+            <summary>
+            路径种类。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.AssistThread.#ctor(AKRS.WM.Chip[0:,0:],AKRS.WM.MapRegion,System.Collections.Generic.List{AKRS.WM.ChipType},System.Int32,AKRS.WM.PathKind)">
+            <summary>
+            
+            </summary>
+            <param name="matrix">元素是晶片的二维数组。</param>
+            <param name="limitedRegion">限制搜索范围。</param>
+            <param name="validTypeList">有效类型列表。</param>
+            <param name="step">跨越的步子。</param>
+            <param name="pathKind">路径种类。</param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="matrix"/>或<paramref name="validTypeList"/>空引用。</exception>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.AssistThread.Start">
+            <summary>
+            开始线程。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.AssistThread.Run(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.AssistThread.Find(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.PathSeeker.AssistThread.IAsyncResultNotifier)">
+            <summary>
+            查找从起点到目标的路径。
+            </summary>
+            <param name="start">起点。</param>
+            <param name="target">目标。</param>
+            <param name="asyncResultNotifier">用于异步操作的结束通知和结果返回。</param>            
+        </member>
+        <member name="T:AKRS.WM.PathSeeker.OptionalArguments">
+            <summary>
+            可选参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.OptionalArguments.#ctor(System.Boolean)">
+            <summary></summary>
+             <param name="referenceExcluded">是否排除参考点。</param>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.OptionalArguments.#ctor(System.Boolean,AKRS.WM.IStripDirection)">
+            <summary></summary>
+             <param name="referenceExcluded">是否排除参考点。</param>
+             <param name="stripDirectionImp"></param>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.OptionalArguments.#ctor(System.Boolean,AKRS.WM.IStripDirection,System.Boolean,System.String)">
+            <summary></summary>
+             <param name="referenceExcluded">是否排除参考点。</param>
+             <param name="stripDirectionImp"></param>
+             <param name="printPathDetail">是否打印路径的细节信息。</param>
+             <param name="waferMapFileName">晶圆图文件的名称。</param>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.OptionalArguments.ReferenceExcluded">
+            <summary>
+            是否排除参考点。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.OptionalArguments.StripDirectionImp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.OptionalArguments.PrintPathDetail">
+            <summary>
+            是否打印路径的细节信息。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.OptionalArguments.WaferMapFileName">
+            <summary>
+            晶圆图文件的名称。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.PathSeeker.StartArguments">
+            <summary>
+            Run方法的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.StartArguments.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.Direction)">
+            <summary>
+            
+            </summary>
+            <param name="initialPoint">初始点。</param>
+            <param name="firstPoint">第一点。</param>
+            <param name="firstPointStripDirection"> 第一点所属的条的方向，即第一点所在条的内部前进方向。</param>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.StartArguments.InitialPoint">
+            <summary>
+            初始点。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.StartArguments.FirstPoint">
+            <summary>
+            第一点。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.StartArguments.FirstPointStripDirection">
+            <summary>
+            第一点所属条的方向，即第一点所在条的内部前进方向。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.#ctor(AKRS.WM.Chip[0:,0:],AKRS.WM.MapRegion,AKRS.WM.MapRegion,AKRS.WM.ReferencePoint[],System.Int32,AKRS.WM.ChipType[],AKRS.WM.ChipType[],AKRS.WM.ChipType,AKRS.WM.Direction,AKRS.WM.PathSeeker.OptionalArguments,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="matrix"></param>
+            <param name="pickRegion">提取限制区域。Region.Empty表示无提取区域限制。</param>
+            <param name="searchRegion">搜索限制区域。Region.Empty表示无搜索区域限制。</param>
+            <param name="referencePoints">参考点。</param>
+            <param name="jumpInterval">跳转间隔。</param>
+            <param name="selectedTypes">提取晶片的类型。</param>
+            <param name="validTypes">有效晶片的类型</param>
+            <param name="voidChipType"></param>
+            <param name="majorDirection">主方向。</param>
+            <param name="optionalArguments">可选参数。</param>
+            <param name="detailedPath"></param>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.Dispose">
+            <summary>
+            实现IDisposable的方法。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._asyncOperationResult">
+            <summary>
+            用于从AssistThread向PathSeeker传递数据。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._eventAsyncOperationCompleted">
+            <summary>
+            激活：异步操作完成了。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.Start(System.Object)">
+            <summary>
+            已经重写基类方法。
+            </summary>
+            <param name="obj">必须是PathSeeker.StartArguments类型的实例。</param>
+            <exception cref="T:System.ArgumentException">参数<paramref name="obj"/>的类型不正确。</exception>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.Start(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.Direction)">
+            <summary>
+            
+            </summary>
+            <param name="initialPoint">初始点。晶片类型必须是有意义的或者是空白类型。</param>
+            <param name="firstPoint">第一点。晶片类型必须是可提取的。</param>
+            <param name="firstPointStripDirection">第一点所属条的方向。该值不能是Unknown, 也不跟主方向冲突。</param>
+            <exception cref="T:System.ArgumentException">参数不正确。</exception>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.Stop">
+            <summary>
+            已经重写基类方法。
+            异步停止。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.StopSync(AKRS.WM.Position[]@)">
+            <summary>
+            【同步】停止，并返回消耗掉的参考点。
+            </summary>
+            <param name="consumedReferencePoints">返回消耗掉的参考点。</param>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.Run(System.Object)">
+            <summary>
+            线程函数。
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.FindPath(AKRS.WM.Position,AKRS.WM.Position,System.Int32)">
+            <summary>
+            寻找从起点(<paramref name="startPoint"/>）到目标（<paramref name="targetPoint"/>）的路。
+            </summary>
+            <param name="startPoint">指定起点。</param>
+            <param name="targetPoint">指定目标。</param>
+            <param name="timeoutMilliseconds">默认值是10秒。</param>
+            <exception cref="T:AKRS.WM.UnapproachableChipException">晶片不可达。</exception>
+            <exception cref="T:AKRS.WM.SeekingTimeoutException">超时。</exception>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.FindPathTimeout(AKRS.WM.Position,AKRS.WM.Position,System.Int32)">
+            <summary>
+            </summary>
+            <param name="start"></param>
+            <param name="target"></param>
+            <param name="timeoutMilliseconds">默认值是10秒。</param>
+            <returns></returns>
+            <exception cref="T:AKRS.WM.UnapproachableChipException">晶片不可达。</exception>
+            <exception cref="T:AKRS.WM.SeekingTimeoutException">超时。</exception>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.FindNextPosition(AKRS.WM.Position,AKRS.WM.Direction,AKRS.WM.Direction@)">
+            <summary>
+            根据起点（<paramref name="startPosition"/>）和方向（<paramref name="direction"/>）找下一个目标晶片的位置，并返回新的方向。
+            </summary>
+            <param name="startPosition">指定起点。</param>
+            <param name="direction">指定方向。</param>
+            <param name="newDirection">用于返回新的方向。</param>
+            <returns>下一个目标晶片的位置。</returns>
+            <exception cref="T:AKRS.WM.NoApproachableChipException">没有可到达的晶片。</exception>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.FindNextPosition_MajorIsVertical(AKRS.WM.Position,AKRS.WM.Direction,AKRS.WM.Direction@)">
+            <summary>
+            
+            </summary>
+            <param name="startPosition"></param>
+            <param name="direction"></param>
+            <param name="newDirection"></param>
+            <returns></returns>
+            <exception cref="T:AKRS.WM.NoApproachableChipException">没有可到达的晶片。</exception>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.FindNext_MajorIsHorizontal(AKRS.WM.Position,AKRS.WM.Direction,AKRS.WM.Direction@)">
+            <summary>
+            
+            </summary>
+            <param name="startPos"></param>
+            <param name="direction"></param>
+            <param name="newDirection"></param>
+            <returns></returns>
+            <exception cref="T:AKRS.WM.NoApproachableChipException">没有可到达的晶片。</exception>
+        </member>
+        <member name="M:AKRS.WM.PathSeeker.RetrieveQueue(System.Collections.Generic.Queue{AKRS.WM.QueueItem})">
+            <summary>
+            由PathSeeker的使用者调用，获取整个队列。
+            </summary>
+            <param name="queue">用于接收队列，原有内容将被清除。</param>
+            <returns>返回目标位置。</returns>
+            <exception cref="T:AKRS.WM.UnapproachableChipException">晶片不可达。</exception>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.RunningFlag">
+            <summary>
+            返回值一个值，表示线程是否正在运行。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.Message">
+            <summary>
+            当RetrieveQueue方法抛出异常时，此属性的值是有效的字符串，包含的是异常的类型和携带的消息。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.ReferenceExcluded">
+            <summary>
+            参考点排除在外的标志，即不取参考点。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.PickRegion">
+            <summary>
+            获取提取限制区域。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.SearchRegion">
+            <summary>
+            获取搜索限制区域。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeeker.MapRanges">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._bRunning">
+            <summary>
+            线程运行的旗标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._message">
+            <summary>
+            非正常停止的描述信息，空引用表示无异常停止。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._exception">
+            <summary>
+            导致非正常停止的异常。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._matrix">
+            <summary>
+            晶圆图数据。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._pickRegion">
+            <summary>
+            提取区域。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._searchRegion">
+            <summary>
+            搜索区域。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._mapDirection">
+            <summary>
+            方向。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._mapRangeCollection">
+            <summary>
+            晶圆图的额外信息。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._path">
+            <summary>
+            用于保存寻路的结果。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._eventFindPathToTarget">
+            <summary>
+            事件对象-寻找到达目标的路径。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._eventPathFound">
+            <summary>
+            事件对象-已找到路径。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._bReferenceExcluded">
+            <summary>
+            参考点排除在外的标志，即不取走的旗标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._consumedReferencePoints">
+            <summary>
+            记录过程中消耗掉的参考点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._jumpInterval">
+            <summary>
+            跳转间隔。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._selectedTypeSet">
+            <summary>
+            提取类型集。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._validTypeList">
+            <summary>
+            有效类型列表。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._voidChipType">
+            <summary>
+            空晶片类型。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._unusablePositionList">
+            <summary>
+            不可用位置的列表。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._stripDirectionImp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._logWriter">
+            <summary>
+            用于打印日志。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._referencePointSet">
+            <summary>
+            参考点集。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._pathKind">
+            <summary>
+            快速路径或者详细路径。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeeker._assistThread">
+            <summary>
+            辅助线程。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.MapUtilities">
+            <summary>
+            图的实用工具类。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.MapUtilities.GetNeighbors8(AKRS.WM.Position,System.Int32,System.Collections.Generic.List{AKRS.WM.Position})">
+            <summary>
+            获取指定距离内的所有邻居。
+            方式：逐行扫描。
+            </summary>
+            <param name="position"></param>
+            <param name="step">指定距离，必须是正值。</param>
+            <param name="neighbors">用于返回结果。</param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="neighbors"/>是空引用。</exception>
+            <exception cref="T:System.ArgumentException">参数<paramref name="step"/>的值非法。</exception>
+        </member>
+        <member name="M:AKRS.WM.MapUtilities.GetNeighbors8Ex(AKRS.WM.Position,System.Int32,System.Collections.Generic.List{AKRS.WM.Position})">
+            <summary>
+            方式：从内向往。
+            </summary>
+            <param name="position"></param>
+            <param name="step"></param>
+            <param name="neighbors"></param>
+        </member>
+        <member name="M:AKRS.WM.MapUtilities.GetNeighbors4(AKRS.WM.Position,System.Int32,System.Collections.Generic.List{AKRS.WM.Position})">
+            <summary>
+            获取指定距离内的所有邻居。
+            </summary>
+            <param name="position"></param>
+            <param name="step">指定距离，必须是正值。</param>
+            <param name="neighbors">用于返回结果。</param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="neighbors"/>是空引用。</exception>
+            <exception cref="T:System.ArgumentException">参数<paramref name="step"/>的值非法。</exception>
+        </member>
+        <member name="M:AKRS.WM.MapUtilities.Intersect(System.Collections.Generic.List{AKRS.WM.Position},AKRS.WM.MapRegion)">
+            <summary>
+            Position列表与Region相交，移除Position列表中在Region之外的元素。
+            </summary>
+            <param name="list"></param>
+            <param name="mapRegion"></param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="list"/>是空引用。</exception>
+        </member>
+        <member name="T:AKRS.WM.PathKind">
+            <summary>
+            路径种类。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathKind.QuickPath">
+            <summary>
+            快速路径。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathKind.DetailedPath">
+            <summary>
+            详细路径。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.WaferMapRotatedEventArgs">
+            <summary>
+            晶圆图发生旋转后事件的参数。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapRotatedEventArgs.RotationType">
+            <summary>
+            旋转的角度。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.CursorPointChangedEventArgs">
+            <summary>
+            光标点发生改变事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.CursorPointChangedEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.SettingSource,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="newPosition">新位置。</param>
+            <param name="oldPosition">旧位置。</param>
+            <param name="settingSource">设置源。</param>
+            <param name="invokeEvent"></param>
+        </member>
+        <member name="T:AKRS.WM.CursorPointChangingEventArgs">
+            <summary>
+            光标点发生改变事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.CursorPointChangingEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.SettingSource,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="newPosition">新位置。</param>
+            <param name="oldPosition">旧位置。</param>
+            <param name="settingSource">设置源。</param>
+        </member>
+        <member name="T:AKRS.WM.CenterPointChangingEventArgs">
+            <summary>
+            中心发生改变事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.CenterPointChangingEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.SettingSource,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="newPosition">新位置。</param>
+            <param name="oldPosition">旧位置。</param>
+            <param name="settingSource">设置源。</param>
+        </member>
+        <member name="T:AKRS.WM.CurrentPointChangingEventArgs">
+            <summary>
+            当前点发生改变事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.CurrentPointChangingEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.SettingSource,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="newPosition">新位置。</param>
+            <param name="oldPosition">旧位置。</param>
+            <param name="settingSource">设置源。</param>
+            <param name="invokeEvent"></param>
+        </member>
+        <member name="T:AKRS.WM.ChipTypeEqualityComparer">
+            <summary>
+            为创建以ChipType为元素的HashSet对象做准备。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ChipTypeEqualityComparer.Equals(AKRS.WM.ChipType,AKRS.WM.ChipType)">
+            <summary>
+            实现IEqualityComparer泛型接口的Equals方法。
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipTypeEqualityComparer.GetHashCode(AKRS.WM.ChipType)">
+            <summary>
+            实现IEqualityComparer泛型接口的GetHashCode接口。
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.PositionEventArgs">
+            <summary>
+            位置事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PositionEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.SettingSource)">
+            <summary>
+            
+            </summary>
+            <param name="newPosition">新位置。</param>
+            <param name="oldPosition">旧位置。</param>
+            <param name="settingSource">设置源。</param>
+        </member>
+        <member name="P:AKRS.WM.PositionEventArgs.NewPosition">
+            <summary>
+            当前晶片的新位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PositionEventArgs.OldPosition">
+            <summary>
+            当前晶片的旧位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PositionEventArgs.SettingSource">
+            <summary>
+            设置源。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.PositionChangingEventArgs">
+            <summary>
+            位置发生改变事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PositionChangingEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.SettingSource)">
+            <summary>
+            
+            </summary>
+            <param name="newPosition">新位置。</param>
+            <param name="oldPosition">旧位置。</param>
+            <param name="settingSource">设置源。</param>
+        </member>
+        <member name="T:AKRS.WM.PositionChangedEventArgs">
+            <summary>
+            位置发生改变事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PositionChangedEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.SettingSource,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="newPosition">新位置。</param>
+            <param name="oldPosition">旧位置。</param>
+            <param name="settingSource">设置源。</param>
+            <param name="invokeEvent"></param>
+        </member>
+        <member name="T:AKRS.WM.CenterPointChangedEventArgs">
+            <summary>
+            中心发生改变事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.CenterPointChangedEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.SettingSource,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="newPosition">新位置。</param>
+            <param name="oldPosition">旧位置。</param>
+            <param name="settingSource">设置源。</param>
+        </member>
+        <member name="T:AKRS.WM.ReferencePointChangingEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ReferencePointChangingEventArgs.#ctor(AKRS.WM.ReferencePoint,AKRS.WM.ReferencePointAction)">
+            <summary>
+            仅涉及一个参考点的事件参数。
+            </summary>
+            <param name="referencePoint"></param>
+            <param name="referencePointAction"></param>
+        </member>
+        <member name="M:AKRS.WM.ReferencePointChangingEventArgs.#ctor(AKRS.WM.ReferencePoint[],AKRS.WM.ReferencePointAction)">
+            <summary>
+            涉及多个参考点的事件参数。
+            </summary>
+            <param name="referencePoints"></param>
+            <param name="referencePointAction"></param>
+        </member>
+        <member name="T:AKRS.WM.ReferencePointEventArgs">
+            <summary>
+            参考点改动相关的事件参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ReferencePointEventArgs.#ctor(AKRS.WM.ReferencePoint,AKRS.WM.ReferencePointAction)">
+            <summary>
+            仅涉及一个参考点的事件参数。
+            </summary>
+            <param name="referencePoint"></param>
+            <param name="referencePointAction"></param>
+        </member>
+        <member name="M:AKRS.WM.ReferencePointEventArgs.#ctor(AKRS.WM.ReferencePoint[],AKRS.WM.ReferencePointAction)">
+            <summary>
+            涉及多个参考点的事件参数。
+            </summary>
+            <param name="referencePoints"></param>
+            <param name="referencePointAction"></param>
+        </member>
+        <member name="P:AKRS.WM.ReferencePointEventArgs.ReferencePoint">
+            <summary>
+            参考点的坐标。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ReferencePointEventArgs.ReferencePoints">
+            <summary>
+            涉及的到所有参考点。
+            若是空引用，表示仅一个参考点被改变，应该使用ReferencePoint属性。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ReferencePointEventArgs.ReferencePointAction">
+            <summary>
+            参考点的动作。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.ReferencePointAction">
+            <summary>
+            参考点的动作。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ReferencePointAction.None">
+            <summary>
+            无动作。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ReferencePointAction.Add">
+            <summary>
+            添加参考点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ReferencePointAction.Remove">
+            <summary>
+            移除参考点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ReferencePointAction.ChangeLabel">
+            <summary>
+            改变参考点的标签。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.StrategyContentChangingEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.StrategyContentChangingEventArgs.#ctor(System.Int32,AKRS.WM.StrategyContentType)">
+            <summary>
+            
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="involvedContentTypes">涉及到的内容的类型。</param>
+        </member>
+        <member name="P:AKRS.WM.StrategyContentChangingEventArgs.StrategyIndex">
+            <summary>
+            Index。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.StrategyContentChangingEventArgs.InvolvedContentTypes">
+            <summary>
+            涉及到的内容的类型。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.StrategyContentType.None">
+            <summary>
+            无。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.StrategyContentType.Flags">
+            <summary>
+            标志。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.StrategyContentType.SelectedChipTypes">
+            <summary>
+            提取类型。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.StrategyContentType.UserDirection">
+            <summary>
+            用户方向。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.StrategyContentType.InitialStartPoint">
+            <summary>
+            最初的起点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.StrategyContentType.CurrentStartPoint">
+            <summary>
+            当前的起点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.StrategyContentType.CurrentMinorDirection">
+            <summary>
+            当前副方向。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.StrategyContentType.CurrentCount">
+            <summary>
+            所有提取类型晶片的当前总数。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.StrategyContentType.All">
+            <summary>
+            所有。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.NewChipTypeAddedEventArgs">
+            <summary>
+            新的晶片类型增加事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.NewChipTypeAddedEventArgs.#ctor(AKRS.WM.ChipType)">
+            <summary>
+            
+            </summary>
+            <param name="newChipType">新类型。</param>
+        </member>
+        <member name="P:AKRS.WM.NewChipTypeAddedEventArgs.NewChipType">
+            <summary>
+            新类型。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.LimitRegionChangedEventArgs">
+            <summary>
+            限制区域改变事件的参数。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.ChipTypeValidityChangedEventArgs">
+            <summary>
+            晶片类型的有效性发生改变事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ChipTypeValidityChangedEventArgs.#ctor(AKRS.WM.ChipType,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="chipType"></param>
+            <param name="valid"></param>
+        </member>
+        <member name="P:AKRS.WM.ChipTypeValidityChangedEventArgs.ChipType">
+            <summary>
+            晶片类型。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ChipTypeValidityChangedEventArgs.Valid">
+            <summary>
+            有效性。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.MapDirection">
+            <summary>
+            图上的行进方向。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.MapDirection.#ctor(AKRS.WM.Direction,AKRS.WM.Direction)">
+            <summary>
+            
+            </summary>
+            <param name="major">主方向。</param>
+            <param name="minor">次方向。</param>
+        </member>
+        <member name="M:AKRS.WM.MapDirection.ToString">
+            <summary>
+            已经重写。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.NestedNullChipsEventArgs.#ctor(AKRS.WM.ChipType,System.Collections.Generic.List{System.Int32}[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="nullChipType"></param>
+            <param name="nestedNullChips"></param>
+            <param name="nestedNullChipCount">参数<paramref name="nestedNullChips"/>中包含的位置总数。</param>
+        </member>
+        <member name="T:AKRS.WM.PositionEqualityComparer">
+            <summary>
+            为创建以Position为元素的HashSet对象做准备。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PositionEqualityComparer.Instance">
+            <summary>
+            返回实例的引用。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PositionEqualityComparer.Equals(AKRS.WM.Position,AKRS.WM.Position)">
+            <summary>
+            实现IEqualityComparer泛型接口的Equals方法。
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.PositionEqualityComparer.GetHashCode(AKRS.WM.Position)">
+            <summary>
+            实现IEqualityComparer泛型接口的GetHashCode接口。
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.RegionLimitType">
+            <summary>
+            区域限制类型。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.SettingSource">
+            <summary>
+            设置源。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingSource.Unknown">
+            <summary>
+            未知的。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingSource.Manual">
+            <summary>
+            手工。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SettingSource.Software">
+            <summary>
+            软件。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.Strategy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Strategy._flags">
+            <summary>
+            标志。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Strategy._selectedChipTypes">
+            <summary>
+            提取类型的集合。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Strategy._userDirection">
+            <summary>
+            用户方向。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Strategy._initialStartPoint">
+            <summary>
+            最初的起点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Strategy._pastFirstPoints">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Strategy._previousSelectedPoint">
+            <summary>
+            前一个“提取类型”的位置。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Strategy._currentStartPoint">
+            <summary>
+            当前的起点。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Strategy.#ctor(AKRS.WM.Strategy)">
+            <summary>
+            复制。
+            </summary>
+            <param name="strategy"></param>
+        </member>
+        <member name="M:AKRS.WM.Strategy.Clear">
+            <summary>
+            清空内容。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Strategy.RemoveSelectedChipType(AKRS.WM.ChipType)">
+            <summary>
+            从提取类型集合中移除指定的晶片类型。
+            </summary>
+            <param name="chipType">指定将要从提取类型集合中移除的晶片类型。</param>
+            <returns>true，移除成功；false，因为提取集合中没有这个晶片类型导致移除失败。</returns>
+        </member>
+        <member name="M:AKRS.WM.Strategy.ClearSelectedChipTypes">
+            <summary>
+            清空提取类型。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Strategy.Active">
+            <summary>
+            获取或设置一个值，表示使用启用。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Strategy.Completed">
+            <summary>
+            获取或设置一个值，表示使用完成。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Strategy.UserDirection">
+            <summary>
+            获取或设置 “用户方向”。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Strategy.InitialStartPoint">
+            <summary>
+            最初的起点。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Strategy.PastFirstPoints">
+            <summary>
+            获取 过往的第一点的集合。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Strategy.CurrentStartPoint">
+            <summary>
+            当前的起点。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Strategy.Flag.None">
+            <summary>
+            空标志位。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Strategy.Flag.Active">
+            <summary>
+            启用标志位。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Strategy.Flag.Completed">
+            <summary>
+            完成标志位。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.CurrentStrategyIndexEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.CurrentStrategyIndexEventArgs.SettingSource">
+            <summary>
+            设置源。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.StategyFlagExtensions">
+            <summary>
+            因为此种用途的类必须是顶级类（即不是嵌套类），所以没有嵌套在Strategy类中。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.StategyFlagExtensions.Set(AKRS.WM.Strategy.Flag,AKRS.WM.Strategy.Flag)">
+            <summary>
+            设置。
+            </summary>
+            <param name="flags"></param>
+            <param name="flagBit"></param>
+        </member>
+        <member name="M:AKRS.WM.StategyFlagExtensions.Clear(AKRS.WM.Strategy.Flag,AKRS.WM.Strategy.Flag)">
+            <summary>
+            清除。
+            </summary>
+            <param name="flags"></param>
+            <param name="flagBit"></param>
+        </member>
+        <member name="M:AKRS.WM.StategyFlagExtensions.IsSet(AKRS.WM.Strategy.Flag,AKRS.WM.Strategy.Flag)">
+            <summary>
+            是否设置。
+            </summary>
+            <param name="flags"></param>
+            <param name="flagBit"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.StrategyContentChangedEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.StrategyContentChangedEventArgs.#ctor(System.Int32,AKRS.WM.StrategyContentType,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="involvedContentTypes">涉及到的内容的类型。</param>
+        </member>
+        <member name="P:AKRS.WM.StrategyContentChangedEventArgs.StrategyIndex">
+            <summary>
+            Index。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.StrategyContentChangedEventArgs.InvolvedContentTypes">
+            <summary>
+            涉及到的内容的类型。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.StrategyChangedEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.StrategyChangedEventArgs.SettingSource">
+            <summary>
+            设置源。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.PositionOutOfRegionException">
+            <summary>
+            位置超出区域 异常。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PositionOutOfRegionException.#ctor(AKRS.WM.Position,AKRS.WM.MapRegion)">
+            <summary>
+            
+            </summary>
+            <param name="position"></param>
+            <param name="region"></param>
+        </member>
+        <member name="P:AKRS.WM.PositionOutOfRegionException.Position">
+            <summary>
+            位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PositionOutOfRegionException.Region">
+            <summary>
+            区域。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.InitialStartPointChangedEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.InitialStartPointChangedEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.SettingSource)">
+            <summary>
+            
+            </summary>
+            <param name="newPosition"></param>
+            <param name="oldPosition"></param>
+            <param name="settingSource"></param>
+        </member>
+        <member name="T:AKRS.WM.CurrentStartPointChangedEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.CurrentStartPointChangedEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.SettingSource)">
+            <summary>
+            
+            </summary>
+            <param name="newPosition"></param>
+            <param name="oldPosition"></param>
+            <param name="settingSource"></param>
+        </member>
+        <member name="T:AKRS.WM.Direction">
+            <summary>
+            方向。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Direction.Unknown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Direction.Up">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Direction.Down">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Direction.Left">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Direction.Right">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.DirectionExtensions">
+            <summary>
+            Direction枚举类型的扩展类。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.DirectionExtensions.Negate(AKRS.WM.Direction)">
+            <summary>
+            获取相反的方向。
+            </summary>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.DirectionExtensions.GetSign(AKRS.WM.Direction)">
+            <summary>
+            获取方向的符号：+/-。
+            </summary>
+            <param name="direction"></param>
+            <returns>1：表示正向，即向右或向下；-1：表示负向，即向左或向上。</returns>
+        </member>
+        <member name="M:AKRS.WM.DirectionExtensions.IsHorizontal(AKRS.WM.Direction)">
+            <summary>
+            判断是否为水平方向（即向左或向右）。
+            </summary>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.DirectionExtensions.IsVertical(AKRS.WM.Direction)">
+            <summary>
+            判断是否为竖直方向（即向上或向下）。
+            </summary>
+            <param name="direction"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.MapRegion">
+            <summary>
+            表示图上的一块矩形区域。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.MapRegion.Empty">
+            <summary>
+            空区域。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.MapRegion.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="firstRow">第一行。</param>
+            <param name="firstColumn">第一列。</param>
+            <param name="lastRow">最后一个行。</param>
+            <param name="lastColumn">最后一列。</param>
+        </member>
+        <member name="P:AKRS.WM.MapRegion.Start">
+            <summary>
+            左上角。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.MapRegion.End">
+            <summary>
+            右下角。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.MapRegion.RowCount">
+            <summary>
+            行数。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.MapRegion.ColumnCount">
+            <summary>
+            列数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.MapRegion.Contains(AKRS.WM.Position)">
+            <summary>
+            判断是否包含由参数指定的位置。
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.MapRegion.ToString">
+            <summary>
+            已经重载。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.MapRegion.Enlarge(System.Int32)">
+            <summary>
+            往四个方向扩大。
+            </summary>
+            <param name="delta"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.MapRegion.Enlarge(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            往四个方向扩大。
+            </summary>
+            <param name="top"></param>
+            <param name="left"></param>
+            <param name="bottom"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.MapRegion.Equals(AKRS.WM.MapRegion)">
+            <summary>
+            实现IEquatable接口定义的方法。
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.MapRegion.Equals(System.Object)">
+            <summary>
+            已重写。
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.MapRegion.GetHashCode">
+            <summary>
+            已重写。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.MapRegion.IsEmpty">
+            <summary>
+            判断是否为空。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.PathSeekerCustomized">
+            <summary>
+            定制的。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerCustomized.#ctor(AKRS.WM.WaferMapData,AKRS.WM.Direction,AKRS.WM.PathSeeker.OptionalArguments)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="majorDirection"></param>
+            <param name="optionalArguments"></param>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerCustomized.Run(System.Object)">
+            <summary>
+            已经重载。
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerCustomized.FindNextPosition(AKRS.WM.Position,AKRS.WM.Direction,System.Boolean)">
+            <summary>
+            找下一个（晶片的）位置，并返回新的次级方向。
+            </summary>
+            <param name="startPosition"></param>
+            <param name="direction"></param>
+            <param name="regionEnabled">使用区域限制。可选，缺省值是true。</param>
+            <returns></returns>
+            <exception cref="T:AKRS.WM.NoApproachableChipException">没有可到达的晶片。</exception>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerCustomized.FindNextInTheSameRow(AKRS.WM.Position,AKRS.WM.Direction,System.Boolean,AKRS.WM.Position@)">
+            <summary>
+            在同一行内，找前进方向上最近的一个。
+            </summary>
+            <param name="startPosition"></param>
+            <param name="direction">行内的前进方向。</param>
+            <param name="subregionEnabled"></param>
+            <param name="nextChipPosition">方法返回true的时候，此参数返回找到的晶片的位置。</param>
+            <returns>true，找到；false，未找到。</returns>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerCustomized.FindNextInOtherRows(AKRS.WM.Position,AKRS.WM.Direction,AKRS.WM.PathSeekerCustomized.FindNextPositionResult@)">
+            <summary>
+            在其他行中，找可达的最近一个。
+            </summary>
+            <param name="startPosition"></param>
+            <param name="direction">行内的前进方向。</param>
+            <param name="result"></param>
+            <returns>true，找到；false，未找到。</returns>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerCustomized.FindExtremumInTargetRow(AKRS.WM.Position,System.Int32,AKRS.WM.Direction,System.Int32@)">
+            <summary>
+            在指定行（row）中找到从original开始可达的最左/右格。
+            </summary>
+            <param name="original"></param>
+            <param name="direction">original所在的行的前进方向。</param>
+            <param name="targetRow">目标行。</param>
+            <param name="nextChipCol">输出参数，找到的晶片的列。</param>
+            <param name="targetRowDirection">输出参数，找到的晶片所在行的行进方向。</param>
+            <returns>true，成功找到，输出参数有意义；false，失败。</returns>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerCustomized.FindNextAccordingToRecordedRows(System.Int32,AKRS.WM.Direction,AKRS.WM.Position@,System.Int32@)">
+            <summary>
+            利用“行/列的反向倒推”在目标行中找可达的晶片。
+            </summary>
+            <param name="targetRow">目标行。</param>
+            <param name="targetRowDirection">目标行的行进方向。</param>
+            <param name="newStartPosition"></param>
+            <param name="nextChipCol"></param>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerCustomized.FindNextInTheSameCol(AKRS.WM.Position,AKRS.WM.Direction,System.Boolean,System.Int32@)">
+            <summary>
+            在同一列内，找前进方向上最近的一个。
+            </summary>
+            <param name="startPosition"></param>
+            <param name="direction">列内的前进方向。</param>
+            <param name="nextChipRow">方法返回true的时候，此参数返回找到的晶片所处的行。</param>
+            <returns>true，找到；false，未找到。</returns>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerCustomized.FindNextInOtherCols(AKRS.WM.Position,AKRS.WM.Direction,AKRS.WM.Direction@,System.Int32@,System.Int32@)">
+            <summary>
+            在其他列中，找可达的最近一个。
+            </summary>
+            <param name="startPosition"></param>
+            <param name="direction">列内的前进方向。</param>
+            <param name="newDirection">返回新的列内前进方向。</param>
+            <param name="nextChipRow"></param>
+            <param name="nextChipColumn"></param>
+            <returns>true，找到；false，未找到。</returns>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerCustomized.FindExtremumInTargetCol(AKRS.WM.Position,System.Int32,AKRS.WM.Direction,System.Int32@)">
+            <summary>
+            在指定列（column）中找到从original开始可达的最上/下格。
+            </summary>
+            <param name="original"></param>
+            <param name="targetCol"></param>
+            <param name="targetColDirection"></param>
+            <param name="nextChipRow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerCustomized.FindNextAccordingToRecordedColumns(System.Int32,AKRS.WM.Direction,AKRS.WM.Position@,System.Int32@)">
+            <summary>
+            利用“行/列的反向倒推”在目标行中找可达的晶片。
+            </summary>
+            <param name="targetCol">目标列。</param>
+            <param name="targetColDirection">目标行的行进方向。</param>
+            <param name="newStartPosition"></param>
+            <param name="nextChipRow"></param>
+        </member>
+        <member name="T:AKRS.WM.ChipTypeChangedEventArgs">
+            <summary>
+            晶片类型改变事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ChipTypeChangedEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.ChipType,System.Int32,AKRS.WM.ChipType,System.Int32)">
+            <summary>
+            一个晶片的类型发生了改变。
+            </summary>
+            <param name="position">晶片的位置。</param>
+            <param name="oldType">原类型。</param>
+            <param name="oldTypeChipCount">参数<paramref name="oldType"/>表示的类型的晶片数量。</param>
+            <param name="newType">新类型。</param>
+            <param name="newTypeChipCount">参数<paramref name="newType"/>表示的类型的晶片数量。</param>
+        </member>
+        <member name="M:AKRS.WM.ChipTypeChangedEventArgs.#ctor(AKRS.WM.Position[],AKRS.WM.ChipType[],AKRS.WM.ChipType)">
+            <summary>
+            多个晶片的类型发生了改变。
+            </summary>
+            <param name="positions"></param>
+            <param name="oldTypes"></param>
+            <param name="newType"></param>
+        </member>
+        <member name="M:AKRS.WM.ChipTypeChangedEventArgs.#ctor(System.Collections.Generic.List{AKRS.WM.Position},System.Collections.Generic.List{AKRS.WM.ChipType},AKRS.WM.ChipType)">
+            <summary>
+            多个晶片的类型发生了改变。
+            </summary>
+            <param name="positions"></param>
+            <param name="oldTypes"></param>
+            <param name="newType"></param>
+        </member>
+        <member name="P:AKRS.WM.ChipTypeChangedEventArgs.Count">
+            <summary>
+            晶片的数量。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ChipTypeChangedEventArgs.Position">
+            <summary>
+            晶片的位置。当有多个晶片时应当使用GetPosition方法。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ChipTypeChangedEventArgs.OldType">
+            <summary>
+            原类型。当有多个晶片时应当使用GetOldType方法。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ChipTypeChangedEventArgs.OldTypeChipCount">
+            <summary>
+            原类型的晶片的数量。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ChipTypeChangedEventArgs.NewType">
+            <summary>
+            新类型。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ChipTypeChangedEventArgs.NewTypeChipCount">
+            <summary>
+            新类型的晶片数量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ChipTypeChangedEventArgs.GetPosition(System.Int32)">
+            <summary>
+            获取某个晶片的位置。
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipTypeChangedEventArgs.GetOldType(System.Int32)">
+            <summary>
+            获取某个晶片的原类型。
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipCount.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="current">当前数量，必须是非负值。</param>
+            <param name="original">原始数量，必须是非负值。</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">参数<paramref name="current"/>或参数<paramref name="original"/>的值非法。</exception>
+        </member>
+        <member name="P:AKRS.WM.ChipCount.Original">
+            <summary>
+            原始数量。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ChipCount.Current">
+            <summary>
+            当前数量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ChipCount.ToString">
+            <summary>
+            已经重写。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.ChipKind">
+            <summary>
+            晶片种类。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ChipKind.PlaceHolder">
+            <summary>
+            表示填充。
+            </summary>
+            <para>值是[1000 0000 ... 0000 0000]</para>
+        </member>
+        <member name="F:AKRS.WM.ChipKind.Empty">
+            <summary>
+            表示空白，即此处的晶片已经被取走了。
+            </summary>
+            <para>值是[0100 0000 ... 0000 0000]</para>
+        </member>
+        <member name="F:AKRS.WM.ChipKind.Chip">
+            <summary>
+            表示晶片。
+            <para>值是[0010 0000 ... 0000 0000]</para>
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ChipKind.Invalid">
+            <summary>
+            无效类型，即不可定位类型。
+            </summary>
+            <para>值是[0010 0000 ... 0000 0000]</para>
+        </member>
+        <member name="F:AKRS.WM.ChipKind.Valid">
+            <summary>
+            有效类型，即可定位类型。
+            </summary>
+            <para>值是[0010 0000 ... 0000 0001]</para>
+        </member>
+        <member name="F:AKRS.WM.ChipKind.Selected">
+            <summary>
+            提取类型。
+            </summary>
+            <para>值是[0010 0000 ... 0000 0011]</para>
+        </member>
+        <member name="T:AKRS.WM.ChipKindExtensions">
+            <summary>
+            ChipKind的扩展类。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ChipKindExtensions.Equals(AKRS.WM.ChipKind,AKRS.WM.ChipKind)">
+            <summary>
+            判断是否相等。
+            </summary>
+            <param name="obj"></param>
+            <param name="chipKind"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipKindExtensions.IsSet(AKRS.WM.ChipKind,AKRS.WM.ChipKind)">
+            <summary>
+            判断是否设置。
+            </summary>
+            <param name="obj"></param>
+            <param name="chipKind"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.ReferencePointChangedEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ReferencePointChangedEventArgs.#ctor(AKRS.WM.ReferencePoint,AKRS.WM.ReferencePointAction)">
+            <summary>
+            仅涉及一个参考点的事件参数。
+            </summary>
+            <param name="referencePoint"></param>
+            <param name="referencePointAction"></param>
+        </member>
+        <member name="M:AKRS.WM.ReferencePointChangedEventArgs.#ctor(AKRS.WM.ReferencePoint[],AKRS.WM.ReferencePointAction)">
+            <summary>
+            涉及多个参考点的事件参数。
+            </summary>
+            <param name="referencePoints"></param>
+            <param name="referencePointAction"></param>
+        </member>
+        <member name="T:AKRS.WM.Degree">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Degree.Degree0">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Degree.Degree90">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Degree.Degree180">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Degree.Degree270">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.UnapproachableChipException">
+            <summary>
+            不可到达的晶片。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UnapproachableChipException._startChipPosition">
+            <summary>
+            起始晶片（图上）坐标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UnapproachableChipException._targetChipPosition">
+            <summary>
+            目标晶片（图上）坐标。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.UnapproachableChipException.#ctor(AKRS.WM.Position,AKRS.WM.Position)">
+            <summary>
+            
+            </summary>
+            <param name="startChipPosition"></param>
+            <param name="targetChipPosition">不可到达的晶片的（图上）坐标。</param>
+        </member>
+        <member name="P:AKRS.WM.UnapproachableChipException.StartChipPosition">
+            <summary>
+            获取起始晶片的（图上）坐标。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.UnapproachableChipException.TargetChipPosition">
+            <summary>
+            获取目标晶片的（图上）坐标。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.UnapproachableChipException.Message">
+            <summary>
+            已经重写。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.NoApproachableChipException">
+            <summary>
+            没有可到达的晶片。
+            </summary>
+            <remarks>为了兼容以前的版本，所以此异常派生自NotFoundException。</remarks>
+        </member>
+        <member name="F:AKRS.WM.SeekingTimeoutException._startChipPosition">
+            <summary>
+            起始晶片（图上）坐标。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SeekingTimeoutException._targetChipPosition">
+            <summary>
+            目标晶片（图上）坐标。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.SeekingTimeoutException.#ctor(AKRS.WM.Position,AKRS.WM.Position)">
+            <summary>
+            
+            </summary>
+            <param name="chipPosition">不可到达的晶片的（图上）坐标。</param>
+        </member>
+        <member name="P:AKRS.WM.SeekingTimeoutException.StartChipPosition">
+            <summary>
+            获取起始晶片的（图上）坐标。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.SeekingTimeoutException.TargetChipPosition">
+            <summary>
+            获取目标晶片的（图上）坐标。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.Chip">
+            <summary>
+            晶片。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Chip.#ctor(AKRS.WM.ChipType)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="P:AKRS.WM.Chip.Type">
+            <summary>
+            晶片类型。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Chip.ToString">
+            <summary>
+            已经重写。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.ChipType">
+            <summary>
+            晶片类型。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ChipType.UNKNOWN_CHIP_CHAR">
+            <summary>
+            未知类型的字符。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ChipType.DEFAULT_NULL_BIN">
+            <summary>
+            填充位的默认Bin值。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ChipType.DEFAULT_VOID_BIN">
+            <summary>
+            空白位的默认Bin值。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ChipType.UNKNOWN">
+            <summary>
+            未知类型。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ChipType.op_Equality(AKRS.WM.ChipType,AKRS.WM.ChipType)">
+            <summary>
+            相等性判断。
+            </summary>
+            <param name="operand1"></param>
+            <param name="operand2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipType.op_Inequality(AKRS.WM.ChipType,AKRS.WM.ChipType)">
+            <summary>
+            不等性判断。
+            </summary>
+            <param name="operand1"></param>
+            <param name="operand2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipType.#ctor(System.Char)">
+            <summary>
+            
+            </summary>
+            <param name="typeValue">类型的字符值。</param>
+        </member>
+        <member name="M:AKRS.WM.ChipType.#ctor(System.Int16)">
+            <summary>
+            
+            </summary>
+            <param name="typeValue">类型的16位整型值。</param>
+        </member>
+        <member name="P:AKRS.WM.ChipType.Value">
+            <summary>
+            晶片类型的值（解释成UTF-16字符）。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ChipType.CharValue">
+            <summary>
+            晶片类型的值（解释成UTF-16字符）。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ChipType.IntValue">
+            <summary>
+            晶片类型的值（解释成16位整型）。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ChipType.GetHashCode">
+            <summary>
+            已经重写。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipType.Equals(AKRS.WM.ChipType)">
+            <summary>
+            实现IEquatable接口的Equals方法。
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipType.Equals(System.Object)">
+            <summary>
+            已经重写。
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipType.ToString">
+            <summary>
+            已经重写。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipType.ToString(AKRS.WM.BinType)">
+            <summary>
+            根据Bin值的类型，返回对应的字符串表示。
+            </summary>
+            <param name="binType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipType.CompareTo(AKRS.WM.ChipType)">
+            <summary>
+            实现IComparable接口的方法。
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ChipType.Compare(AKRS.WM.ChipType,AKRS.WM.ChipType)">
+            <summary>
+            实现IComparer接口的方法。
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.ColorConfig">
+            <summary>
+            Color Configuration.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ColorConfig.DEFAULT_COLOR">
+            <summary>
+            Color for the chip types which are missing in the color dictionary.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ColorConfig.DEFAULT_BRUSH">
+            <summary>
+            Brush for the chip types which are missing in the color dictionary.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.ColorConfig.DEFAULT_COLOR_DICTIONARY">
+            <summary>
+            Default mapping set of chip types and colors.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ColorConfig.CurrentColor">
+            <summary>
+            获取当前点的外框颜色。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ColorConfig.StartPointMarkColor">
+            <summary>
+            获取起点标记的颜色。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ColorConfig.CursorColor">
+            <summary>
+            获取光标的高亮颜色。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ColorConfig.ReferencePointColor">
+            <summary>
+            获取参考点的颜色。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ColorConfig.FrameColor">
+            <summary>
+            获取框的颜色。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ColorConfig.BackgroundColor">
+            <summary>
+            获取背景颜色。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.GetChipColor(AKRS.WM.ChipType)">
+            <summary>
+            获取指定的晶片类型的颜色。
+            </summary>
+            <param name="chipType">晶片类型。</param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.GetChipColorMapping">
+            <summary>
+            返回的是一个副本。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.GetBrush(AKRS.WM.ChipType)">
+            <summary>
+            获取指定的晶片类型的画刷。
+            </summary>
+            <param name="chipType">晶片类型。</param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.SetDefaultColors">
+            <summary>
+            设置默认颜色。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.SetColor(AKRS.WM.ChipType,System.Drawing.Color)">
+            <summary>
+            设置指定晶片的颜色。
+            </summary>
+            <param name="chipType">晶片类型。</param>
+            <param name="color">颜色。</param>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.SetCurrentPointMarkColor(System.Drawing.Color)">
+            <summary>
+            设置当前点标记的颜色。
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.SetFirstPointMarkColor(System.Drawing.Color)">
+            <summary>
+            设置起点标记的颜色。
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.SetFrameColor(System.Drawing.Color)">
+            <summary>
+            设置框的颜色。
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.SetCursorPointMarkColor(System.Drawing.Color)">
+            <summary>
+            
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.SetReferencePointColor(System.Drawing.Color)">
+            <summary>
+            设置参考点的颜色。
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.LoadFile(System.String)">
+            <summary>
+            从指定的文件中载入配置信息。
+            </summary>
+            <param name="strColorConfigFilePath">颜色配置文件的路径。</param>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.SaveFile">
+            <summary>
+            将配置信息写入颜色配置文件中。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.BeginSet">
+            <summary>
+            开始设置，暂停写入到颜色配置文件中。
+            避免频繁的写磁盘操作。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ColorConfig.EndSet">
+            <summary>
+            结束设置，将配置信息写入颜色配置文件中。
+            执行一次写磁盘操作。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.CurrentPointChangedEventArgs">
+            <summary>
+            当前点发生改变事件的参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.CurrentPointChangedEventArgs.#ctor(AKRS.WM.Position,AKRS.WM.Position,AKRS.WM.SettingSource,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="newPosition">新位置。</param>
+            <param name="oldPosition">旧位置。</param>
+            <param name="settingSource">设置源。</param>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetChipTypeDictionary(System.Boolean)">
+            <summary>
+            获取晶片类型字典。
+            </summary>
+            <param name="placeholderExcluded">排除PlaceHolder类型。</param>
+            <returns>元素是“类型：有效”对的字典。</returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetChipTypes(System.Boolean)">
+            <summary>
+            获取晶片类型列表。
+            </summary>
+            <param name="placeholderExcluded">排除PlaceHolder类型。</param>
+            <returns>包含所有晶片类型的列表。</returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetChipTypes">
+            <summary>
+            获取晶片类型列表。
+            </summary>
+            <returns>包含所有晶片类型的列表。</returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetValidChipTypes">
+            <summary>
+            获取所有有效类型的晶片类型。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetValidChipTypeCount">
+            <summary>
+            获取所有有效类型的晶片类型的数量。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetChipTypeCount">
+            <summary>
+            获取晶片类型的数量。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.ClearChipTypes">
+            <summary>
+            清空晶片类型。注意，不包括用于表示PlaceHolder的晶片类型。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.AddNewChipType(AKRS.WM.ChipType,System.Boolean)">
+            <summary>
+            添加新的晶片类型。
+            </summary>
+            <param name="newChipType"></param>
+            <param name="valid"></param>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.RemoveChipType(AKRS.WM.ChipType)">
+            <summary>
+            从晶片类型集合中移除指定的晶片类型。注意，无法移除用于表示PlaceHolder的晶片类型。
+            </summary>
+            <param name="chipType">指定将要移除的晶片类型。</param>
+            <returns>true，移除成功；false，移除失败。</returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.ContainsChipType(AKRS.WM.ChipType)">
+            <summary>
+            判断是否包含指定晶片类型。
+            </summary>
+            <param name="chipType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetReferencePointsCount">
+            <summary>
+            获取参考点的数量。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetCopyOfReferencePoints">
+            <summary>
+            获取参考点列表的一个副本。
+            </summary>
+            <returns>元素是ReferencePoint的数组。元素数是零表示没有参考点。</returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.ClearReferencePoints">
+            <summary>
+            清空参考点列表。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.SetUserDirection(System.Int32,AKRS.WM.UserDirection)">
+            <summary>
+            设置指定Strategy的“用户方向”。
+            </summary>
+            <param name="strategyIndex">用于指定strategy。</param>
+            <param name="newUserDirection">新的“用户方向”。</param>
+            <returns>
+            true，成功；
+            false，原值与<paramref name="newUserDirection"/>相等。
+            </returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetUserDirection(System.Int32)">
+            <summary>
+            获取指定Strategy的“用户方向”。
+            </summary>
+            <param name="strategyIndex">用于指定strategy。</param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.AddStrategyInitialStartPoint(System.Int32,AKRS.WM.Position)">
+            <summary>
+            给Strategy添加最初起点。
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="position"></param>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetStrategyInitialStartPoint(System.Int32)">
+            <summary>
+            获取Strategy的最初起点。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetStrategyCurrentStartPoint(System.Int32)">
+            <summary>
+            获取Strategy的当前起点。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetCopyOfStrategies">
+            <summary>
+            获取所有Strategy的一份副本。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.DataConfig.GetStrategyReference(System.Int32)">
+            <summary>
+            获取指定的Strategy的引用。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.FlatNotch">
+            <summary>
+            平边/缺口。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.RotationType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.RotationType.Clockwise0">
+            <summary>
+            Clockwise 0 degree.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.RotationType.Clockwise90">
+            <summary>
+            Clockwise 90 degree.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.RotationType.Clockwise180">
+            <summary>
+            Clockwise 180 degree.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.RotationType.Clockwise270">
+            <summary>
+            Clockwise 270 degree.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.RotationType.CounterClockwise90">
+            <summary>
+            Counter Clockwise 90 degree.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.RotationType.CounterClockwise180">
+            <summary>
+            Counter Clockwise 180 degree.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.RotationType.CounterClockwise270">
+            <summary>
+            Counter Clockwise 90 degree.
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.RotationType.CounterClockwise0">
+            <summary>
+            Counter Clockwise 0 degree.
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.RotationTypeExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.RotationTypeExtensions.Add(AKRS.WM.RotationType,AKRS.WM.RotationType)">
+            <summary>
+            角度累加。
+            </summary>
+            <param name="current">当前值。</param>
+            <param name="increment">增量。</param>
+            <returns>计算后的新值。</returns>
+        </member>
+        <member name="M:AKRS.WM.RotationTypeExtensions.Subtract(AKRS.WM.RotationType,AKRS.WM.RotationType)">
+            <summary>
+            减。
+            </summary>
+            <param name="current"></param>
+            <param name="subtrahend"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.SearchResult">
+            <summary>
+            寻路结果。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SearchResult.Unknown">
+            <summary>
+            未知。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SearchResult.Found">
+            <summary>
+            找到了。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SearchResult.NotFound">
+            <summary>
+            未找到。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SearchResult.NoResource">
+            <summary>
+            没有资源。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.SearchResult.ExceptionOccurred">
+            <summary>
+            有异常发生。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.UserDirection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserDirection.UpToDown_LeftToRight">
+            <summary>
+            主方向：从上往下；
+            次方向：从左往右。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserDirection.UpToDown_RightToLeft">
+            <summary>
+            主方向：从上往下；
+            次方向：从右往左。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.UserDirection.DownToUp_LeftToRight">
+            <summary>
+            主方向：从下往上；
+            次方向：从左往右。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.UserDirectionExternalMethods">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.UserDirectionExternalMethods.Decompose(AKRS.WM.UserDirection)">
+            <summary>
+            分解成主方向和次方向。
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="T:AKRS.WM.IStripDirection">
+            <summary>
+            条方向。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.IStripDirection.SetMinorDirection(System.Int32,AKRS.WM.Direction)">
+            <summary>
+            改变条方向。
+            </summary>
+            <param name="strip"></param>
+            <param name="stripDirection"></param>
+        </member>
+        <member name="T:AKRS.WM.NullStripDirection">
+            <summary>
+            接口的空实现。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.NullStripDirection.SetMinorDirection(System.Int32,AKRS.WM.Direction)">
+            <summary>
+            接口定义的方法的空实现。
+            </summary>
+            <param name="strip"></param>
+            <param name="minorDirection"></param>
+        </member>
+        <member name="T:AKRS.WM.Info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.Info.Flag">
+            <summary>
+            额外信息。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Info.Flag.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Info.Flag.Springboard">
+            <summary>
+            跳板。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.Info.Flag.First">
+            <summary>
+            首次搜索过程的结果。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Info.#ctor(AKRS.WM.Position,System.Int32,System.Int32,System.Boolean,AKRS.WM.ChipType,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="position">晶片在晶圆图上的位置（行，列）。</param>
+            <param name="xPhysicalCoordinate">物理坐标的X值。</param>
+            <param name="yPhysicalCoordinate">物理坐标的Y值。</param>
+            <param name="bSpringboard">是否为跳板晶片。</param>
+            <param name="chipType">晶片类型。</param>
+            <param name="iUserCoordinateHorizontalVal">用户坐标系的水平轴上的坐标值。</param>
+            <param name="iUserCoordinateVerticalVal">用户坐标系的垂直轴上的坐标值。</param>
+        </member>
+        <member name="M:AKRS.WM.Info.#ctor(AKRS.WM.Position,System.Drawing.Point,System.Boolean,AKRS.WM.ChipType,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="position">晶片在晶圆图上的位置（行，列）。</param>
+            <param name="physicalCoordinates">物理坐标。</param>
+            <param name="bSpringboard">是否为跳板晶片。</param>
+            <param name="chipType">晶片类型。</param>
+            <param name="iUserCoordinateHorizontalVal">用户坐标系的水平轴上的坐标值。</param>
+            <param name="iUserCoordinateVerticalVal">用户坐标系的垂直轴上的坐标值。</param>
+        </member>
+        <member name="M:AKRS.WM.Info.#ctor(AKRS.WM.Info,AKRS.WM.Info.Flag)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <param name="flags">新的Flag值。</param>
+        </member>
+        <member name="P:AKRS.WM.Info.Position">
+            <summary>
+            获取晶片在晶圆图上的位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.HorizontalCoordinate">
+            <summary>
+            用户坐标系中水平轴上的值。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.VerticalCoordinate">
+            <summary>
+            用户坐标系中垂直轴上的值。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.UserCoordinateHorizontalValue">
+            <summary>
+            用户坐标系中水平轴上的值。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.UserCoordinateVerticalValue">
+            <summary>
+            用户坐标系中垂直轴上的值。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.Point">
+            <summary>
+            晶片在晶圆上的大概坐标。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.PhysicalCoordinates">
+            <summary>
+            物理坐标。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.x">
+            <summary>
+            晶片在晶圆上的大概坐标的X值。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.y">
+            <summary>
+            晶片在晶圆上的大概坐标的Y值。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.pos">
+            <summary>
+            获取或设置晶片在晶圆图上的坐标。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.Flags">
+            <summary>
+            额外信息。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.IsSpringboard">
+            <summary>
+            获取晶片为跳板。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Info.ChipType">
+            <summary>
+            获取或设置晶片的类型。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Info.ToString">
+            <summary>
+            已经重写。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.JumpIntervalChangedEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.JumpIntervalChangedEventArgs.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+            <exception cref="T:System.ArgumentException">参数<paramref name="newValue"/>的值非法。</exception>
+        </member>
+        <member name="P:AKRS.WM.JumpIntervalChangedEventArgs.OldValue">
+            <summary>
+            跳转间隔的旧值。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.JumpIntervalChangedEventArgs.NewValue">
+            <summary>
+            跳转间隔的新值。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.Position">
+            <summary>
+            晶圆图中的位置。
+            左上角是第一行的第一列，Row=0，Column=0。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Position.op_Equality(AKRS.WM.Position,AKRS.WM.Position)">
+            <summary>
+            判断两个操作数是否相等。
+            </summary>
+            <param name="operand1"></param>
+            <param name="operand2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Position.op_Inequality(AKRS.WM.Position,AKRS.WM.Position)">
+            <summary>
+            判断两个操作数是否不等。
+            </summary>
+            <param name="operand1"></param>
+            <param name="operand2"></param>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.Position.Zero">
+            <summary>
+            Row=0，Column=0。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Position.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="row">行</param>
+            <param name="column">列</param>
+        </member>
+        <member name="M:AKRS.WM.Position.#ctor(AKRS.WM.Position)">
+            <summary>
+            
+            </summary>
+            <param name="position"></param>
+        </member>
+        <member name="P:AKRS.WM.Position.Row">
+            <summary>
+            行。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Position.Column">
+            <summary>
+            列。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.Position.ToString">
+            <summary>
+            已经重载。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Position.ToString(System.Boolean)">
+            <summary>
+            转换成字符串。
+            </summary>
+            <param name="parentheses">指明是否带小括号。</param>
+            <returns>返回类似"(1，2)"或"1,2"的字符串。</returns>
+        </member>
+        <member name="M:AKRS.WM.Position.Equals(AKRS.WM.Position)">
+            <summary>
+            实现IEquatable接口的方法。
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Position.Equals(System.Object)">
+            <summary>
+            已经重载。
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Position.GetHashCode">
+            <summary>
+            已经重载。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Position.Add(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="rowDelta">行增量。</param>
+            <param name="columnDelta">列增量。</param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.Position.Subtract(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="rowDelta"></param>
+            <param name="columnDelta"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.Range">
+            <summary>
+            表示晶圆图上一行/列的一段范围。
+            由首晶片的位置和尾晶片的位置表示范围，并用一个数量表示这个范围内的可用晶片的总数。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Range.First">
+            <summary>
+            首晶片的位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Range.Last">
+            <summary>
+            尾晶片的位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.Range.Count">
+            <summary>
+            晶片数量。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.ReferencePoint">
+            <summary>
+            参考点。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ReferencePoint.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="row"></param>
+            <param name="column"></param>
+            <param name="label"></param>
+        </member>
+        <member name="M:AKRS.WM.ReferencePoint.#ctor(AKRS.WM.Position,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="position"></param>
+            <param name="label"></param>
+        </member>
+        <member name="P:AKRS.WM.ReferencePoint.Label">
+            <summary>
+            获取或设置参考点的标记。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ReferencePoint.Position">
+            <summary>
+            获取或设置参考点的位置。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ReferencePoint.ToString">
+            <summary>
+            已经重载。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.WaferMap">
+            <summary>
+            A wafer map in memory.
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.LoadFile(System.String,AKRS.WM.RotationType)">
+            <summary>
+            读取文件，生成WaferMap对象。
+            </summary>
+            <param name="waferMapFilePath">晶圆图文件的路径。</param>
+            <param name="desiredDegree">期望的晶圆图角度。这个角度是相对值，刚由文件生成的WaferMap对象是0度，旋转的粒度是90度，顺时针为旋转正方向。</param>
+            <returns>新生成的WaferMap对象。</returns>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="waferMapFilePath"/>是空引用。</exception>
+            <exception cref="T:System.Exception">从文件读取内容生成WaferMap对象的过程中产生的其他异常。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.LoadFile(System.String)">
+            <summary>
+            读取文件，生成WaferMap对象。
+            </summary>
+            <param name="waferMapFilePath">晶圆图文件的路径。</param>
+            <returns>新生成的WaferMap对象。</returns>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="waferMapFilePath"/>是空引用。</exception>
+            <exception cref="T:System.Exception">从文件读取内容生成WaferMap对象的过程中产生的其他异常。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.#ctor(System.String,AKRS.WM.WaferMapFileHead,AKRS.WM.Chip[0:,0:],System.Collections.Generic.Dictionary{AKRS.WM.ChipType,AKRS.WM.ChipCount})">
+            <summary>
+            
+            </summary>
+            <param name="waferMapFilePath">晶圆图文件的路径。</param>
+            <param name="waferMapFileHead">晶圆图文件头。</param>
+            <param name="chips">元素为晶片的二维数组。</param>
+            <param name="chipCountDict">各种类型晶片的数量信息的字典，当前数量和原始数量。</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.Rotate(AKRS.WM.RotationType,System.Collections.Generic.List{AKRS.WM.Position},System.Boolean,System.Boolean)">
+            <summary>
+            旋转。
+            </summary>
+            <param name="rotationType"></param>
+            <param name="list">默认值是null。</param>
+            <param name="updateRotation">更新旋转角度。默认值是true。</param>
+            <param name="updateFlatNotch">更新Flat/Notch。默认值是true。</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.Rotate(AKRS.WM.RotationType,System.Collections.Generic.List{AKRS.WM.Position})">
+            <summary>
+            旋转。
+            </summary>
+            <param name="rotationType"></param>
+            <param name="list">默认值是null。</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.Rotate(AKRS.WM.RotationType)">
+            <summary>
+            旋转。
+            </summary>
+            <param name="rotationType"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.RotateClockwise90(System.Collections.Generic.List{AKRS.WM.Position},System.Boolean)">
+            <summary>
+            顺时针方向旋转90度。
+            </summary>
+            <param name="list"></param>
+            <param name="updateFlatNotch">更新Flat/Notch。</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.IsPositionValid(AKRS.WM.Position)">
+            <summary>
+            判断位置是否在晶圆图内。
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.IsPositionValid(System.Int32,System.Int32)">
+            <summary>
+            判断位置是否在晶圆图内。
+            </summary>
+            <param name="row"></param>
+            <param name="column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.GetChip(AKRS.WM.Position)">
+            <summary>
+            获取指定坐标的晶片。
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.GetChip(System.Int32,System.Int32)">
+            <summary>
+            获取指定坐标的晶片。
+            </summary>
+            <param name="row"></param>
+            <param name="col"></param>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.Item(AKRS.WM.Position)">
+            <summary>
+            获取指定坐标的晶片。
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.GetChipTypes">
+            <summary>
+            获取此对象的所有晶片类型。
+            </summary>
+            <returns>数量0，表示没有晶片。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.GetOriginalChipTypes">
+            <summary>
+            获取此对象的原始的晶片类型集合。
+            </summary>
+            <returns>数量0，表示没有晶片。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.AddNewChipType(AKRS.WM.ChipType)">
+            <summary>
+            增加一种新的晶片类型。
+            </summary>
+            <param name="newChipType">新的晶片类型。</param>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.TryAddNewChipType(AKRS.WM.ChipType)">
+            <summary>
+            增加一种新的晶片类型。
+            </summary>
+            <param name="newChipType">新的晶片类型。</param>
+            <returns>true，成功；false，失败，因为该类型已经存在。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.Save(System.String)">
+            <summary>
+            写入指定的文件中。
+            </summary>
+            <param name="strFilePath"></param>        
+        </member>
+        <member name="M:AKRS.WM.WaferMap.Save">
+            <summary>
+            写入原文件中。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.FilePath">
+            <summary>
+            获取原文件的路径。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.FileName">
+            <summary>
+            获取原文件的名称。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.WaferID">
+            <summary>
+            获取Wafer ID。有些晶圆图没有这项内容，此时该字段的值是String.Empty。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.FlatNotch">
+            <summary>
+            获取当前的平边/缺口。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.BinType">
+            <summary>
+            获取Bin值的数据类型。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.NullChipType">
+            <summary>
+            获取“填充位”的晶片类型。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.VoidChipType">
+            <summary>
+            获取“空白位”的晶片类型。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.Rotation">
+            <summary>
+            获取累计的旋转角度。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.RowCount">
+            <summary>
+            获取行数。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.ColumnCount">
+            <summary>
+            获取列数。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.Matrix">
+            <summary>
+            2D数组。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.ChipCurrentCountDict">
+            <summary>
+            各种类型晶片的当前数量。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMap.ChipOriginalCountDict">
+            <summary>
+            各种类型晶片的原始数量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.WaferMapLoader.LoadFile(System.String)">
+            <summary>
+            通过指定的晶圆图文件创建WaferMap类的实例。
+            </summary>
+            <param name="waferMapFilePath">晶圆图文件的路径。</param>
+            <returns>新生成的WaferMap对象。</returns>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="waferMapFilePath"/>是空引用。</exception>
+            <exception cref="T:System.Exception">其他异常。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.WaferMapLoader.ParseKeyValue(System.String,System.Char,System.String@,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="strSrc">源字符串。</param>
+            <param name="chSeparator">分隔键和值的字符。</param>
+            <param name="strKey">返回（前后都不含空白字符的）键。</param>
+            <param name="strValue">返回（前后都不含空白字符的）值。</param>
+            <returns>true，表示成功；false，表示失败。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMap.WaferMapLoader.Write(AKRS.WM.WaferMap,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="waferMap"></param>
+            <param name="strFilePath"></param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="waferMap"/>或<paramref name="strFilePath"/>是空引用。</exception>
+        </member>
+        <member name="M:AKRS.WM.MapRangeCollection.#ctor(AKRS.WM.Chip[0:,0:],AKRS.WM.MapRegion,System.Collections.Generic.HashSet{AKRS.WM.ChipType},AKRS.WM.MapDirection)">
+            <summary>
+            
+            </summary>
+            <param name="matrix"></param>
+            <param name="limitedRegion"></param>
+            <param name="selectedTypes"></param>
+            <param name="mapDirection"></param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="matrix"/>或<paramref name="selectedTypes"/>是空引用。</exception>
+            <exception cref="T:System.ArgumentException">
+            参数<paramref name="selectedTypes"/>没有元素，或参数<paramref name="mapDirection"/>的值无意义，
+            或者
+            参数<paramref name="limitedRegion"/>的值无意义。
+            </exception>
+        </member>
+        <member name="M:AKRS.WM.MapRangeCollection.CreateRangesByRow(System.Collections.Generic.HashSet{AKRS.WM.ChipType},AKRS.WM.Chip[0:,0:],AKRS.WM.MapRegion)">
+            <summary>
+            
+            </summary>
+            <param name="selectedTypes"></param>
+            <param name="matrix"></param>
+            <param name="limitedRegion"></param>
+        </member>
+        <member name="M:AKRS.WM.MapRangeCollection.Consume(AKRS.WM.Position)">
+            <summary>
+            消耗一个指定的位置。
+            </summary>
+            <param name="pos"></param>
+        </member>
+        <member name="P:AKRS.WM.MapRangeCollection.Item(System.Int32)">
+            <summary>
+            获取指定的Range。
+            </summary>
+            <param name="indexOfRowOrColumn"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.WaferMapFileLoadingEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapFileLoadingEventArgs.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="newWaferMapFilePath">新晶圆图文件的路径。</param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="newWaferMapFilePath"/>是空引用。</exception>
+        </member>
+        <member name="P:AKRS.WM.WaferMapFileLoadingEventArgs.NewWaferMapFilePath">
+            <summary>
+            新晶圆图文件的路径。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.WaferMapFileLoadedEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapFileLoadedEventArgs.#ctor(System.String,System.String,AKRS.WM.BinType,AKRS.WM.RotationType)">
+            <summary>
+            
+            </summary>
+            <param name="waferMapFileName"></param>
+            <param name="waferID"></param>
+            <param name="binType"></param>
+            <param name="rotationType"></param>
+        </member>
+        <member name="P:AKRS.WM.WaferMapFileLoadedEventArgs.WaferMapFileName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapFileLoadedEventArgs.WaferID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapFileLoadedEventArgs.BinType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapFileLoadedEventArgs.RotationType">
+            <summary>
+            此时晶圆图的旋转角度。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.WaferMapData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapData.ResetOnChipTypeConflict">
+            <summary>
+            晶片类型冲突时重置。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.LoadColorConfig(System.String)">
+            <summary>
+            载入颜色配置文件。
+            </summary>
+            <param name="configFilePath"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.LoadDataConfig(System.String)">
+            <summary>
+            载入数据配置文件。
+            </summary>
+            <param name="configFilePath"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.LoadWaferMapFile(System.String,AKRS.WM.RotationType,System.Boolean,System.Boolean)">
+            <summary>
+            载入指定的晶圆图文件。
+            </summary>
+            <param name="waferMapFilePath">晶圆图文件的路径。</param>
+            <param name="desiredDegree">目标角度。</param>
+            <param name="checkNestedNullChips">检查内嵌的"."类型的晶片。默认值是true。</param>
+            <param name="autoFirstPoint">第一个可提取的晶片的位置作为起点。</param>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="waferMapFilePath"/>是空引用。</exception>
+            <exception cref="T:System.ArgumentException">参数<paramref name="waferMapFilePath"/>是空字符串。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.FindPotential(AKRS.WM.WaferMap,System.Int32[][]@)">
+            <summary>
+            找到所有潜在的嵌在内部的.类型的晶片。
+            </summary>
+            <param name="waferMap"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.FilterPotential(AKRS.WM.WaferMap,System.Int32[][],System.Collections.Generic.List{System.Int32}[]@)">
+            <summary>
+            过滤所有潜在的嵌在内部的.类型的晶片。
+            </summary>
+            <param name="waferMap"></param>
+            <param name="potentials"></param>
+            <param name="filteredPotentials"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetFirstPickableChipAccordingToUserDirection(System.Int32)">
+            <summary>
+            根据行进方形，获取指定Strategy的第一个可取的晶片的位置。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetWaferMapRotationDegree(AKRS.WM.Degree)">
+            <summary>
+            设置晶圆图的旋转角度。
+            </summary>
+            <param name="desiredDegree"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetWaferMapRotationDegree">
+            <summary>
+            获取晶圆图的旋转角度。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.RotateWaferMap(AKRS.WM.RotationType)">
+            <summary>
+            旋转晶圆图。
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.AddReferencePoint(AKRS.WM.Position,System.String)">
+            <summary>
+            添加一个参考点。
+            </summary>
+            <param name="position">参考点的位置。</param>
+            <param name="label">参考点的标记。</param>
+            <returns>true，成功；false，失败，因为该位置已经是参考点了。</returns>
+            <exception cref="T:AKRS.WM.OutOfWaferMapException">参数<paramref name="position"/>的值超出晶圆图范围。</exception>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.DeleteReferencePoint(AKRS.WM.Position)">
+            <summary>
+            删除指定的参考点。
+            </summary>
+            <param name="position"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.ClearReferencePoints">
+            <summary>
+            清空参考点。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetOneChipType(AKRS.WM.Position,AKRS.WM.ChipType)">
+            <summary>
+            设置一个指定的晶片的类型。
+            </summary>
+            <param name="chipPosition"></param>
+            <param name="newType"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetMultiChipsType(AKRS.WM.Position[],AKRS.WM.ChipType)">
+            <summary>
+            设置多个晶片的类型。
+            </summary>
+            <param name="chipPositions"></param>
+            <param name="newType"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetChipTypeColor(AKRS.WM.ChipType,System.Drawing.Color)">
+            <summary>
+            设置指定的晶片类型的颜色。
+            </summary>
+            <param name="chipType"></param>
+            <param name="color"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetStartPointMarkColor(System.Drawing.Color)">
+            <summary>
+            设置起点标记的颜色。
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetCurrentPointMarkColor(System.Drawing.Color)">
+            <summary>
+            设置当前点标记的颜色。
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetFrameColor(System.Drawing.Color)">
+            <summary>
+            设置框的颜色。
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetCursorPointMarkColor(System.Drawing.Color)">
+            <summary>
+            设置光标点标记的颜色。
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.ModifyReferencePoint(System.Int32,System.String)">
+            <summary>
+            改变参考点的标记。
+            </summary>
+            <param name="index"></param>
+            <param name="label"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetKindOfAllTypes(System.Collections.Generic.Dictionary{AKRS.WM.ChipType,AKRS.WM.ChipKind})">
+            <summary>
+            设置所有类型晶片的 Kind。
+            </summary>
+            <param name="dict"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetChipTypeValid(AKRS.WM.ChipType,System.Boolean)">
+            <summary>
+            设置指定类型晶片的有效性。
+            </summary>
+            <param name="chipType"></param>
+            <param name="valid"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetSelectedChipTypes(System.Int32,System.Collections.Generic.IList{AKRS.WM.ChipType})">
+            <summary>
+            设置指定Strategy的提取类型。
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="selectedChipTypes"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetSelectedChipTypes(System.Int32)">
+            <summary>
+            获取指定Strategy的所有提取类型。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetCurrentPoint(AKRS.WM.Position,AKRS.WM.SettingSource)">
+            <summary>
+            设置当前点。
+            </summary>
+            <param name="newCurrentPoint">新的当前点位置。</param>
+            <param name="settingSource">设置源。</param>
+        </member>
+        <member name="P:AKRS.WM.WaferMapData.CurrentPoint">
+            <summary>
+            获取或设置当前点。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.AddStrategyInitialStartPoint(System.Int32,AKRS.WM.Position,AKRS.WM.SettingSource)">
+            <summary>
+            给指定的Strategy添加最初起点。
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="initialStartPoint"></param>
+            <param name="settingSource"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetStrategyInitialStartPoint(System.Int32,AKRS.WM.Position,AKRS.WM.SettingSource)">
+            <summary>
+            设置指定的Strategy的第一点。
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="initialStartPoint"></param>
+            <param name="settingSource"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetStrategyInitialStartPoint(System.Int32)">
+            <summary>
+            获取指定strategy的最初起点。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetStrategyCurrentStartPoint(System.Int32)">
+            <summary>
+            获取指定strategy的当前起点。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetAllStrategyInitialStartPoints">
+            <summary>
+            获取所有Strategy的最初起点。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetCopyOfReferencePoints">
+            <summary>
+            获取参考点列表的一个副本。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetReferencePointCount">
+            <summary>
+            获取参考点的数量。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetReferencePoint(System.Int32)">
+            <summary>
+            获取指定的参考点。
+            </summary>
+            <param name="referencePointIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.IsReferencePoint(AKRS.WM.Position)">
+            <summary>
+            判断指定的位置是否是参考点。
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.WaferMapData.WaferMap">
+            <summary>
+            返回WaferMap对象的引用。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapData.ColorConfig">
+            <summary>
+            返回颜色配置的引用。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetAllChipTypes(System.Boolean)">
+            <summary>
+            获取所有晶片类型。
+            </summary>
+            <param name="placeholderExcluded">排除PlaceHolder类型。</param>
+            <returns>元素是“类型：有效”对的字典。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.AddNewChipType(AKRS.WM.ChipType,System.Boolean)">
+            <summary>
+            添加新的晶片类型。
+            </summary>
+            <param name="newChipType"></param>
+            <param name="significant"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetChipCount(AKRS.WM.ChipType)">
+            <summary>
+            获取指定类型的晶片的数量。
+            </summary>
+            <param name="chipType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetChipOriginalCount(AKRS.WM.ChipType)">
+            <summary>
+            获取指定类型的晶片的最初数量。
+            </summary>
+            <param name="chipType"></param>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.WaferMapData.StrategyCount">
+            <summary>
+            获取Strategy的数量。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetCopyOfStrategies">
+            <summary>
+            获取所有Strategy的一份副本。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetCopyOfStrategy(System.Int32)">
+            <summary>
+            获取指定Strategy的一份副本。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.WaferMapData.CurrentStrategyIndex">
+            <summary>
+            获取当前Strategy的Index。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetCurrentStrategy(System.Int32,AKRS.WM.SettingSource)">
+            <summary>
+            设置当前strategy。
+            </summary>
+            <param name="newStrategyIndex">指定新的当前Strategy的index。</param>
+            <param name="settingSource">指明设置源。</param>
+            <returns>true，表示切换成功；false，表示失败。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetStrategyTrackStatus(System.Int32,AKRS.WM.Position,AKRS.WM.Direction)">
+            <summary>
+            设置指定Strategy的“当前点”和“当前次方向”。
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="currentStartPoint"></param>
+            <param name="currentMinorDirection"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.AddStrategy">
+            <summary>
+            添加一个空白Strategy。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.RemoveLastStrategy">
+            <summary>
+            移除最后一个Strategy。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.ResizeStrategies(System.Int32,System.Boolean[])">
+            <summary>
+            
+            </summary>
+            <param name="newCount"></param>
+            <param name="strategyEnabledArray"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetStrategyActive(System.Int32)">
+            <summary>
+            获取一个值，指明Strategy的是否启用。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetStrategyActive(System.Int32,System.Boolean)">
+            <summary>
+            设置Strategy的启用状态。
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="active"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetStrategyFlags(System.Int32,AKRS.WM.Strategy.Flag)">
+            <summary>
+            
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="flags"></param>
+            <returns>
+            true，设置成功；false，设置失败，因为参数<paramref name="flags"/>的值与原值相等。</returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.GetStrategyUserDirection(System.Int32)">
+            <summary>
+            获取指定Strategy的用户方向。
+            </summary>
+            <param name="strategyIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.SetStrategyUserDirection(System.Int32,AKRS.WM.UserDirection)">
+            <summary>
+            设置Strategy的用户方向。
+            </summary>
+            <param name="strategyIndex"></param>
+            <param name="newUserDirection"></param>
+            <returns></returns>
+        </member>
+        <member name="P:AKRS.WM.WaferMapData.LastWaferMapFilePath">
+            <summary>
+            获取或设置最近一次载入的晶圆图文件的路径（Update目录中的标准格式的文件）。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.WaferMapFileLoading">
+            <summary>
+            晶圆图文件载入前。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.WaferMapFileLoaded">
+            <summary>
+            晶圆图文件载入后。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.NestedNullChips">
+            <summary>
+            可能在WaferMapChanged后发生。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.ReferencePointChanging">
+            <summary>
+            参考点发生改变前。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.ReferencePointChanged">
+            <summary>
+            参考点发生改变后。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.WaferMapRotated">
+            <summary>
+            晶圆图旋转后。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.NewChipTypeAdded">
+            <summary>
+            增加了新的晶片类型后。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.ChipTypeChanged">
+            <summary>
+            晶片的类型发生改变时。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.ValidChipTypeCollectionChanged">
+            <summary>
+            有效晶片类型集合发生改变时。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.ChipTypeValidityChanged">
+            <summary>
+            晶片类型的有效性发生了改变时。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.ColorConfigChanged">
+            <summary>
+            颜色配置改变时。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.DataConfigChanged">
+            <summary>
+            数据配置改变时。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.JumpIntervalChanged">
+            <summary>
+            跳转间隔改变时。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.StrategyContentChanging">
+            <summary>
+            Strategy内容发生改变前。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.StrategyContentChanged">
+            <summary>
+            Strategy内容发生改变后。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.CurrentStrategyIndexChanging">
+            <summary>
+            当前Strategy改变前。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.CurrentStrategyIndexChanged">
+            <summary>
+            当前Strategy改变后。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.StrategyCountChanged">
+            <summary>
+            Strategy数目发生改变后。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.SearchRegionChanged">
+            <summary>
+            搜索区域发生改变后。
+            </summary>
+        </member>
+        <member name="E:AKRS.WM.WaferMapData.PickRegionChanged">
+            <summary>
+            提取区域发生改变后。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.OnWaferMapRotated(AKRS.WM.WaferMapRotatedEventArgs)">
+            <summary>
+            晶圆图旋转后被调用。
+            </summary>
+            <param name="eventArgs"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.OnStrategyContentChanging(AKRS.WM.StrategyContentChangingEventArgs)">
+            <summary>
+            当某个Strategy的内容发生改变前调用。
+            </summary>
+            <param name="eventArgs"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.OnStrategyContentChanged(AKRS.WM.StrategyContentChangedEventArgs)">
+            <summary>
+            当某个Strategy的内容发生改变后调用。
+            </summary>
+            <param name="eventArgs"></param>
+        </member>
+        <member name="M:AKRS.WM.WaferMapData.OnCurrentStrategyIndexChanged(AKRS.WM.CurrentStrategyIndexEventArgs)">
+            <summary>
+            当前的Strategy Index改变后调用。
+            </summary>
+            <param name="eventArgs"></param>
+        </member>
+        <member name="T:AKRS.WM.PathSeekerBetweenTwoPoints">
+            <summary>
+            2点之间的寻路。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.PathSeekerBetweenTwoPoints.StartArguments">
+            <summary>
+            用于给Start方法传递参数。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerBetweenTwoPoints.StartArguments.#ctor(AKRS.WM.Chip[0:,0:],AKRS.WM.Position,AKRS.WM.Position,System.Int32,System.Collections.Generic.IEnumerable{AKRS.WM.ChipType},System.Collections.Generic.IEnumerable{AKRS.WM.Position},AKRS.WM.PathKind)">
+            <summary>
+            
+            </summary>
+            <param name="matrix">表示晶片矩阵的二维数组。</param>
+            <param name="startPoint">起点。</param>
+            <param name="targetPoint">目标。</param>
+            <param name="jumpInterval">跳转间隔。</param>
+            <param name="validTypes">有效类型。</param>
+            <param name="specialPositions"></param>
+            <param name="pathKind">路径种类。</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">起点或目标不在晶片矩阵内，或者参数<paramref name="jumpInterval"/>的值小于或等于0。</exception>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="matrix"/>或<paramref name="validTypes"/>或<paramref name="specialPositions"/>是空引用。</exception>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerBetweenTwoPoints.StartArguments.#ctor(AKRS.WM.Chip[0:,0:],AKRS.WM.Position,AKRS.WM.Position,System.Int32,System.Collections.Generic.IEnumerable{AKRS.WM.ChipType})">
+            <summary>
+            
+            </summary>
+            <param name="matrix"></param>
+            <param name="startPoint">起点。</param>
+            <param name="targetPoint">目标。</param>
+            <param name="jumpInterval">跳转间隔。</param>
+            <param name="validTypes">有效类型。</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">参数<paramref name="jumpInterval"/>的值小于或等于0。</exception>
+            <exception cref="T:System.ArgumentNullException">参数<paramref name="matrix"/>或<paramref name="validTypes"/>是空引用。</exception>
+        </member>
+        <member name="P:AKRS.WM.PathSeekerBetweenTwoPoints.StartArguments.Matrix">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeekerBetweenTwoPoints.StartArguments.StartPoint">
+            <summary>
+            起点。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeekerBetweenTwoPoints.StartArguments.TargetPoint">
+            <summary>
+            目标。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeekerBetweenTwoPoints.StartArguments.JumpInterval">
+            <summary>
+            跳转间隔。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeekerBetweenTwoPoints.StartArguments.ValidTypes">
+            <summary>
+            有效类型。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeekerBetweenTwoPoints.StartArguments.SpecialPositions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeekerBetweenTwoPoints.StartArguments.PathKind">
+            <summary>
+            路径种类。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerBetweenTwoPoints.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerBetweenTwoPoints.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerBetweenTwoPoints.Start(System.Object)">
+            <summary>
+            已经重写。
+            </summary>
+            <param name="obj">必须引用StartArguments类型的对象。</param>
+            <exception cref="T:System.ArgumentException">参数<paramref name="obj"/>所引用的类型不是StartArguments装箱后的实例。</exception>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerBetweenTwoPoints.Start(AKRS.WM.PathSeekerBetweenTwoPoints.StartArguments)">
+            <summary>
+            
+            </summary>
+            <param name="startArgument"></param>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerBetweenTwoPoints.Run(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:AKRS.WM.PathSeekerBetweenTwoPoints.RetrievePath(System.Int32,AKRS.WM.Position[]@)">
+            <summary>
+            提取路径。
+            调用线程会被阻塞，直到寻路结束或者超时。
+            </summary>
+            <param name="timeoutInterval">等待超时。</param>
+            <param name="path">用于返回路径。</param>
+            <returns>
+            true，表示寻路结束，若Result属性是SearchResult.Found,则path参数有效；
+            false，表示超时，此时path参数无效。
+            </returns>
+        </member>
+        <member name="P:AKRS.WM.PathSeekerBetweenTwoPoints.Result">
+            <summary>
+            获取寻路结果。
+            当值是SearchResult.Found时，表示成功找到路径；
+            否则，表示失败，查看Msg属性获取具体信息。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.PathSeekerBetweenTwoPoints.Msg">
+            <summary>
+            保存寻路失败后的具体信息。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeekerBetweenTwoPoints._eventFinished">
+            <summary>
+            此事件对象激活，表示寻路结束。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeekerBetweenTwoPoints._searchResult">
+            <summary>
+            寻路结果。
+            当值是SearchResult.Found时，表示成功找到路径，并且保存在_path字段中；
+            值是其他时，表示失败，查看_strMsg字段获取具体信息。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeekerBetweenTwoPoints._strMsg">
+            <summary>
+            保存寻路失败后的具体信息。
+            </summary>
+        </member>
+        <member name="F:AKRS.WM.PathSeekerBetweenTwoPoints._path">
+            <summary>
+            寻路结束后，此对象中持有路径。
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.QueueItem">
+            <summary>
+            队列元素。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.QueueItem.#ctor(AKRS.WM.Position,System.Boolean,AKRS.WM.ChipType)">
+            <summary>
+            
+            </summary>
+            <param name="position"></param>
+            <param name="bSpringboard"></param>
+            <param name="chipType"></param>
+        </member>
+        <member name="P:AKRS.WM.QueueItem.Position">
+            <summary>
+            晶片位置。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.QueueItem.Springboard">
+            <summary>
+            跳板旗标。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.QueueItem.ChipType">
+            <summary>
+            晶片类型。
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.QueueItem.ToString">
+            <summary>
+            已经重写。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AKRS.WM.ThreadEx">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ThreadEx.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ThreadEx.Run(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:AKRS.WM.ThreadEx.Stop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ThreadEx.Join">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AKRS.WM.ThreadEx.Join(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="millisecondsTimeout"></param>
+        </member>
+        <member name="M:AKRS.WM.ThreadEx.Abort">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.ThreadEx.Thread">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:AKRS.WM.WaferMapFileHead">
+            <summary>
+            晶圆文件头部的信息。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapFileHead.WaferID">
+            <summary>
+            获取Wafer ID。有些晶圆图没有这项内容，此时该字段的值是String.Empty。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapFileHead.FlatNotch">
+            <summary>
+            缺口/平边。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapFileHead.BinType">
+            <summary>
+            Bin值的类型。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapFileHead.NullChipType">
+            <summary>
+            填充空位的晶片类型。
+            </summary>
+        </member>
+        <member name="P:AKRS.WM.WaferMapFileHead.Degree">
+            <summary>
+            获取晶圆图已旋转的角度。
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="transport unit_TU position2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transport unit_TU position2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inserttablerowsabove_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inserttablerowsabove_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="moveup_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\moveup_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="上一步-03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\上一步-03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loadfrom_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loadfrom_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="webps1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\webps.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="cancel_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="status_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\status_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Greed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Greed.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="对" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\对.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="胶水 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\胶水 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="向上 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\向上 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="失败处继续" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\失败处继续.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component geometry5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component geometry5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component geometry8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component geometry8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToUpLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToUpLeft.GIF;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="高度" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\高度.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="下一步-03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\下一步-03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component geometry1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component geometry1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component geometry9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component geometry9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\White.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="bordersall_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bordersall_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="吸取材质" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\吸取材质.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MedStyleC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MedStyleC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="向右边" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\向右边.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Home1" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABGdBTUEAALGPC/xhBQAABBxJREFUeF7l
+        mAFxG0EMRQOhEAKhEAqhEAqhEMogEAqhEAohEAohENzVjFez+X6Xle5s2Zl9M2+a/tyebJ28d87T6XR6
+        VL82X8/az3TM3cXwAfzVVCyjYyNGoHVTMbyjfeq22DuNEWjdVAzvJE3dFtlpjEDrpmJY7GzqtshMYwRa
+        NxXDQjNTt0VkGiPQuqkYFrh36raYTWMEWjcVwxv7s/nWjPD3bAQ7p52bakagdVMxvJHPzb3NyDbdao21
+        I4zHh8XwBmYaYB/H3oAvZ+1ny6Ife70Akb22H5sSwyuamTpjvCH0fVL3t8yNZ5zG2b7bz58SwyuZnbpZ
+        k6i5EaLT2H+fEsODZqfupdnXzhqjjba1UWbT2M+ZEsMD/mhGp+5f81uzr41OrE6UncPOFcHW2mvsa8dp
+        7FlKDHdoG/2fZpTfzfHmkJnYzjhRdi47ZxR7rb1+n8b+XlJimPR7Mzp1dpwd39dmJpbQiTryWnaJYdDs
+        1I1XPbt2xpFzj2vTYhgwe6X3TkkGnajMdOvasBh+YPbqHtmn9mJ35j5R2f01PY0YbpidnL13ymtAd/go
+        qWnEUMxOzvisZmszz2rXJvOMqYxPCptiOJidnL3fFm7JeEHNrW8ihE7yhRg2s5Njhfa+yCr04mYGY9xX
+        33kRNLNTN578UaZuC3tt400tOyQX0zj+J3tC22x1o87cZO6FvUa9wWVe97tpHE+Smbrxdr/3q9i90Ues
+        zOOZT6Mtzk7d3ofVR0TfT/ZR7cUWRfcsu2J96rJX7NEZP1H2b/QT9WoLbIw/6rr9btwzslfps6DTONvT
+        7XfP/WD7PBNH7lqflfEmYe996xPqe2BXv+6Mz03Zm8xnRx9Z9LnW/zjSD+ja1xfr+PhQvMLUbWHvvfeh
+        P+Naj3p20UBydagnLobi6lBPXAzF1aGeuBiKq0M9cTEUV4d64mIorg71xMVQXB3qiYuhuDrUExdDsQKq
+        G7ECqutiKFZAdSNWQHVdDMUKqG7ECqiui6FYAdWNWAHVdTEUK6C6ESugui6GYgVUN2IFVNfFUKyA6kas
+        gOq6GIoVUN2IFVBdF0OxAqobsQKq62IoVkB1I1ZAdV0MxQqobsQKqK6LoVgB1Y1YAdV1MRQroLoRK6C6
+        LoZiBVQ3YgVU18VQrIDqRqyA6roYihVQ3YgVUF0XQ7ECqhuxAqrrYihWQHUjVkB1XQzFCqhuxAqorouh
+        WAHVjVgB1XUxFCuguhEroLouhmIFVDdiBVTXxVCsgOpGrIDquhiKq0M9cTEUV4d64mIorg71xMVQXB3q
+        iYuhuDrUExdDcXWoJy6G4upQT1wMxdWhnrgYiqtDPXExFFeHeuJiKK4O9cTFUFwd6omLobg61BMXQ3F1
+        qCcuhuLqUE9cDMXVoZ64GIqrQz05e3r6D9yd8njn5uewAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="ToLeftUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToLeftUp.GIF;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="movedown_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\movedown_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="highlight (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\highlight (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="取消" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\取消.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="highlight (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\highlight (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pagesetup_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pagesetup_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="向右边1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\向右边1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component geometry7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component geometry7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="svg (2)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\svg (2).svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="排序" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\排序.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="svg (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\svg (2).svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="media_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\media_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="transport unit_TU position5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transport unit_TU position5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="transport unit_TU position6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transport unit_TU position6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="handtool_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\handtool_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="transport unit_TU position3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transport unit_TU position3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component carrier geometry1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component carrier geometry1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component carrier geometry2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component carrier geometry2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToDownRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToDownRight.GIF;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToLeftDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToLeftDown.GIF;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="向左边" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\向左边.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="technology_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\technology_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pie3d_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pie3d_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component geometry4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component geometry4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToRightUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToRightUp.GIF;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="System" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABGdBTUEAALGPC/xhBQAABNdJREFUeF7t
+        m9GR1DAQRC8EQiGEC4EQCIEQyIAQCIEQCIEQCIEQ9vwodCV07dX0WLLXe9tV76fPO5bG1oxkiqfL5XIr
+        PC9ExbUqxu5I8yC+LETFtSrG7kjzIL4tRMW1KsbuSPMgfi5ExbUqxu5I8yD+LETFtSrG7kjzAD4suOI3
+        KtauSPMAnA5cdBOdWJoH4HTgopvoxNIM8nnh18LHysvidOCiEZ2YsTMH5qL+3kWaAbhhEQV969vgdOCi
+        rZ2YMdeNK5VEaXaok1frx0K2sDsduCjbiRkjY1WykyjNK6wlr4hJucWdZZSVWz4YW+9hWUmU5gq95NXq
+        1ScmzjW/F7aKGMTqJdOps+EkSlPgJK9INRji4M+SagiMIXPPUBKl2ZBJXhHLhWL9aWHE2xYV9+KebaNw
+        1U2iNBtmvjG3LuaucvKKNBtYAlue4lnFnHt1NVwDWQrvTaG9rTRXWNs73aOYq8rBG6S5AhvQ97CUmWP4
+        QCDNK2S+mpxN1kFAmh2cDenZ1DsAvEGaAWZtbfhA8HWBt0DB3zIfHiLqblkU0gwwcmvDwNmwOh8iuJbf
+        jHqQoS2LQppBtm5tymlBxXYYccoJbVkU0gzCwLP6vuC8cT2IRcys0g9SmkGyTz10SE+SPbczFxWvizQD
+        ZAc6M3mFXccmzQCZ4r1H8gqZJO7WhelWrqhPKtZMMjXR7sTS7OBupKkvIxtGFO7p1uldNtLuoJwOx6TZ
+        UqgSgcffnIfh7hTsZiLNK7jL16krTDayOeca56G49dpaxtL8B0cninE5PrlvHoo2jkzRnxmbuZZjJb8n
+        Fyr23wSOSNSaIsvNXWa1Im8iYxgl3n5yRK2knDxzg1niRu1kWpjcljM1v408JMYyRQSfJd7odiItW8/T
+        KHKOZSxTRPBZWq0bFW6BV4o0KsYyRQSfpUgCR0nFrrnLBI4s7ip+zSOBHan4NXeZQBglFbvmbhP4aCJX
+        9NjGbNS72Ujzej+OcjG9OSOrGxZGJJbfq9gtXOdqZmzrY4LDGT9nuQ9+2OesNdwBOZNludEUVHfG42+R
+        slBwywNzU3FWkWaHxyf9Cml2cJcxevyjUkNmAxwt+iPINA6nXr8izQCZAaI9krjr2KQZxK0vRTOTmE2e
+        3TwK0gzidrha1KeRjYVYmZpX5OwU/kOaQbaeY3nq6YFXECO7Gooi52mJNAPQrbacYWsxeZae80ZyLb/J
+        NDMl5mJ3YJBmgFEDb1WOTxydFOVYOUO7dWF3I30mTd9I8xbcu5ijmrtEmitQd0bVvVsWcwzXY2mu8Piv
+        XgJpCrZuWc6o0NZGmg0jtyxnUmhrI82GWVuWM6i7tZFmQ/Z8iXiKLIURpwVH5ZTDvbesnu65XZqCTBJ5
+        eu0SGHl6UCJ2O2nGkLlnN3kgzRWcJPY2pEyKa0a8lcQgVq9eOQeAUPJAmlfoJZHlYm1EF5h4Vr2ktTC2
+        3pIOJw+k2WEtieydnA8CNZk6xZunYvVgjGt7Wit5IM0AdRJLo1DXRcl8IOA3KlaUtsHYyQNpBuGGqlFk
+        cOpTEV9mVCwHxq4aTxhpHgBvg6v0pEcizQPIfOVxm9UUpHkAFHZXKs7uSPMgnE6c7cDDkeZBOJ14awce
+        hjQPwunEIzrwEKR5EE4nvokODNI8CKcT30QHvlwuTy+kOIGgvTVf3gAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="加" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\加.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="customizegrid_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\customizegrid_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Yellow.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="顶层 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\顶层 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cyan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cyan.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="home_fill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home_fill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component geometry3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component geometry3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="保存" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\保存.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Magenta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Magenta.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="更改库存说明" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\更改库存说明.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UserManagment" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABGdBTUEAALGPC/xhBQAAArBJREFUeF7t
+        2e1tG0EMhGGXkhJSiktIKekkpaSElOISlJ0fBgzhlTjWkVyA2AGeP2Np77g4fZz8drvdjguwPHxYbvJz
+        +b38XR5Ff9Nj9Fhaox2WzX4t/5bvRs/Rc2nNNlg2+bE8u9rcaA2tRccoh2WD9+VjyYrW0pp0rFJYFtPL
+        rirtL2ksC+kqqU7rlYhlEb1PZb5sH0XHaHtPxLJIxgeGGx2LziEdlgUq3/cepeX9EMsCr3zPuxodk84l
+        FZbJdNewK+V3LFgm063XrujYdE5psEzW+eFxn/IPEyyT7Q6dUxosk+0OnVMaLJPtDp1TGiyT7Q6dUxos
+        k+0OnVMaLJPtDp1TGiyTna8xF50v0hedW7kE58eEi3b8nNXyyzSWRTo/TMo/PD5hWeT8pJ/g/FMpwfm3
+        ZgJdJZkvZ63VeuV9wrKJ3qcyPli0Rtt73j0sm+ll98r3RD2n/SV7D8tNdNegW69nV6X+pseU32G4sDx8
+        WB4+LA8flocPy8OH5eHD0nQ1fxZa9xVa62po3RCWpoxkbGLG5im0dghLU1aubGLW5im0fghLU2Ze2cTM
+        zVPoGCEsTdn5ziZmb55CxwlhaaqIs4kVm6fQsUJYmqrybBOrNk+h44WwNFWGNrFy85T741mwNFXn6yZW
+        b57ydTYblqaOaOM6Nk+hGUNYmqaFZgxhaZoWmjGEpWlaaMYQlqZpoRlDWJqmhWYMYWmaFpoxhKVpWmjG
+        EJamaaEZQ1iapoVmDGFpmhaaMYSlaVpoxhCWpmmhGUNYmqaFZgxhaZoWmjGEpWlaaMYQlqZpoRlDWJqm
+        hWYMYWmaFpoxhKVpWmjGEJamaaEZQ1iapoVmDGFpmhaaMYSlaVpoxhCWpmmhGUNYmqaFZgxhaZoWmjGE
+        pWlaaMYQlqZpoRlDWB4+LA/X7e0/XZ85YqMgrOgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToRightDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToRightDown.GIF;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="banana-spade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\banana-spade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="replace_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\replace_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="向上" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\向上.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Blue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="components_component carrier geometry3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component carrier geometry3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component carrier geometry4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component carrier geometry4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Customize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Customize.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ToUpRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToUpRight.GIF;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="排序 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\排序 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component geometry2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component geometry2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="删除" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\删除.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="components_component geometry6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\components_component geometry6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="apply_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\apply_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="加 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\加 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="铅笔" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\铅笔.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="保存成功" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\保存成功.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="左移" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\左移.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="webps" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\webps.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ToDownLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToDownLeft.GIF;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="向左边1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\向左边1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="右移" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\右移.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="highlight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\highlight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="首页-首页" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\首页-首页.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="编辑色块" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\编辑色块.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="胶水" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\胶水.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="transport unit_TU position4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transport unit_TU position4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loadfrom_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loadfrom_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="transport unit_TU position1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transport unit_TU position1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bordernone_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bordernone_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wafer handing_wafer change1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wafer handing_wafer change1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wafer handing_wafer change2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wafer handing_wafer change2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wafer handing_wafer change3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wafer handing_wafer change3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wafer handing_wafer change4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wafer handing_wafer change4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wafer handing_wafer change5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wafer handing_wafer change5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wafer handing_wafer change6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wafer handing_wafer change6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wafer handing_wafer change7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wafer handing_wafer change7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wafer handing_wafer change8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wafer handing_wafer change8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wafer handing_wafer magazine geometry1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wafer handing_wafer magazine geometry1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wafer handing_wafer magazine geometry2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wafer handing_wafer magazine geometry2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

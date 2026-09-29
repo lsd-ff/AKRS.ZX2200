@@ -1,0 +1,17 @@
+<EPEData>
+	<Unit unit="1"/>
+	<DieSize width="350" height="350"/>
+	<Image center="320,240" angle="0"/>
+	<Curves>
+		<Curve>
+			<Segment point="-96,45" AltitudeCompensation="1" MaxSpeed="20" endSpeed="0" Acc="0.8" Time="2" dummied="false" preDelay="0" postDelay="0"/>
+			<Segment point="-100,-99" AltitudeCompensation="1" MaxSpeed="20" endSpeed="0" Acc="0.8" Time="2" dummied="false" preDelay="0" postDelay="0"/>
+			<Segment point="47,-98" AltitudeCompensation="1", MaxSpeed="20" endSpeed="0" Acc="0.8" Time="2" dummied="false", preDelay="0" postDelay="0"/>
+		</Curve>
+		<Curve>
+			<Segment point="-80,44" AltitudeCompensation="0" MaxSpeed="0" endSpeed="0" Acc="0" Time="0" dummied="false" preDelay="0" postDelay="0"/>
+			<Segment point="50,42" AltitudeCompensation="0" MaxSpeed="0" endSpeed="0" Acc="0" Time="0" dummied="false" preDelay="0" postDelay="0"/>
+			<Segment point="44,-83" AltitudeCompensation="0" MaxSpeed="0" endSpeed="0" Acc="0" Time="0" dummied="false" preDelay="0" postDelay="0"/>
+		</Curve>
+	</Curves>
+</EPEData>

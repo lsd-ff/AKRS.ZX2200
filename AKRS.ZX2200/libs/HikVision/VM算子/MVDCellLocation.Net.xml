@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MVDCellLocation.Net</name>
+    </assembly>
+    <members>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationPatMatch.MatchBox">
+            <summary>
+            模板匹配框
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationPatMatch.MatchPoint">
+            <summary>
+            模板匹配点
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationPatMatch.Score">
+            <summary>
+            相似分数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationPatMatch.Scale">
+            <summary>
+            模板匹配尺度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationPatMatch.ScaleX">
+            <summary>
+            x尺度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationPatMatch.ScaleY">
+            <summary>
+            y尺度
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationPatMatch.Rms">
+            <summary>
+            结果拟合误差
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationBasicParam.CorrosionImage">
+            <summary>
+            腐蚀图像
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationBasicParam.PatMatchList">
+            <summary>
+            模板匹配信息列表
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationInfo.CellBox">
+            <summary>
+            片定位结果,box框表示
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationInfo.CellStatus">
+            <summary>
+            该片是否正常,正常时，值为1，片定位结果非空;不正常时，值为0，片定位结果为空
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.CellLocation.CCellLocationResult">
+            <summary>
+            Class of the result information
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationResult.LocationList">
+            <summary>
+            片定位列表
+            </summary>
+        </member>
+        <member name="T:VisionDesigner.CellLocation.CCellLocationTool">
+            <summary>
+            the class for the StringLocationTool
+            </summary>
+            <remarks>The StringLocationTool encapsulates all of the classes required to perform a rectangle finding analysis.</remarks>
+        </member>
+        <member name="M:VisionDesigner.CellLocation.CCellLocationTool.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.CellLocation.CCellLocationTool.Finalize">
+            <summary>
+            终结器
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.CellLocation.CCellLocationTool.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.CellLocation.CCellLocationTool.GetRunParam(System.String,System.String@)">
+            <summary>
+            Get the run parameters for this RectangleFind tool.
+            </summary>
+            <param name="strKeyName">name of the parameter</param>
+            <param name="strValue">value of the parameter</param>
+        </member>
+        <member name="M:VisionDesigner.CellLocation.CCellLocationTool.SetRunParam(System.String,System.String)">
+            <summary>
+            Set the run parameters for this RectangleFind tool.
+            </summary>
+            <param name="strKeyName">name of the parameter</param>
+            <param name="strValue">value of the parameter</param>
+        </member>
+        <member name="M:VisionDesigner.CellLocation.CCellLocationTool.SaveConfiguration(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            Save the configuration information of this RectangleFind tool
+            </summary>
+            <param name="arrFileBuf">the file buffer with parameters information to save</param>
+            <param name="nConfigDataSize">size of the buffer</param>
+            <param name="nConfigDataLen">actual length of the buffer content</param>
+        </member>
+        <member name="M:VisionDesigner.CellLocation.CCellLocationTool.LoadConfiguration(System.Byte[],System.UInt32)">
+            <summary>
+            Load the configuration information of this RectangleFind tool
+            </summary>
+            <param name="arrFileBuf">the file buffer with parameters information to load</param>
+            <param name="nConfigDataSize">size of the buffer</param>
+        </member>
+        <member name="M:VisionDesigner.CellLocation.CCellLocationTool.Run">
+            <summary>
+            Runs the tool using the current parameter settings.
+            </summary>
+        </member>
+        <member name="M:VisionDesigner.CellLocation.CCellLocationTool.GetAlgRunTime">
+            <summary>
+            获取运行时间
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationTool.InputImage">
+            <summary>
+            input image to process
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationTool.ROI">
+            <summary>
+            用于获取串定位框
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationTool.BasicParam">
+            <summary>
+            基本参数
+            </summary>
+        </member>
+        <member name="P:VisionDesigner.CellLocation.CCellLocationTool.Result">
+            <summary>
+            Result from the last invocation of Run.
+            </summary>
+        </member>
+    </members>
+</doc>

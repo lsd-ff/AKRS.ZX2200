@@ -1,0 +1,99 @@
+{
+  "xtraTabPage1": {
+    "Chinese": "测试/展示",
+    "English": "Test/Display"
+  },
+  "xtraTabPage2": {
+    "Chinese": "晶圆更换",
+    "English": "WaferChange"
+  },
+  "xtraTabPage3": {
+    "Chinese": "信号",
+    "English": "Signal"
+  },
+  "Title": {
+    "Chinese": "晶圆快捷操作",
+    "English": "Wafer quick operate"
+  },
+  "BtnMoveToUpDownMarkPosition": {
+    "Chinese": "顶针台到Mark/安全位置",
+    "English": "Move to UpDownMark / Safe Position"
+  },
+  "BtnMoveToExpandDownPosition": {
+    "Chinese": "扩晶环到安全位置",
+    "English": "Move to ExpandDownPosition"
+  },
+  "BtnMoveToAutoChangePosition": {
+    "Chinese": "晶圆台到自动换料位",
+    "English": "Move to AutoChangePosition"
+  },
+  "BtnMoveToMagazineSafePosition": {
+    "Chinese": "magazine到安全位置",
+    "English": "Move to MagazineSafePosition"
+  },
+  "BtnMoveToWaferClampSafePosition": {
+    "Chinese": "晶圆夹到安全位置",
+    "English": "Move to WaferClampSafePosition"
+  },
+  "BtnWaferChangeTest": {
+    "Chinese": "自动换晶圆测试",
+    "English": "Wafer change test-run on"
+  },
+  "BtnMoveWaferMagazineToSlot": {
+    "Chinese": "magazine到某个槽位",
+    "English": "Move wafer magazine to slot"
+  },
+  "BtnMoveToNextSlot": {
+    "Chinese": "magazine到下一个槽位",
+    "English": "Move to next slot"
+  },
+  "BtnMoveToPreviousSlot": {
+    "Chinese": "magazine到上一个槽位",
+    "English": "Move to previous slot"
+  },
+  "BtnPlaceWaferInSlot": {
+    "Chinese": "归还料片",
+    "English": "Place wafer in slot"
+  },
+  "BtRemoveWaferFromSlot": {
+    "Chinese": "更换某层料片到晶圆台",
+    "English": "Remove wafer from slot"
+  },
+  "BtnSlotScan": {
+    "Chinese": "magazine槽位扫描",
+    "English": "slot scan"
+  },
+    "BtnMovePusherOut": {
+        "Property": "tag",
+        "Chinese": "推杆动作",
+        "English": "Move pusher out / in"
+    },
+  "BtnCloseGripper": {
+    "Chinese": "晶圆夹动作",
+    "English": "Wafer gripper"
+  },
+  "BtnBlockCyc": {
+    "Chinese": "晶圆夹持气缸动作",
+    "English": "Wafer blockCyc"
+  },
+  "BtnFixedCyc": {
+    "Chinese": "顶针固定气缸动作",
+    "English": "Eject fixedCyc"
+  },
+  "BtnStaticWaffleVacuum": {
+    "Chinese": "静态华夫盒真空",
+    "English": "StaticWaffle Vacuum"
+  },
+  "BtnInitialization": {
+    "Chinese": "晶圆模块复位",
+    "English": "Initialization"
+  },
+  "BtnWaffleVacuum": {
+    "Chinese": "华夫盒真空",
+    "English": "Waffle Vacuum"
+  },
+  "BtnMagazineFixedCyc": {
+    "Chinese": "提篮夹紧气缸动作",
+    "English": "Magazine fixedCyc"
+  }
+}
